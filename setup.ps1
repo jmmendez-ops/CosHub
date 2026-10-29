@@ -30,7 +30,8 @@ Write-Host ""
 Write-Host "[3/3] Ready to launch COS HUB!" -ForegroundColor Green
 Write-Host ""
 Write-Host "Available launch commands:" -ForegroundColor Cyan
-Write-Host "  1. Chrome Web:      flutter run -d chrome --web-port=4200" -ForegroundColor White
-Write-Host "  2. Windows Desktop: flutter run -d windows" -ForegroundColor White
-Write-Host "  3. Ngrok Share:     ngrok http 4200 --url renewed-oriole-exotic.ngrok-free.app" -ForegroundColor White
+Write-Host "  1. Web Server (Clean): flutter run -d web-server --release --web-port=4200" -ForegroundColor White
+Write-Host "  2. Chrome Web:         flutter run -d chrome --web-port=4200" -ForegroundColor White
+Write-Host "  3. Windows Desktop:    flutter run -d windows" -ForegroundColor White
+Write-Host "  4. Ngrok Share:        ngrok http 4200 --url renewed-oriole-exotic.ngrok-free.app" -ForegroundColor White
 Write-Host ""

@@ -43,10 +43,13 @@ echo.
 echo ===================================================
 echo   How to run COS HUB:
 echo ===================================================
-echo   - Run on Chrome Web (Recommended):
+echo   - Clean Web Server without Debug Service (Recommended):
+echo       flutter run -d web-server --release --web-port=4200
+echo.
+echo   - Direct Chrome Web:
 echo       flutter run -d chrome --web-port=4200
 echo.
-echo   - Run as Native Windows Desktop App:
+echo   - Native Windows Desktop App:
 echo       flutter run -d windows
 echo.
 echo   - Share via ngrok tunnel:

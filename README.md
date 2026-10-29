@@ -55,13 +55,25 @@ chmod +x setup.sh
 
 ## 💻 Running the App
 
-### 1. Web (Google Chrome) — Recommended
+### 1. Web (Standalone Web Server — Recommended / Clean)
+Run in optimized release mode without the Dart VM debug service, DevTools listener, or automated Chrome debug banner:
 ```bash
+flutter run -d web-server --release --web-port=4200
+```
+Then open your everyday browser and go to:
+👉 **`http://localhost:4200`**
+
+### 2. Web (Direct Chrome Launch)
+```bash
+# Debug mode (with hot reload enabled)
 flutter run -d chrome --web-port=4200
+
+# Release mode (clean, no debug service)
+flutter run -d chrome --release --web-port=4200
 ```
 > **Note:** Port `4200` is pre-configured to avoid collisions with local backends.
 
-### 2. Desktop Native
+### 3. Desktop Native
 - **Windows:** `flutter run -d windows`
 - **macOS:** `flutter run -d macos`
 - **Linux:** `flutter run -d linux`
