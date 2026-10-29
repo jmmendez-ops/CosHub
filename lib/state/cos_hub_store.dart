@@ -30,12 +30,12 @@ class CosHubStore extends ChangeNotifier {
   final List<CostumeItem> catalog = const [
     CostumeItem(
       id: 'hero-1',
-      title: 'Furina Archon Fontaine Gown & Wig',
+      title: 'Cartethyia Cosplay Set',
       category: 'Anime',
-      characterName: 'Furina (Archon of Fontaine)',
-      series: 'Genshin Impact',
+      characterName: 'Cartethyia (Fleurdelys)',
+      series: 'Wuthering Waves',
       subtitle:
-          'Full stage-accurate Fontaine Archon Victorian frock coat, ruffled jabot, high-top hat, and styled dual-tone silver wig.',
+          'Ethereal white and sea-blue layered gown, styled long silver wig with braids, and crystal thorn halo headpiece.',
       buyPrice: 5400,
       rentPricePerDay: 740,
       securityDeposit: 1200,
@@ -45,14 +45,12 @@ class CosHubStore extends ChangeNotifier {
       isUserListed: true,
       gradientColors: [Color(0xFF18202C), Color(0xFF324B6B)],
       motifIcon: Icons.auto_awesome_outlined,
-      heroImageUrl:
-          'https://upload.wikimedia.org/wikipedia/commons/8/84/Cosplay_of_Furina_DSCF6106.jpg',
+      heroImageUrl: 'assets/images/cartethyia.jpg',
       inclusions: [
-        'Tailored Victorian Blue Frock Coat & Vest',
-        'Dual-Tone Silver Hydro Wig with Tails (Styled)',
-        'Ornate Fontaine Ribbon Top Hat Headpiece',
-        'Ruffled Lace Jabot Collar & Brooch',
-        'Tailored Corset Shorts & White Gloves (Pair)',
+        'Ethereal White & Sea-Blue Layered Draped Gown',
+        'Heat-Resistant Long Silver Wig with Braids',
+        'Crystal Thorn Halo Crown Headpiece',
+        'Silver Armored Gauntlets (Pair)',
       ],
       rating: 4.9,
       reviewsCount: 142,
@@ -75,8 +73,7 @@ class CosHubStore extends ChangeNotifier {
       isUserListed: true,
       gradientColors: [Color(0xFF5A3386), Color(0xFFBE6498)],
       motifIcon: Icons.dark_mode_outlined,
-      heroImageUrl:
-          'https://upload.wikimedia.org/wikipedia/commons/a/a7/20170415_PF26_Day1_DSC_4812_%2833711603090%29.jpg',
+      heroImageUrl: 'assets/images/sailor_moon.jpg',
       inclusions: [
         'Sailor Bodice with Gold Heart Brooch',
         'Pleated Navy & White Skirt with Crimson Back Bow',
@@ -105,8 +102,7 @@ class CosHubStore extends ChangeNotifier {
       isUserListed: true,
       gradientColors: [Color(0xFF7B1818), Color(0xFFB32B2B)],
       motifIcon: Icons.colorize_outlined,
-      heroImageUrl:
-          'https://upload.wikimedia.org/wikipedia/commons/8/86/Super_Amai_as_Nezuko_Kamado_and_Tanjiro_Kamado_20210109a.jpg',
+      heroImageUrl: 'assets/images/tanjiro.jpg',
       inclusions: [
         'Iconic Green & Black Checkered Haori Coat',
         'Demon Slayer Corps Black Gakuran Jacket & Hakama Pants',
@@ -135,8 +131,7 @@ class CosHubStore extends ChangeNotifier {
       isUserListed: true,
       gradientColors: [Color(0xFF475767), Color(0xFF6B7B8E)],
       motifIcon: Icons.shield_outlined,
-      heroImageUrl:
-          'https://upload.wikimedia.org/wikipedia/commons/f/fe/New_York_Comic_Con_2014_-_Daedric_Armor_%2815335750959%29.jpg',
+      heroImageUrl: 'assets/images/daedric.jpg',
       inclusions: [
         'Horned Daedric Full Helm with Crimson Glow Slits',
         'Articulated Spiked EVA Foam Pauldrons & Cuirass',
@@ -164,8 +159,7 @@ class CosHubStore extends ChangeNotifier {
       isUserListed: true,
       gradientColors: [Color(0xFF0E6868), Color(0xFF19A98B)],
       motifIcon: Icons.directions_bike_outlined,
-      heroImageUrl:
-          'https://upload.wikimedia.org/wikipedia/commons/c/cd/Hyou_Lin_and_Kusarine_Yukitsuki_as_Lucy_and_David_standing%2C_front_view_20230204a.jpg',
+      heroImageUrl: 'assets/images/david_martinez.jpg',
       inclusions: [
         'Screen-Accurate Neon Yellow EMT Bomber Jacket',
         'Illuminated LED Cyan High-Collar Spine Insert',
@@ -193,8 +187,7 @@ class CosHubStore extends ChangeNotifier {
       isUserListed: true,
       gradientColors: [Color(0xFF8338EC), Color(0xFFFF006E)],
       motifIcon: Icons.auto_awesome,
-      heroImageUrl:
-          'https://upload.wikimedia.org/wikipedia/commons/7/74/Cosplayer_of_Kotori_Minami_standing_at_FFACG_20150502b.jpg',
+      heroImageUrl: 'assets/images/kotori.jpg',
       inclusions: [
         'Tiered Ruffle Mint & Lavender Idol Stage Dress',
         'Detachable Crinoline Petticoat & Satin Ribbon Belt',
@@ -222,8 +215,7 @@ class CosHubStore extends ChangeNotifier {
       isUserListed: true,
       gradientColors: [Color(0xFF2B2D42), Color(0xFF8D99AE)],
       motifIcon: Icons.rocket_launch_outlined,
-      heroImageUrl:
-          'https://upload.wikimedia.org/wikipedia/commons/f/f0/Cosplay_of_the_Mandalorian_Din_Djarin_at_Made_in_Asia_2023.jpg',
+      heroImageUrl: 'assets/images/mandalorian.jpg',
       inclusions: [
         'Chrome Beskar Full Helmet with Dark T-Visor',
         'Textured Durasteel / Beskar Chest & Shoulder Plates',
@@ -234,6 +226,34 @@ class CosHubStore extends ChangeNotifier {
       rating: 4.9,
       reviewsCount: 115,
     ),
+    CostumeItem(
+      id: 'prod-7',
+      title: 'Furina Archon Fontaine Gown & Wig',
+      category: 'Games',
+      characterName: 'Furina (Archon of Fontaine)',
+      series: 'Genshin Impact',
+      subtitle:
+          'Full stage-accurate Fontaine Archon Victorian frock coat, ruffled jabot, high-top hat, and styled dual-tone silver wig.',
+      buyPrice: 5400,
+      rentPricePerDay: 740,
+      securityDeposit: 1200,
+      sellerName: 'Cristian Ordoñez',
+      sellerHandle: '@cristian_cos',
+      sellerLocation: 'Calamba, Laguna',
+      isUserListed: true,
+      gradientColors: [Color(0xFF18202C), Color(0xFF324B6B)],
+      motifIcon: Icons.auto_awesome_outlined,
+      heroImageUrl: 'assets/images/furina.jpg',
+      inclusions: [
+        'Tailored Victorian Blue Frock Coat & Vest',
+        'Dual-Tone Silver Hydro Wig with Tails (Styled)',
+        'Ornate Fontaine Ribbon Top Hat Headpiece',
+        'Ruffled Lace Jabot Collar & Brooch',
+        'Tailored Corset Shorts & White Gloves (Pair)',
+      ],
+      rating: 4.9,
+      reviewsCount: 142,
+    ),
   ];
 
   final Set<String> wishlistIds = {'prod-1'};
@@ -243,12 +263,12 @@ class CosHubStore extends ChangeNotifier {
       id: 'line-init-1',
       costume: const CostumeItem(
         id: 'hero-1',
-        title: 'Furina Archon Fontaine Gown & Wig',
+        title: 'Cartethyia Cosplay Set',
         category: 'Anime',
-        characterName: 'Furina (Archon of Fontaine)',
-        series: 'Genshin Impact',
+        characterName: 'Cartethyia (Fleurdelys)',
+        series: 'Wuthering Waves',
         subtitle:
-            'Full stage-accurate Fontaine Archon Victorian frock coat, ruffled jabot, high-top hat, and styled dual-tone silver wig.',
+            'Ethereal white and sea-blue layered gown, styled long silver wig with braids, and crystal thorn halo headpiece.',
         buyPrice: 5400,
         rentPricePerDay: 740,
         securityDeposit: 1200,
@@ -258,12 +278,11 @@ class CosHubStore extends ChangeNotifier {
         isUserListed: true,
         gradientColors: [Color(0xFF18202C), Color(0xFF324B6B)],
         motifIcon: Icons.auto_awesome_outlined,
-        heroImageUrl:
-            'https://upload.wikimedia.org/wikipedia/commons/8/84/Cosplay_of_Furina_DSCF6106.jpg',
+        heroImageUrl: 'assets/images/cartethyia.jpg',
         inclusions: [
-          'Tailored Victorian Blue Frock Coat & Vest',
-          'Dual-Tone Silver Hydro Wig with Tails (Styled)',
-          'Ornate Fontaine Ribbon Top Hat Headpiece',
+          'Ethereal White & Sea-Blue Layered Draped Gown',
+          'Heat-Resistant Long Silver Wig with Braids',
+          'Crystal Thorn Halo Crown Headpiece',
         ],
       ),
       mode: OrderMode.rent,
@@ -272,6 +291,7 @@ class CosHubStore extends ChangeNotifier {
       rentalStartDate: DateTime(2026, 11, 2),
     ),
   ];
+
 
   final List<AppAlert> alerts = [
     AppAlert(

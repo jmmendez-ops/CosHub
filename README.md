@@ -8,8 +8,8 @@ COS HUB is a cross-platform Flutter application tailored for the Philippine cosp
 
 The catalog features researched and verified cosplays from iconic Anime, Gaming, Movie, and Comic franchises with high-resolution imagery and detailed clothing piece inclusions:
 
-1. **Furina (Archon of Fontaine)** — *Genshin Impact*
-   - Victorian blue frock coat & vest, dual-tone silver hydro wig, ribbon top hat, ruffled lace jabot collar, white gloves.
+1. **Cartethyia (Fleurdelys)** — *Wuthering Waves*
+   - Ethereal white and sea-blue layered gown, styled long silver wig with side braids, crystal thorn halo crown headpiece, silver armored gauntlets.
    - Listed by: Cristian Ordoñez (`@cristian_cos`) • Calamba, Laguna
 2. **Usagi Tsukino (Super Sailor Moon)** — *Pretty Guardian Sailor Moon*
    - Sailor fuku bodice, pleated navy skirt, crimson back bow, gold crescent moon tiara, red choker, elbow satin gloves, boot covers.
@@ -29,6 +29,9 @@ The catalog features researched and verified cosplays from iconic Anime, Gaming,
 7. **Din Djarin (The Mandalorian)** — *Star Wars: The Mandalorian*
    - Chrome Beskar helmet with T-visor, textured armor plates, weathered flight suit, flak vest, cartridge bandolier, cape, blaster pistol.
    - Listed by: Mando Armory PH (`@thisistheway_ph`) • Cebu City
+8. **Furina (Archon of Fontaine)** — *Genshin Impact*
+   - Victorian blue frock coat & vest, dual-tone silver hydro wig with tails, ribbon top hat, ruffled lace jabot collar, white gloves.
+   - Listed by: Lady Fontaine Studio (`@furina_ph`) • Pasay City, Metro Manila
 
 ---
 

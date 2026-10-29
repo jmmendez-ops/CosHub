@@ -190,15 +190,25 @@ class CartTabView extends StatelessWidget {
                           clipBehavior: Clip.antiAlias,
                           child: line.costume.heroImageUrl != null &&
                                   line.costume.heroImageUrl!.isNotEmpty
-                              ? Image.network(
-                                  line.costume.heroImageUrl!,
-                                  fit: BoxFit.cover,
-                                  errorBuilder: (_, __, ___) => Icon(
-                                    line.costume.motifIcon,
-                                    color: Colors.white,
-                                    size: 30,
-                                  ),
-                                )
+                              ? (line.costume.heroImageUrl!.startsWith('assets/')
+                                  ? Image.asset(
+                                      line.costume.heroImageUrl!,
+                                      fit: BoxFit.cover,
+                                      errorBuilder: (_, __, ___) => Icon(
+                                        line.costume.motifIcon,
+                                        color: Colors.white,
+                                        size: 30,
+                                      ),
+                                    )
+                                  : Image.network(
+                                      line.costume.heroImageUrl!,
+                                      fit: BoxFit.cover,
+                                      errorBuilder: (_, __, ___) => Icon(
+                                        line.costume.motifIcon,
+                                        color: Colors.white,
+                                        size: 30,
+                                      ),
+                                    ))
                               : Icon(
                                   line.costume.motifIcon,
                                   color: Colors.white,

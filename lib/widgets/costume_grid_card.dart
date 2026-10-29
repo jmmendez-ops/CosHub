@@ -49,18 +49,31 @@ class CostumeGridCard extends StatelessWidget {
                   children: [
                     if (costume.heroImageUrl != null &&
                         costume.heroImageUrl!.isNotEmpty)
-                      Image.network(
-                        costume.heroImageUrl!,
-                        fit: BoxFit.cover,
-                        alignment: Alignment.topCenter,
-                        errorBuilder: (_, __, ___) => Center(
-                          child: Icon(
-                            costume.motifIcon,
-                            size: 46,
-                            color: Colors.white.withValues(alpha: 0.92),
-                          ),
-                        ),
-                      )
+                      costume.heroImageUrl!.startsWith('assets/')
+                          ? Image.asset(
+                              costume.heroImageUrl!,
+                              fit: BoxFit.cover,
+                              alignment: Alignment.topCenter,
+                              errorBuilder: (_, __, ___) => Center(
+                                child: Icon(
+                                  costume.motifIcon,
+                                  size: 46,
+                                  color: Colors.white.withValues(alpha: 0.92),
+                                ),
+                              ),
+                            )
+                          : Image.network(
+                              costume.heroImageUrl!,
+                              fit: BoxFit.cover,
+                              alignment: Alignment.topCenter,
+                              errorBuilder: (_, __, ___) => Center(
+                                child: Icon(
+                                  costume.motifIcon,
+                                  size: 46,
+                                  color: Colors.white.withValues(alpha: 0.92),
+                                ),
+                              ),
+                            )
                     else
                       Center(
                         child: Icon(

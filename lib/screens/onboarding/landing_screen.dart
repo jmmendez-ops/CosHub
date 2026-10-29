@@ -60,8 +60,8 @@ class LandingScreen extends StatelessWidget {
                     children: [
                       Opacity(
                         opacity: 0.38,
-                        child: Image.network(
-                          'https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=900&q=80',
+                        child: Image.asset(
+                          'assets/images/cartethyia.jpg',
                           fit: BoxFit.cover,
                           errorBuilder: (_, __, ___) => const SizedBox.shrink(),
                         ),

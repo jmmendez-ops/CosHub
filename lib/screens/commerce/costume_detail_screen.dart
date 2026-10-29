@@ -77,19 +77,33 @@ class _CostumeDetailScreenState extends State<CostumeDetailScreen> {
                     child: Stack(
                       fit: StackFit.expand,
                       children: [
-                        if (c.heroImageUrl != null)
-                          Image.network(
-                            c.heroImageUrl!,
-                            fit: BoxFit.cover,
-                            alignment: Alignment.topCenter,
-                            errorBuilder: (_, __, ___) => Center(
-                              child: Icon(
-                                c.motifIcon,
-                                size: 80,
-                                color: Colors.white70,
-                              ),
-                            ),
-                          )
+                        if (c.heroImageUrl != null &&
+                            c.heroImageUrl!.isNotEmpty)
+                          c.heroImageUrl!.startsWith('assets/')
+                              ? Image.asset(
+                                  c.heroImageUrl!,
+                                  fit: BoxFit.cover,
+                                  alignment: Alignment.topCenter,
+                                  errorBuilder: (_, __, ___) => Center(
+                                    child: Icon(
+                                      c.motifIcon,
+                                      size: 80,
+                                      color: Colors.white70,
+                                    ),
+                                  ),
+                                )
+                              : Image.network(
+                                  c.heroImageUrl!,
+                                  fit: BoxFit.cover,
+                                  alignment: Alignment.topCenter,
+                                  errorBuilder: (_, __, ___) => Center(
+                                    child: Icon(
+                                      c.motifIcon,
+                                      size: 80,
+                                      color: Colors.white70,
+                                    ),
+                                  ),
+                                )
                         else
                           Center(
                             child: Icon(

@@ -33,23 +33,36 @@ class HeroBannerCard extends StatelessWidget {
       child: Stack(
         fit: StackFit.expand,
         children: [
-          if (costume.heroImageUrl != null)
+          if (costume.heroImageUrl != null &&
+              costume.heroImageUrl!.isNotEmpty)
             Positioned(
               right: -10,
               top: 0,
               bottom: 0,
               width: 230,
-              child: Image.network(
-                costume.heroImageUrl!,
-                fit: BoxFit.cover,
-                alignment: Alignment.topCenter,
-                errorBuilder: (_, __, ___) => Icon(
-                  costume.motifIcon,
-                  size: 90,
-                  color: Colors.white24,
-                ),
-              ),
+              child: costume.heroImageUrl!.startsWith('assets/')
+                  ? Image.asset(
+                      costume.heroImageUrl!,
+                      fit: BoxFit.cover,
+                      alignment: Alignment.topCenter,
+                      errorBuilder: (_, __, ___) => Icon(
+                        costume.motifIcon,
+                        size: 90,
+                        color: Colors.white24,
+                      ),
+                    )
+                  : Image.network(
+                      costume.heroImageUrl!,
+                      fit: BoxFit.cover,
+                      alignment: Alignment.topCenter,
+                      errorBuilder: (_, __, ___) => Icon(
+                        costume.motifIcon,
+                        size: 90,
+                        color: Colors.white24,
+                      ),
+                    ),
             )
+
           else
             Positioned(
               right: 20,
