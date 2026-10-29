@@ -312,14 +312,18 @@ class HomeTabView extends StatelessWidget {
                     onToggleWishlist: () => store.toggleWishlist(item.id),
                     onTapCard: () => _openDetail(context, item),
                     onQuickAddToCart: () {
-                      store.addToCart(costume: item, mode: OrderMode.rent);
+                      final isBuy = item.listingMode == ListingMode.buyOnly;
+                      final mode = isBuy ? OrderMode.buy : OrderMode.rent;
+                      store.addToCart(costume: item, mode: mode);
+                      final modeLabel = isBuy ? 'Buy' : 'Rent';
+                      ScaffoldMessenger.of(context).hideCurrentSnackBar();
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
                           backgroundColor: CosColors.bgElevated,
                           behavior: SnackBarBehavior.floating,
                           duration: const Duration(seconds: 2),
                           content: Text(
-                            'Added "${item.title}" (Rent) to Cart',
+                            'Added "${item.title}" ($modeLabel) to Cart',
                             style: const TextStyle(color: CosColors.textPrimary),
                           ),
                           action: SnackBarAction(

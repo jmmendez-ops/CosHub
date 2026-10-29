@@ -3,6 +3,7 @@ import '../core/theme/cos_colors.dart';
 import '../state/cos_hub_store.dart';
 import '../screens/commerce/ekyc_verification_screen.dart';
 import '../screens/onboarding/auth_screen.dart';
+import 'setup_payment_modal.dart';
 
 void showProfileModal(BuildContext context, CosHubStore store) {
   showModalBottomSheet(
@@ -105,6 +106,30 @@ void showProfileModal(BuildContext context, CosHubStore store) {
                   ),
                 ),
               ),
+            const SizedBox(height: 8),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton.icon(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: CosColors.bgInput,
+                  foregroundColor: Colors.white,
+                  side: const BorderSide(color: CosColors.borderSubtle),
+                ),
+                onPressed: () {
+                  Navigator.of(ctx).pop();
+                  showSetupPaymentModal(context, store);
+                },
+                icon: const Icon(
+                  Icons.account_balance_wallet_outlined,
+                  size: 18,
+                  color: CosColors.accentAmber,
+                ),
+                label: Text(
+                  'Payment Setup (${store.selectedPaymentMethod})',
+                  style: const TextStyle(fontWeight: FontWeight.w700),
+                ),
+              ),
+            ),
             const SizedBox(height: 8),
             SizedBox(
               width: double.infinity,

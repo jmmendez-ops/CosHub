@@ -15,6 +15,11 @@ class CosHubStore extends ChangeNotifier {
   bool isEkycVerified = false;
   String? verifiedIdType;
 
+  String selectedPaymentMethod = 'GCash';
+  String userGcashNumber = '0956 123 3881';
+  String userMayaNumber = '0918 888 4567';
+  String userCardLast4 = '4821';
+
   String selectedCategory = 'All';
   String selectedModeFilter = 'All Modes';
   String searchQuery = '';
@@ -519,11 +524,11 @@ class CosHubStore extends ChangeNotifier {
 
   Future<void> _initPersistence() async {
     final loadedWishlist = await CosHubStorage.loadWishlist();
-    if (loadedWishlist.isNotEmpty) {
+    if (loadedWishlist != null) {
       wishlistIds = loadedWishlist;
     }
     final loadedCart = await CosHubStorage.loadCart();
-    if (loadedCart.isNotEmpty) {
+    if (loadedCart != null) {
       cart
         ..clear()
         ..addAll(loadedCart);
@@ -536,6 +541,30 @@ class CosHubStore extends ChangeNotifier {
     if (loadedMode != null && modeFilters.contains(loadedMode)) {
       selectedModeFilter = loadedMode;
     }
+    final paymentSettings = await CosHubStorage.loadPaymentSettings();
+    selectedPaymentMethod = paymentSettings['method'] ?? 'GCash';
+    userGcashNumber = paymentSettings['gcash'] ?? '0956 123 3881';
+    userMayaNumber = paymentSettings['maya'] ?? '0918 888 4567';
+    userCardLast4 = paymentSettings['card'] ?? '4821';
+    notifyListeners();
+  }
+
+  void updatePaymentSetup({
+    required String method,
+    required String gcash,
+    required String maya,
+    required String card,
+  }) {
+    selectedPaymentMethod = method;
+    userGcashNumber = gcash;
+    userMayaNumber = maya;
+    userCardLast4 = card;
+    CosHubStorage.savePaymentSettings(
+      method: method,
+      gcash: gcash,
+      maya: maya,
+      card: card,
+    );
     notifyListeners();
   }
 

@@ -234,5 +234,34 @@ void main() {
       final AssetImage assetImage = imageWidget.image as AssetImage;
       expect(assetImage.assetName, equals('assets/images/cartethyia.jpg'));
     });
+
+    test('Payment options setup updates and persists preferences', () async {
+      expect(store.selectedPaymentMethod, equals('GCash'));
+      store.updatePaymentSetup(
+        method: 'Maya',
+        gcash: '0917 111 2222',
+        maya: '0928 333 4444',
+        card: '9999',
+      );
+      expect(store.selectedPaymentMethod, equals('Maya'));
+      expect(store.userMayaNumber, equals('0928 333 4444'));
+      expect(store.userCardLast4, equals('9999'));
+
+      // Hydrate a fresh store instance from mocked storage
+      final reloadedStore = CosHubStore();
+      await Future.delayed(const Duration(milliseconds: 50));
+      expect(reloadedStore.selectedPaymentMethod, equals('Maya'));
+      expect(reloadedStore.userMayaNumber, equals('0928 333 4444'));
+    });
+
+    test('Empty cart persists across reloads without resurrecting defaults', () async {
+      store.cart.clear();
+      store.completeOrder('GCash', 0); // saves empty cart
+      expect(store.cart.isEmpty, isTrue);
+
+      final freshStore = CosHubStore();
+      await Future.delayed(const Duration(milliseconds: 50));
+      expect(freshStore.cart.isEmpty, isTrue);
+    });
   });
 }

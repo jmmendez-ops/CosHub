@@ -53,6 +53,17 @@ The catalog features researched and verified cosplays from iconic Anime, Gaming,
 
 ---
 
+## 💳 Payment Options Setup (Mockup)
+
+Users can configure their default Philippine payment options directly from the **Profile Modal** or **Checkout Screen**:
+- **GCash**: Instant mobile wallet with configured phone number (e.g. `0956 123 3881`)
+- **Maya**: Maya wallet & QR Ph setup (e.g. `0918 888 4567`)
+- **Visa / Mastercard**: Cardholder info and card last 4 digits
+- **Cash on Delivery (COD)**: Courier drop-off or convention meetup option
+- **Persistence**: All payment settings are stored locally in `shared_preferences` and dynamically hydrated across checkout and profile views.
+
+---
+
 ## 🚀 Quick Setup (All Platforms)
 
 ### Windows

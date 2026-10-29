@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../core/theme/cos_colors.dart';
 import '../../core/utils/currency_formatter.dart';
 import '../../state/cos_hub_store.dart';
+import '../../widgets/setup_payment_modal.dart';
 
 class CheckoutScreen extends StatefulWidget {
   final CosHubStore store;
@@ -12,34 +13,40 @@ class CheckoutScreen extends StatefulWidget {
 }
 
 class _CheckoutScreenState extends State<CheckoutScreen> {
-  String _selectedPayment = 'GCash';
+  late String _selectedPayment;
   bool _agreedToRentalTerms = true;
   bool _isProcessingPayment = false;
 
-  final List<Map<String, dynamic>> _paymentMethods = const [
+  @override
+  void initState() {
+    super.initState();
+    _selectedPayment = widget.store.selectedPaymentMethod;
+  }
+
+  List<Map<String, dynamic>> _getPaymentMethods() => [
     {
       'name': 'GCash',
-      'subtitle': 'Instant e-Wallet • 0956 ••• 3881',
+      'subtitle': 'Instant e-Wallet • ${widget.store.userGcashNumber}',
       'icon': Icons.account_balance_wallet_outlined,
-      'color': Color(0xFF007DFE),
+      'color': const Color(0xFF007DFE),
     },
     {
       'name': 'Maya',
-      'subtitle': 'Maya Wallet / QR Ph',
+      'subtitle': 'Maya Wallet / QR Ph • ${widget.store.userMayaNumber}',
       'icon': Icons.qr_code_scanner,
-      'color': Color(0xFF10B981),
+      'color': const Color(0xFF10B981),
     },
     {
       'name': 'Visa / Mastercard',
-      'subtitle': 'Credit or Debit Card •••• 4821',
+      'subtitle': 'Credit or Debit Card •••• ${widget.store.userCardLast4}',
       'icon': Icons.credit_card,
-      'color': Color(0xFFF59E0B),
+      'color': const Color(0xFFF59E0B),
     },
     {
-      'name': 'GrabPay',
-      'subtitle': 'Pay via Grab Wallet',
-      'icon': Icons.local_taxi_outlined,
-      'color': Color(0xFF22C55E),
+      'name': 'Cash on Delivery',
+      'subtitle': 'Pay courier upon delivery or meetup',
+      'icon': Icons.local_shipping_outlined,
+      'color': const Color(0xFFA855F7),
     },
   ];
 
@@ -212,17 +219,42 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     ),
                   ),
                   const SizedBox(height: 20),
-                  const Text(
-                    'SELECT MOCK PAYMENT GATEWAY',
-                    style: TextStyle(
-                      color: CosColors.textSecondary,
-                      fontSize: 11,
-                      fontWeight: FontWeight.w800,
-                      letterSpacing: 1.1,
-                    ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text(
+                        'SELECT PAYMENT METHOD',
+                        style: TextStyle(
+                          color: CosColors.textSecondary,
+                          fontSize: 11,
+                          fontWeight: FontWeight.w800,
+                          letterSpacing: 1.1,
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          showSetupPaymentModal(context, widget.store);
+                          setState(() {});
+                        },
+                        child: const Row(
+                          children: [
+                            Icon(Icons.tune, size: 14, color: CosColors.accentAmber),
+                            SizedBox(width: 4),
+                            Text(
+                              'Setup Options',
+                              style: TextStyle(
+                                color: CosColors.accentAmber,
+                                fontSize: 11.5,
+                                fontWeight: FontWeight.w800,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
                   const SizedBox(height: 10),
-                  ..._paymentMethods.map((method) {
+                  ..._getPaymentMethods().map((method) {
                     final selected = _selectedPayment == method['name'];
                     return Padding(
                       padding: const EdgeInsets.only(bottom: 10),

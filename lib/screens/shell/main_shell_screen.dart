@@ -12,6 +12,7 @@ import 'home_tab_view.dart';
 import 'cart_tab_view.dart';
 import 'alerts_tab_view.dart';
 import 'wishlist_tab_view.dart';
+import '../../widgets/profile_bottom_sheet.dart';
 
 class MainShellScreen extends StatelessWidget {
   final CosHubStore store;
@@ -158,6 +159,13 @@ class MainShellScreen extends StatelessWidget {
                     onTap: () {
                       Navigator.pop(ctx);
                       store.setTab(3);
+                    },
+                  ),
+                  _JumpChip(
+                    label: '11. Profile & Payment Setup',
+                    onTap: () {
+                      Navigator.pop(ctx);
+                      showProfileModal(context, store);
                     },
                   ),
                 ],
