@@ -149,7 +149,7 @@ class HomeTabView extends StatelessWidget {
         ),
         SliverToBoxAdapter(
           child: Padding(
-            padding: const EdgeInsets.only(top: 16, bottom: 16),
+            padding: const EdgeInsets.only(top: 14, bottom: 8),
             child: SizedBox(
               height: 38,
               child: ListView.separated(
@@ -190,6 +190,90 @@ class HomeTabView extends StatelessWidget {
                           fontWeight:
                               isSelected ? FontWeight.w800 : FontWeight.w500,
                         ),
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ),
+        ),
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: const EdgeInsets.only(top: 4, bottom: 14),
+            child: SizedBox(
+              height: 30,
+              child: ListView.separated(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                scrollDirection: Axis.horizontal,
+                itemCount: store.modeFilters.length,
+                separatorBuilder: (_, __) => const SizedBox(width: 8),
+                itemBuilder: (context, index) {
+                  final mode = store.modeFilters[index];
+                  final isSelected = store.selectedModeFilter == mode;
+                  return GestureDetector(
+                    onTap: () => store.setModeFilter(mode),
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 12,
+                        vertical: 5,
+                      ),
+                      decoration: BoxDecoration(
+                        color: isSelected
+                            ? CosColors.bgElevated
+                            : Colors.transparent,
+                        borderRadius: BorderRadius.circular(8),
+                        border: Border.all(
+                          color: isSelected
+                              ? CosColors.accentAmber
+                              : CosColors.borderSubtle.withValues(alpha: 0.6),
+                          width: isSelected ? 1.2 : 1,
+                        ),
+                      ),
+                      alignment: Alignment.center,
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          if (mode == 'Rent Only')
+                            const Padding(
+                              padding: EdgeInsets.only(right: 5),
+                              child: Icon(
+                                Icons.sync,
+                                size: 13,
+                                color: Color(0xFF8B5CF6),
+                              ),
+                            )
+                          else if (mode == 'Buy Only')
+                            const Padding(
+                              padding: EdgeInsets.only(right: 5),
+                              child: Icon(
+                                Icons.shopping_bag_outlined,
+                                size: 13,
+                                color: Color(0xFF0EA5E9),
+                              ),
+                            )
+                          else if (mode == 'Rent & Buy')
+                            const Padding(
+                              padding: EdgeInsets.only(right: 5),
+                              child: Icon(
+                                Icons.bolt,
+                                size: 13,
+                                color: CosColors.accentAmber,
+                              ),
+                            ),
+                          Text(
+                            mode,
+                            style: TextStyle(
+                              color: isSelected
+                                  ? CosColors.accentAmber
+                                  : CosColors.textSecondary,
+                              fontSize: 11.5,
+                              fontWeight: isSelected
+                                  ? FontWeight.w800
+                                  : FontWeight.w600,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   );

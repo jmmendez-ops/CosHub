@@ -20,9 +20,19 @@ class CostumeDetailScreen extends StatefulWidget {
 }
 
 class _CostumeDetailScreenState extends State<CostumeDetailScreen> {
-  OrderMode _selectedMode = OrderMode.rent;
+  late OrderMode _selectedMode;
   String _selectedSize = 'M';
   int _rentalDays = 3;
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.costume.listingMode == ListingMode.buyOnly) {
+      _selectedMode = OrderMode.buy;
+    } else {
+      _selectedMode = OrderMode.rent;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -294,32 +304,51 @@ class _CostumeDetailScreenState extends State<CostumeDetailScreen> {
                     ),
                   ),
                   const SizedBox(height: 8),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: _ModeOptionCard(
-                          title: 'RENT SET',
-                          priceText: '${formatPeso(c.rentPricePerDay)}/day',
-                          subtitle:
-                              '+ ${formatPeso(c.securityDeposit)} refundable deposit',
-                          isSelected: _selectedMode == OrderMode.rent,
-                          onTap: () =>
-                              setState(() => _selectedMode = OrderMode.rent),
+                  if (c.listingMode == ListingMode.both)
+                    Row(
+                      children: [
+                        Expanded(
+                          child: _ModeOptionCard(
+                            title: 'RENT SET',
+                            priceText: '${formatPeso(c.rentPricePerDay)}/day',
+                            subtitle:
+                                '+ ${formatPeso(c.securityDeposit)} refundable deposit',
+                            isSelected: _selectedMode == OrderMode.rent,
+                            onTap: () =>
+                                setState(() => _selectedMode = OrderMode.rent),
+                          ),
                         ),
-                      ),
-                      const SizedBox(width: 12),
-                      Expanded(
-                        child: _ModeOptionCard(
-                          title: 'BUY BRAND NEW',
-                          priceText: formatPeso(c.buyPrice),
-                          subtitle: 'Keep forever • No deposit',
-                          isSelected: _selectedMode == OrderMode.buy,
-                          onTap: () =>
-                              setState(() => _selectedMode = OrderMode.buy),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: _ModeOptionCard(
+                            title: 'BUY BRAND NEW',
+                            priceText: formatPeso(c.buyPrice),
+                            subtitle: 'Keep forever • No deposit',
+                            isSelected: _selectedMode == OrderMode.buy,
+                            onTap: () =>
+                                setState(() => _selectedMode = OrderMode.buy),
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
+                      ],
+                    )
+                  else if (c.listingMode == ListingMode.rentOnly)
+                    _ModeOptionCard(
+                      title: 'EXCLUSIVE RENTAL SET',
+                      priceText: '${formatPeso(c.rentPricePerDay)}/day',
+                      subtitle:
+                          '+ ${formatPeso(c.securityDeposit)} refundable deposit • Rental Exclusive',
+                      isSelected: true,
+                      onTap: () {},
+                    )
+                  else if (c.listingMode == ListingMode.buyOnly)
+                    _ModeOptionCard(
+                      title: 'BUY BRAND NEW ONLY',
+                      priceText: formatPeso(c.buyPrice),
+                      subtitle:
+                          'Keep forever • No deposit • Outright Purchase Exclusive',
+                      isSelected: true,
+                      onTap: () {},
+                    ),
                   const SizedBox(height: 20),
                   if (_selectedMode == OrderMode.rent) ...[
                     Container(

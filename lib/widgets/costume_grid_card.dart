@@ -119,6 +119,54 @@ class CostumeGridCard extends StatelessWidget {
                         ),
                       ),
                     ),
+                    if (costume.listingMode == ListingMode.rentOnly)
+                      Positioned(
+                        bottom: 8,
+                        left: 8,
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 6,
+                            vertical: 2.5,
+                          ),
+                          decoration: BoxDecoration(
+                            color: const Color(0xFF8B5CF6).withValues(alpha: 0.9),
+                            borderRadius: BorderRadius.circular(4),
+                          ),
+                          child: const Text(
+                            'RENT ONLY',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 9,
+                              fontWeight: FontWeight.w900,
+                              letterSpacing: 0.5,
+                            ),
+                          ),
+                        ),
+                      ),
+                    if (costume.listingMode == ListingMode.buyOnly)
+                      Positioned(
+                        bottom: 8,
+                        left: 8,
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 6,
+                            vertical: 2.5,
+                          ),
+                          decoration: BoxDecoration(
+                            color: const Color(0xFF0EA5E9).withValues(alpha: 0.9),
+                            borderRadius: BorderRadius.circular(4),
+                          ),
+                          child: const Text(
+                            'BUY ONLY',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 9,
+                              fontWeight: FontWeight.w900,
+                              letterSpacing: 0.5,
+                            ),
+                          ),
+                        ),
+                      ),
                     Positioned(
                       top: 8,
                       right: 8,
@@ -189,44 +237,47 @@ class CostumeGridCard extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        RichText(
-                          text: TextSpan(
-                            style: const TextStyle(
-                              fontSize: 12,
-                              color: CosColors.textSecondary,
-                            ),
-                            children: [
-                              const TextSpan(text: 'Buy '),
-                              TextSpan(
-                                text: formatPeso(costume.buyPrice),
-                                style: const TextStyle(
-                                  color: CosColors.accentAmber,
-                                  fontWeight: FontWeight.w800,
-                                ),
+                        if (costume.canBuy)
+                          RichText(
+                            text: TextSpan(
+                              style: const TextStyle(
+                                fontSize: 12,
+                                color: CosColors.textSecondary,
                               ),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(height: 2),
-                        RichText(
-                          text: TextSpan(
-                            style: const TextStyle(
-                              fontSize: 12,
-                              color: CosColors.textSecondary,
-                            ),
-                            children: [
-                              const TextSpan(text: 'Rent '),
-                              TextSpan(
-                                text: formatPeso(costume.rentPricePerDay),
-                                style: const TextStyle(
-                                  color: CosColors.accentAmber,
-                                  fontWeight: FontWeight.w800,
+                              children: [
+                                const TextSpan(text: 'Buy '),
+                                TextSpan(
+                                  text: formatPeso(costume.buyPrice),
+                                  style: const TextStyle(
+                                    color: CosColors.accentAmber,
+                                    fontWeight: FontWeight.w800,
+                                  ),
                                 ),
-                              ),
-                              const TextSpan(text: '/day'),
-                            ],
+                              ],
+                            ),
                           ),
-                        ),
+                        if (costume.canBuy && costume.canRent)
+                          const SizedBox(height: 2),
+                        if (costume.canRent)
+                          RichText(
+                            text: TextSpan(
+                              style: const TextStyle(
+                                fontSize: 12,
+                                color: CosColors.textSecondary,
+                              ),
+                              children: [
+                                const TextSpan(text: 'Rent '),
+                                TextSpan(
+                                  text: formatPeso(costume.rentPricePerDay),
+                                  style: const TextStyle(
+                                    color: CosColors.accentAmber,
+                                    fontWeight: FontWeight.w800,
+                                  ),
+                                ),
+                                const TextSpan(text: '/day'),
+                              ],
+                            ),
+                          ),
                       ],
                     ),
                     SizedBox(
@@ -243,9 +294,13 @@ class CostumeGridCard extends StatelessWidget {
                           ),
                         ),
                         onPressed: onQuickAddToCart,
-                        child: const Text(
-                          'Add to cart',
-                          style: TextStyle(
+                        child: Text(
+                          costume.listingMode == ListingMode.rentOnly
+                              ? 'Rent now'
+                              : costume.listingMode == ListingMode.buyOnly
+                                  ? 'Buy now'
+                                  : 'Add to cart',
+                          style: const TextStyle(
                             fontSize: 12.5,
                             fontWeight: FontWeight.w900,
                           ),

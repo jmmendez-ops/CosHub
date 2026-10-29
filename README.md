@@ -8,30 +8,48 @@ COS HUB is a cross-platform Flutter application tailored for the Philippine cosp
 
 The catalog features researched and verified cosplays from iconic Anime, Gaming, Movie, and Comic franchises with high-resolution imagery and detailed clothing piece inclusions:
 
-1. **Cartethyia (Fleurdelys)** — *Wuthering Waves*
+1. **Cartethyia (Fleurdelys)** — *Wuthering Waves* `[Rent & Buy]`
    - Ethereal white and sea-blue layered gown, styled long silver wig with side braids, crystal thorn halo crown headpiece, silver armored gauntlets.
    - Listed by: Cristian Ordoñez (`@cristian_cos`) • Calamba, Laguna
-2. **Usagi Tsukino (Super Sailor Moon)** — *Pretty Guardian Sailor Moon*
+2. **Usagi Tsukino (Super Sailor Moon)** — *Pretty Guardian Sailor Moon* `[Rent & Buy]`
    - Sailor fuku bodice, pleated navy skirt, crimson back bow, gold crescent moon tiara, red choker, elbow satin gloves, boot covers.
    - Listed by: Sailor Amai (`@amai_guardian`) • Quezon City, Metro Manila
-3. **Tanjiro Kamado** — *Demon Slayer: Kimetsu no Yaiba*
+3. **Tanjiro Kamado** — *Demon Slayer: Kimetsu no Yaiba* `[Rent & Buy]`
    - Green & black checkered haori, Demon Slayer corps gakuran uniform, white kyahan leg wraps, con-safe nichirin katana prop, hanafuda earrings.
    - Listed by: Kenji Kamado Crafts (`@kenji_props`) • Pasig City, Metro Manila
-4. **Daedric Dragon Knight** — *The Elder Scrolls V: Skyrim*
+4. **Daedric Dragon Knight** — *The Elder Scrolls V: Skyrim* `[Rent Only]`
    - Full horned Daedric helm with crimson glow slits, spiked articulated EVA cuirass & pauldrons, gauntlets, and dragon greatsword prop.
    - Listed by: IronForge PH (`@ironforge_cos`) • Davao City
-5. **David Martinez** — *Cyberpunk: Edgerunners*
+5. **David Martinez** — *Cyberpunk: Edgerunners* `[Rent & Buy]`
    - Neon yellow EMT bomber jacket, illuminated LED cyan high-collar spine insert, cargo pants, crossbody rig harness, cyberware gloves.
    - Listed by: Kusarine & Hyou (`@nightcity_edgerunners`) • Makati City, Metro Manila
-6. **Kotori Minami (Stage Dress)** — *Love Live! School Idol Project*
+6. **Kotori Minami (Stage Dress)** — *Love Live! School Idol Project* `[Rent & Buy]`
    - Ruffled mint & lavender idol stage dress, petticoat, oversized star bow headband, wrist cuffs, microphone headset prop.
    - Listed by: Miyu Idol Wardrobe (`@miyu_idols`) • Mandaluyong, Metro Manila
-7. **Din Djarin (The Mandalorian)** — *Star Wars: The Mandalorian*
+7. **Din Djarin (The Mandalorian)** — *Star Wars: The Mandalorian* `[Rent & Buy]`
    - Chrome Beskar helmet with T-visor, textured armor plates, weathered flight suit, flak vest, cartridge bandolier, cape, blaster pistol.
    - Listed by: Mando Armory PH (`@thisistheway_ph`) • Cebu City
-8. **Furina (Archon of Fontaine)** — *Genshin Impact*
+8. **Furina (Archon of Fontaine)** — *Genshin Impact* `[Rent & Buy]`
    - Victorian blue frock coat & vest, dual-tone silver hydro wig with tails, ribbon top hat, ruffled lace jabot collar, white gloves.
    - Listed by: Lady Fontaine Studio (`@furina_ph`) • Pasay City, Metro Manila
+9. **Kyojuro Rengoku (Flame Hashira)** — *Demon Slayer: Kimetsu no Yaiba* `[Rent & Buy]`
+   - Flame-patterned gradient haori, black corps gakuran, fiery wig, and wood-core flame nichirin katana.
+   - Listed by: Kenji Kamado Crafts (`@kenji_props`) • Pasig City, Metro Manila
+10. **Princess Serenity** — *Pretty Guardian Sailor Moon* `[Rent Only]`
+    - Haute couture empire-waist layered white chiffon gown, gold bustier rings, and detachable feather angel wings prop.
+    - Listed by: Sailor Amai (`@amai_guardian`) • Quezon City, Metro Manila
+11. **Emilia (Spirit Sorceress)** — *Re:Zero - Starting Life in Another World* `[Rent & Buy]`
+    - Flared violet and white sorceress robe, crystal ice flower hairpiece, elf ear covers, and Puck companion plush.
+    - Listed by: Miyu Idol Wardrobe (`@miyu_idols`) • Mandaluyong, Metro Manila
+12. **Zenitsu Agatsuma** — *Demon Slayer: Kimetsu no Yaiba* `[Buy Only]`
+    - Yellow triangle-patterned haori, black corps uniform, kyahan wraps, and lightning nichirin katana.
+    - Listed by: Kenji Kamado Crafts (`@kenji_props`) • Pasig City, Metro Manila
+13. **Nico Yazawa (Idol Stage Dress)** — *Love Live! School Idol Project* `[Rent & Buy]`
+    - Hot pink frilled idol corset dress, multi-layer tulle crinoline, oversized bows, and stage wrist cuffs.
+    - Listed by: Miyu Idol Wardrobe (`@miyu_idols`) • Mandaluyong, Metro Manila
+14. **V (Cyberpunk Mercenary)** — *Cyberpunk 2077* `[Rent & Buy]`
+    - Illuminated LED cyan high-collar Samurai bomber jacket, tactical cargo pants, knee armor, holster, and thermal katana.
+    - Listed by: Kusarine & Hyou (`@nightcity_edgerunners`) • Makati City, Metro Manila
 
 ---
 
