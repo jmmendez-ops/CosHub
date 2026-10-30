@@ -138,18 +138,25 @@ void main() {
     });
 
     test('Listing mode filtering functions accurately', () {
-      store.setModeFilter('Rent Only');
-      expect(store.selectedModeFilter, equals('Rent Only'));
-      final rentOnlyItems = store.gridCostumes;
-      expect(rentOnlyItems.every((c) => c.listingMode == ListingMode.rentOnly), isTrue);
-      expect(rentOnlyItems.any((c) => c.id == 'prod-3'), isTrue); // Daedric
-      expect(rentOnlyItems.any((c) => c.id == 'prod-9'), isTrue); // Princess Serenity
+      expect(store.selectedModeFilter, equals('All'));
 
-      store.setModeFilter('Buy Only');
-      expect(store.selectedModeFilter, equals('Buy Only'));
-      final buyOnlyItems = store.gridCostumes;
-      expect(buyOnlyItems.every((c) => c.listingMode == ListingMode.buyOnly), isTrue);
-      expect(buyOnlyItems.any((c) => c.id == 'prod-11'), isTrue); // Zenitsu
+      store.setModeFilter('For Rent');
+      expect(store.selectedModeFilter, equals('For Rent'));
+      final forRentItems = store.gridCostumes;
+      expect(forRentItems.every((c) => c.canRent), isTrue);
+      expect(forRentItems.any((c) => c.id == 'prod-1'), isTrue); // Sailor Moon (both)
+      expect(forRentItems.any((c) => c.id == 'prod-3'), isTrue); // Daedric (rent only)
+      expect(forRentItems.any((c) => c.id == 'prod-9'), isTrue); // Princess Serenity (rent only)
+      expect(forRentItems.any((c) => c.id == 'prod-11'), isFalse); // Zenitsu (buy only)
+
+      store.setModeFilter('For Sale');
+      expect(store.selectedModeFilter, equals('For Sale'));
+      final forSaleItems = store.gridCostumes;
+      expect(forSaleItems.every((c) => c.canBuy), isTrue);
+      expect(forSaleItems.any((c) => c.id == 'prod-1'), isTrue); // Sailor Moon (both)
+      expect(forSaleItems.any((c) => c.id == 'prod-11'), isTrue); // Zenitsu (buy only)
+      expect(forSaleItems.any((c) => c.id == 'prod-3'), isFalse); // Daedric (rent only)
+      expect(forSaleItems.any((c) => c.id == 'prod-9'), isFalse); // Princess Serenity (rent only)
     });
 
     test('Initial cart line item is aligned with Cartethyia hero-1', () {

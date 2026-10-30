@@ -234,7 +234,7 @@ class HomeTabView extends StatelessWidget {
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          if (mode == 'Rent Only')
+                          if (mode == 'For Rent')
                             const Padding(
                               padding: EdgeInsets.only(right: 5),
                               child: Icon(
@@ -243,22 +243,13 @@ class HomeTabView extends StatelessWidget {
                                 color: Color(0xFF8B5CF6),
                               ),
                             )
-                          else if (mode == 'Buy Only')
+                          else if (mode == 'For Sale')
                             const Padding(
                               padding: EdgeInsets.only(right: 5),
                               child: Icon(
                                 Icons.shopping_bag_outlined,
                                 size: 13,
                                 color: Color(0xFF0EA5E9),
-                              ),
-                            )
-                          else if (mode == 'Rent & Buy')
-                            const Padding(
-                              padding: EdgeInsets.only(right: 5),
-                              child: Icon(
-                                Icons.bolt,
-                                size: 13,
-                                color: CosColors.accentAmber,
                               ),
                             ),
                           Text(

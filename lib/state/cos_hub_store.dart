@@ -21,7 +21,7 @@ class CosHubStore extends ChangeNotifier {
   String userCardLast4 = '4821';
 
   String selectedCategory = 'All';
-  String selectedModeFilter = 'All Modes';
+  String selectedModeFilter = 'All';
   String searchQuery = '';
   int activeBottomTab = 0; // 0: Home, 1: Cart, 2: Alerts, 3: Wishlist
   int heroCarouselIndex = 0;
@@ -35,10 +35,9 @@ class CosHubStore extends ChangeNotifier {
   ];
 
   final List<String> modeFilters = const [
-    'All Modes',
-    'Rent & Buy',
-    'Rent Only',
-    'Buy Only',
+    'All',
+    'For Rent',
+    'For Sale',
   ];
 
   final List<CostumeItem> catalog = const [
@@ -669,7 +668,7 @@ class CosHubStore extends ChangeNotifier {
     return catalog.where((item) {
       if (searchQuery.isEmpty &&
           selectedCategory == 'All' &&
-          selectedModeFilter == 'All Modes' &&
+          selectedModeFilter == 'All' &&
           item.id == 'hero-1') {
         return false;
       }
@@ -678,12 +677,10 @@ class CosHubStore extends ChangeNotifier {
           selectedCategory == 'All' || item.category == selectedCategory;
 
       bool matchesMode = true;
-      if (selectedModeFilter == 'Rent Only') {
-        matchesMode = item.listingMode == ListingMode.rentOnly;
-      } else if (selectedModeFilter == 'Buy Only') {
-        matchesMode = item.listingMode == ListingMode.buyOnly;
-      } else if (selectedModeFilter == 'Rent & Buy') {
-        matchesMode = item.listingMode == ListingMode.both;
+      if (selectedModeFilter == 'For Rent') {
+        matchesMode = item.canRent;
+      } else if (selectedModeFilter == 'For Sale') {
+        matchesMode = item.canBuy;
       }
 
       final query = searchQuery.toLowerCase();
