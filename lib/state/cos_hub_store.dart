@@ -61,6 +61,10 @@ class CosHubStore extends ChangeNotifier {
       gradientColors: [Color(0xFF18202C), Color(0xFF324B6B)],
       motifIcon: Icons.auto_awesome_outlined,
       heroImageUrl: 'assets/images/cartethyia.jpg',
+      galleryImageUrls: [
+        'assets/images/cartethyia.jpg',
+        'assets/images/cartethyia_stage.jpg',
+      ],
       inclusions: [
         'Ethereal White & Sea-Blue Layered Draped Gown',
         'Heat-Resistant Long Silver Wig with Braids',
@@ -90,6 +94,11 @@ class CosHubStore extends ChangeNotifier {
       gradientColors: [Color(0xFF5A3386), Color(0xFFBE6498)],
       motifIcon: Icons.dark_mode_outlined,
       heroImageUrl: 'assets/images/sailor_moon.jpg',
+      galleryImageUrls: [
+        'assets/images/sailor_moon.jpg',
+        'assets/images/sailor_moon_scope.jpg',
+        'assets/images/sailor_duo.jpg',
+      ],
       inclusions: [
         'Sailor Bodice with Gold Heart Brooch',
         'Pleated Navy & White Skirt with Crimson Back Bow',
@@ -120,6 +129,10 @@ class CosHubStore extends ChangeNotifier {
       gradientColors: [Color(0xFF7B1818), Color(0xFFB32B2B)],
       motifIcon: Icons.colorize_outlined,
       heroImageUrl: 'assets/images/tanjiro.jpg',
+      galleryImageUrls: [
+        'assets/images/tanjiro.jpg',
+        'assets/images/tanjiro_nezuko.jpg',
+      ],
       inclusions: [
         'Iconic Green & Black Checkered Haori Coat',
         'Demon Slayer Corps Black Gakuran Jacket & Hakama Pants',
@@ -179,6 +192,10 @@ class CosHubStore extends ChangeNotifier {
       gradientColors: [Color(0xFF0E6868), Color(0xFF19A98B)],
       motifIcon: Icons.directions_bike_outlined,
       heroImageUrl: 'assets/images/david_martinez.jpg',
+      galleryImageUrls: [
+        'assets/images/david_martinez.jpg',
+        'assets/images/david_lucy_duo.jpg',
+      ],
       inclusions: [
         'Screen-Accurate Neon Yellow EMT Bomber Jacket',
         'Illuminated LED Cyan High-Collar Spine Insert',
@@ -266,6 +283,10 @@ class CosHubStore extends ChangeNotifier {
       gradientColors: [Color(0xFF1E3A8A), Color(0xFF38BDF8)],
       motifIcon: Icons.water_drop_outlined,
       heroImageUrl: 'assets/images/furina.jpg',
+      galleryImageUrls: [
+        'assets/images/furina.jpg',
+        'assets/images/furina_full.jpg',
+      ],
       inclusions: [
         'Tailored Victorian Blue Frock Coat & Vest',
         'Dual-Tone Silver Hydro Wig with Tails (Styled)',
@@ -449,6 +470,75 @@ class CosHubStore extends ChangeNotifier {
       rating: 4.9,
       reviewsCount: 92,
     ),
+    CostumeItem(
+      id: 'prod-14',
+      title: 'Kamado Siblings Duo Cosplay Set',
+      category: 'Anime',
+      characterName: 'Tanjiro & Nezuko Kamado (Duo)',
+      series: 'Demon Slayer: Kimetsu no Yaiba',
+      subtitle:
+          'Complete dual cosplay package: Tanjiro Demon Slayer uniform with checkered haori and wooden katana plus Nezuko pink kimono with bamboo muzzle.',
+      buyPrice: 5800,
+      rentPricePerDay: 790,
+      securityDeposit: 1500,
+      sellerName: 'Kenji Kamado Crafts',
+      sellerHandle: '@kenji_props',
+      sellerLocation: 'Pasig City, Metro Manila',
+      isUserListed: true,
+      listingMode: ListingMode.both,
+      gradientColors: [Color(0xFF0F3B2E), Color(0xFFC2410C)],
+      motifIcon: Icons.people_outline,
+      heroImageUrl: 'assets/images/tanjiro_nezuko.jpg',
+      galleryImageUrls: [
+        'assets/images/tanjiro_nezuko.jpg',
+        'assets/images/tanjiro.jpg',
+      ],
+      inclusions: [
+        'Tanjiro Checkered Haori & Corps Gakuran Uniform',
+        'Tanjiro Hanafuda Earrings & Con-Safe Katana Prop',
+        'Nezuko Patterned Pink Asanoha Kimono & Black Haori',
+        'Nezuko Bamboo Mouthpiece & Pink Ribbon Hairpiece',
+        'Two Sets of Kyahan Leg Wraps & Zori Straps',
+      ],
+      rating: 5.0,
+      reviewsCount: 164,
+      isFeatured: true,
+    ),
+    CostumeItem(
+      id: 'prod-15',
+      title: 'Pretty Guardian Sailor Duo Cosplay Set',
+      category: 'Anime',
+      characterName: 'Sailor Moon & Sailor Chibi Moon (Duo)',
+      series: 'Pretty Guardian Sailor Moon',
+      subtitle:
+          'Dual guardian set featuring Super Sailor Moon and Sailor Chibi Moon sailor fuku uniforms with matching tiaras and wand props.',
+      buyPrice: 5200,
+      rentPricePerDay: 720,
+      securityDeposit: 1400,
+      sellerName: 'Sailor Amai',
+      sellerHandle: '@amai_guardian',
+      sellerLocation: 'Quezon City, Metro Manila',
+      isUserListed: true,
+      listingMode: ListingMode.both,
+      gradientColors: [Color(0xFF701A75), Color(0xFFF43F5E)],
+      motifIcon: Icons.stars_outlined,
+      heroImageUrl: 'assets/images/sailor_duo.jpg',
+      galleryImageUrls: [
+        'assets/images/sailor_duo.jpg',
+        'assets/images/sailor_moon.jpg',
+        'assets/images/sailor_moon_scope.jpg',
+      ],
+      inclusions: [
+        'Adult Super Sailor Moon Sailor Bodice, Skirt & Brooch',
+        'Sailor Chibi Moon Pink Sailor Bodice & Pleated Skirt',
+        'Two Matching Golden Metal Crescent Moon Tiaras',
+        'Two Pairs of White Satin Elbow Gloves with Colored Cuffs',
+        'Moon Kaleido Scope & Pink Sugar Heart Wand Con Props',
+      ],
+      rating: 4.9,
+      reviewsCount: 112,
+      isFeatured: true,
+    ),
   ];
 
   Set<String> wishlistIds = {'prod-1'};
@@ -475,6 +565,10 @@ class CosHubStore extends ChangeNotifier {
         gradientColors: [Color(0xFF18202C), Color(0xFF324B6B)],
         motifIcon: Icons.auto_awesome_outlined,
         heroImageUrl: 'assets/images/cartethyia.jpg',
+        galleryImageUrls: [
+          'assets/images/cartethyia.jpg',
+          'assets/images/cartethyia_stage.jpg',
+        ],
         inclusions: [
           'Ethereal White & Sea-Blue Layered Draped Gown',
           'Heat-Resistant Long Silver Wig with Braids',

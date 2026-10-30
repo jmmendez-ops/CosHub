@@ -6,6 +6,7 @@ import 'package:cos_hub/models/costume_item.dart';
 import 'package:cos_hub/state/cos_hub_store.dart';
 import 'package:cos_hub/widgets/hero_banner_card.dart';
 import 'package:cos_hub/widgets/costume_grid_card.dart';
+import 'package:cos_hub/screens/commerce/costume_detail_screen.dart';
 import 'package:cos_hub/screens/onboarding/landing_screen.dart';
 
 void main() {
@@ -19,8 +20,8 @@ void main() {
       store = CosHubStore();
     });
 
-    test('Catalog contains exactly 14 verified costume items', () {
-      expect(store.catalog.length, equals(14));
+    test('Catalog contains exactly 16 verified costume items', () {
+      expect(store.catalog.length, equals(16));
       final ids = store.catalog.map((c) => c.id).toList();
       expect(ids, equals([
         'hero-1',
@@ -37,6 +38,8 @@ void main() {
         'prod-11',
         'prod-12',
         'prod-13',
+        'prod-14',
+        'prod-15',
       ]));
     });
 
@@ -112,6 +115,28 @@ void main() {
       expect(v.heroImageUrl, equals('assets/images/v_cyberpunk.jpg'));
     });
 
+    test('prod-14 verifies Kamado Siblings Duo Cosplay Set', () {
+      final duo = store.catalog.firstWhere((c) => c.id == 'prod-14');
+      expect(duo.title, equals('Kamado Siblings Duo Cosplay Set'));
+      expect(duo.characterName, equals('Tanjiro & Nezuko Kamado (Duo)'));
+      expect(duo.series, equals('Demon Slayer: Kimetsu no Yaiba'));
+      expect(duo.heroImageUrl, equals('assets/images/tanjiro_nezuko.jpg'));
+      expect(duo.galleryImageUrls.length, equals(2));
+      expect(duo.carouselImages.length, equals(2));
+      expect(duo.listingMode, equals(ListingMode.both));
+    });
+
+    test('prod-15 verifies Pretty Guardian Sailor Duo Cosplay Set', () {
+      final sailorDuo = store.catalog.firstWhere((c) => c.id == 'prod-15');
+      expect(sailorDuo.title, equals('Pretty Guardian Sailor Duo Cosplay Set'));
+      expect(sailorDuo.characterName, equals('Sailor Moon & Sailor Chibi Moon (Duo)'));
+      expect(sailorDuo.series, equals('Pretty Guardian Sailor Moon'));
+      expect(sailorDuo.heroImageUrl, equals('assets/images/sailor_duo.jpg'));
+      expect(sailorDuo.galleryImageUrls.length, equals(3));
+      expect(sailorDuo.carouselImages.length, equals(3));
+      expect(sailorDuo.listingMode, equals(ListingMode.both));
+    });
+
     test('Listing mode filtering functions accurately', () {
       store.setModeFilter('Rent Only');
       expect(store.selectedModeFilter, equals('Rent Only'));
@@ -136,14 +161,21 @@ void main() {
       expect(initialItem.heroImageUrl, equals('assets/images/cartethyia.jpg'));
     });
 
-    test('All 14 catalog heroImageUrl asset files exist on local disk with valid size', () {
+    test('All 16 catalog hero and gallery asset files exist on local disk with valid size', () {
       for (final item in store.catalog) {
         expect(item.heroImageUrl, isNotNull);
         expect(item.heroImageUrl!.startsWith('assets/images/'), isTrue);
-        final file = File(item.heroImageUrl!);
-        expect(file.existsSync(), isTrue, reason: 'File should exist: ${item.heroImageUrl}');
-        final size = file.lengthSync();
-        expect(size, greaterThan(10000), reason: 'Image file ${item.heroImageUrl} should be non-trivial');
+        final heroFile = File(item.heroImageUrl!);
+        expect(heroFile.existsSync(), isTrue, reason: 'Hero file should exist: ${item.heroImageUrl}');
+        final size = heroFile.lengthSync();
+        expect(size, greaterThan(10000), reason: 'Hero image file ${item.heroImageUrl} should be non-trivial');
+
+        for (final galleryUrl in item.galleryImageUrls) {
+          expect(galleryUrl.startsWith('assets/images/'), isTrue);
+          final gFile = File(galleryUrl);
+          expect(gFile.existsSync(), isTrue, reason: 'Gallery file should exist: $galleryUrl');
+          expect(gFile.lengthSync(), greaterThan(10000), reason: 'Gallery image file $galleryUrl should be non-trivial');
+        }
       }
     });
 
@@ -262,6 +294,51 @@ void main() {
       final freshStore = CosHubStore();
       await Future.delayed(const Duration(milliseconds: 50));
       expect(freshStore.cart.isEmpty, isTrue);
+    });
+
+    testWidgets('CostumeDetailScreen renders PageView carousel with photo count indicator for multi-image items', (WidgetTester tester) async {
+      tester.view.physicalSize = const Size(1080, 2400);
+      tester.view.devicePixelRatio = 2.0;
+      addTearDown(() => tester.view.resetPhysicalSize());
+
+      final sailorMoon = store.catalog.firstWhere((c) => c.id == 'prod-1');
+      await tester.pumpWidget(
+        MaterialApp(
+          home: CostumeDetailScreen(
+            store: store,
+            costume: sailorMoon,
+          ),
+        ),
+      );
+
+      expect(find.byType(PageView), findsOneWidget);
+      expect(find.text('1 / 3'), findsOneWidget);
+      expect(find.byIcon(Icons.chevron_left), findsOneWidget);
+      expect(find.byIcon(Icons.chevron_right), findsOneWidget);
+    });
+
+    testWidgets('CostumeGridCard renders photo count badge when multiple images exist', (WidgetTester tester) async {
+      final sailorMoon = store.catalog.firstWhere((c) => c.id == 'prod-1');
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: SizedBox(
+              height: 400,
+              width: 250,
+              child: CostumeGridCard(
+                costume: sailorMoon,
+                isWishlisted: false,
+                onToggleWishlist: () {},
+                onTapCard: () {},
+                onQuickAddToCart: () {},
+              ),
+            ),
+          ),
+        ),
+      );
+
+      expect(find.text('3'), findsOneWidget);
+      expect(find.byIcon(Icons.photo_library_outlined), findsOneWidget);
     });
   });
 }

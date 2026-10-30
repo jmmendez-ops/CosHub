@@ -15,6 +15,7 @@ class CostumeItem {
   final List<Color> gradientColors;
   final IconData motifIcon;
   final String? heroImageUrl;
+  final List<String> galleryImageUrls;
   final List<String> inclusions;
   final double rating;
   final int reviewsCount;
@@ -42,6 +43,7 @@ class CostumeItem {
     required this.gradientColors,
     required this.motifIcon,
     this.heroImageUrl,
+    this.galleryImageUrls = const [],
     required this.inclusions,
     this.rating = 4.9,
     this.reviewsCount = 84,
@@ -58,6 +60,12 @@ class CostumeItem {
   })  : canRent = canRent ?? (listingMode != ListingMode.buyOnly),
         canBuy = canBuy ?? (listingMode != ListingMode.rentOnly);
 
+  List<String> get carouselImages {
+    if (galleryImageUrls.isNotEmpty) return galleryImageUrls;
+    if (heroImageUrl != null && heroImageUrl!.isNotEmpty) return [heroImageUrl!];
+    return const [];
+  }
+
   Map<String, dynamic> toJson() {
     return {
       'id': id,
@@ -68,6 +76,7 @@ class CostumeItem {
       'rentPricePerDay': rentPricePerDay,
       'securityDeposit': securityDeposit,
       'heroImageUrl': heroImageUrl,
+      'galleryImageUrls': galleryImageUrls,
       'inclusions': inclusions,
       'rating': rating,
       'reviewsCount': reviewsCount,
@@ -101,6 +110,10 @@ class CostumeItem {
       gradientColors: const [Color(0xFF18202C), Color(0xFF324B6B)],
       motifIcon: Icons.auto_awesome_outlined,
       heroImageUrl: json['heroImageUrl'] as String?,
+      galleryImageUrls: (json['galleryImageUrls'] as List<dynamic>?)
+              ?.map((e) => e.toString())
+              .toList() ??
+          [],
       inclusions: (json['inclusions'] as List<dynamic>?)
               ?.map((e) => e.toString())
               .toList() ??

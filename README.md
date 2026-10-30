@@ -50,6 +50,22 @@ The catalog features researched and verified cosplays from iconic Anime, Gaming,
 14. **V (Cyberpunk Mercenary)** — *Cyberpunk 2077* `[Rent & Buy]`
     - Illuminated LED cyan high-collar Samurai bomber jacket, tactical cargo pants, knee armor, holster, and thermal katana.
     - Listed by: Kusarine & Hyou (`@nightcity_edgerunners`) • Makati City, Metro Manila
+15. **Kamado Siblings Duo Cosplay Set (Tanjiro & Nezuko)** — *Demon Slayer: Kimetsu no Yaiba* `[Rent & Buy]`
+    - Complete dual cosplay package: Tanjiro Demon Slayer uniform with checkered haori and wooden katana plus Nezuko pink kimono with bamboo muzzle. Multi-photo showcase.
+    - Listed by: Kenji Kamado Crafts (`@kenji_props`) • Pasig City, Metro Manila
+16. **Pretty Guardian Sailor Duo Cosplay Set (Sailor Moon & Chibi Moon)** — *Pretty Guardian Sailor Moon* `[Rent & Buy]`
+    - Dual guardian set featuring Super Sailor Moon and Sailor Chibi Moon sailor fuku uniforms with matching tiaras and wand props. Multi-photo showcase.
+    - Listed by: Sailor Amai (`@amai_guardian`) • Quezon City, Metro Manila
+
+---
+
+## 📸 Multi-Cosplay Gallery & Image Carousel
+
+Items with multiple cosplay photographs (such as character variations, prop angles, or duo/team cosplays) feature an interactive **Image Carousel** in the Costume Detail view:
+- **Interactive Carousel**: Horizontal swipe/drag with `PageView.builder`, smooth animated dot indicators, and quick chevron skip buttons.
+- **Counter Pill & Rating Badge**: Displays the current photo index (e.g. `1 / 3`) and preserves verified cosplayer review ratings.
+- **Catalog Photo Badge**: Grid cards highlight listings with multiple available photos via a `📸 <count>` indicator in the catalog.
+- **Multi-Photo Items**: Super Sailor Moon (3 photos), Cartethyia (2 photos), Tanjiro Kamado (2 photos), David Martinez & Lucy (2 photos), Furina (2 photos), Kamado Siblings Duo (2 photos), and Sailor Duo (3 photos).
 
 ---
 

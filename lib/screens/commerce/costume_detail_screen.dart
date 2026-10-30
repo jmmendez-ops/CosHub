@@ -21,12 +21,15 @@ class CostumeDetailScreen extends StatefulWidget {
 
 class _CostumeDetailScreenState extends State<CostumeDetailScreen> {
   late OrderMode _selectedMode;
+  late final PageController _imagePageController;
+  int _activeImageIndex = 0;
   String _selectedSize = 'M';
   int _rentalDays = 3;
 
   @override
   void initState() {
     super.initState();
+    _imagePageController = PageController();
     if (widget.costume.listingMode == ListingMode.buyOnly) {
       _selectedMode = OrderMode.buy;
     } else {
@@ -35,8 +38,15 @@ class _CostumeDetailScreenState extends State<CostumeDetailScreen> {
   }
 
   @override
+  void dispose() {
+    _imagePageController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final c = widget.costume;
+    final images = c.carouselImages;
     final isWishlisted = widget.store.wishlistIds.contains(c.id);
     final calculatedPrice = _selectedMode == OrderMode.buy
         ? c.buyPrice
@@ -73,7 +83,7 @@ class _CostumeDetailScreenState extends State<CostumeDetailScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    height: 220,
+                    height: 240,
                     width: double.infinity,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
@@ -87,33 +97,42 @@ class _CostumeDetailScreenState extends State<CostumeDetailScreen> {
                     child: Stack(
                       fit: StackFit.expand,
                       children: [
-                        if (c.heroImageUrl != null &&
-                            c.heroImageUrl!.isNotEmpty)
-                          c.heroImageUrl!.startsWith('assets/')
-                              ? Image.asset(
-                                  c.heroImageUrl!,
-                                  fit: BoxFit.cover,
-                                  alignment: Alignment.topCenter,
-                                  errorBuilder: (_, __, ___) => Center(
-                                    child: Icon(
-                                      c.motifIcon,
-                                      size: 80,
-                                      color: Colors.white70,
-                                    ),
-                                  ),
-                                )
-                              : Image.network(
-                                  c.heroImageUrl!,
-                                  fit: BoxFit.cover,
-                                  alignment: Alignment.topCenter,
-                                  errorBuilder: (_, __, ___) => Center(
-                                    child: Icon(
-                                      c.motifIcon,
-                                      size: 80,
-                                      color: Colors.white70,
-                                    ),
-                                  ),
-                                )
+                        if (images.isNotEmpty)
+                          PageView.builder(
+                            controller: _imagePageController,
+                            itemCount: images.length,
+                            onPageChanged: (idx) {
+                              setState(() => _activeImageIndex = idx);
+                            },
+                            itemBuilder: (context, idx) {
+                              final img = images[idx];
+                              return img.startsWith('assets/')
+                                  ? Image.asset(
+                                      img,
+                                      fit: BoxFit.cover,
+                                      alignment: Alignment.topCenter,
+                                      errorBuilder: (_, __, ___) => Center(
+                                        child: Icon(
+                                          c.motifIcon,
+                                          size: 80,
+                                          color: Colors.white70,
+                                        ),
+                                      ),
+                                    )
+                                  : Image.network(
+                                      img,
+                                      fit: BoxFit.cover,
+                                      alignment: Alignment.topCenter,
+                                      errorBuilder: (_, __, ___) => Center(
+                                        child: Icon(
+                                          c.motifIcon,
+                                          size: 80,
+                                          color: Colors.white70,
+                                        ),
+                                      ),
+                                    );
+                            },
+                          )
                         else
                           Center(
                             child: Icon(
@@ -122,6 +141,157 @@ class _CostumeDetailScreenState extends State<CostumeDetailScreen> {
                               color: Colors.white.withValues(alpha: 0.9),
                             ),
                           ),
+                        if (images.length > 1) ...[
+                          Positioned(
+                            left: 8,
+                            top: 0,
+                            bottom: 0,
+                            child: Center(
+                              child: GestureDetector(
+                                onTap: () {
+                                  if (_activeImageIndex > 0) {
+                                    _imagePageController.previousPage(
+                                      duration: const Duration(milliseconds: 250),
+                                      curve: Curves.easeInOut,
+                                    );
+                                  } else {
+                                    _imagePageController.animateToPage(
+                                      images.length - 1,
+                                      duration: const Duration(milliseconds: 250),
+                                      curve: Curves.easeInOut,
+                                    );
+                                  }
+                                },
+                                child: Container(
+                                  width: 32,
+                                  height: 32,
+                                  decoration: BoxDecoration(
+                                    color: Colors.black.withValues(alpha: 0.6),
+                                    shape: BoxShape.circle,
+                                    border: Border.all(
+                                      color: Colors.white.withValues(alpha: 0.2),
+                                      width: 0.8,
+                                    ),
+                                  ),
+                                  child: const Icon(
+                                    Icons.chevron_left,
+                                    color: Colors.white,
+                                    size: 20,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            right: 8,
+                            top: 0,
+                            bottom: 0,
+                            child: Center(
+                              child: GestureDetector(
+                                onTap: () {
+                                  if (_activeImageIndex < images.length - 1) {
+                                    _imagePageController.nextPage(
+                                      duration: const Duration(milliseconds: 250),
+                                      curve: Curves.easeInOut,
+                                    );
+                                  } else {
+                                    _imagePageController.animateToPage(
+                                      0,
+                                      duration: const Duration(milliseconds: 250),
+                                      curve: Curves.easeInOut,
+                                    );
+                                  }
+                                },
+                                child: Container(
+                                  width: 32,
+                                  height: 32,
+                                  decoration: BoxDecoration(
+                                    color: Colors.black.withValues(alpha: 0.6),
+                                    shape: BoxShape.circle,
+                                    border: Border.all(
+                                      color: Colors.white.withValues(alpha: 0.2),
+                                      width: 0.8,
+                                    ),
+                                  ),
+                                  child: const Icon(
+                                    Icons.chevron_right,
+                                    color: Colors.white,
+                                    size: 20,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            top: 12,
+                            right: 12,
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 9,
+                                vertical: 4.5,
+                              ),
+                              decoration: BoxDecoration(
+                                color: Colors.black.withValues(alpha: 0.72),
+                                borderRadius: BorderRadius.circular(12),
+                                border: Border.all(
+                                  color: Colors.white.withValues(alpha: 0.2),
+                                  width: 0.8,
+                                ),
+                              ),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  const Icon(
+                                    Icons.photo_library_outlined,
+                                    size: 12,
+                                    color: CosColors.accentAmber,
+                                  ),
+                                  const SizedBox(width: 4),
+                                  Text(
+                                    '${_activeImageIndex + 1} / ${images.length}',
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.w800,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            bottom: 14,
+                            right: 14,
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 6,
+                                vertical: 4,
+                              ),
+                              decoration: BoxDecoration(
+                                color: Colors.black.withValues(alpha: 0.6),
+                                borderRadius: BorderRadius.circular(99),
+                              ),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: List.generate(images.length, (idx) {
+                                  final isSelected = idx == _activeImageIndex;
+                                  return AnimatedContainer(
+                                    duration: const Duration(milliseconds: 200),
+                                    margin: const EdgeInsets.symmetric(horizontal: 2.5),
+                                    width: isSelected ? 16 : 6,
+                                    height: 6,
+                                    decoration: BoxDecoration(
+                                      color: isSelected
+                                          ? CosColors.accentAmber
+                                          : Colors.white.withValues(alpha: 0.5),
+                                      borderRadius: BorderRadius.circular(99),
+                                    ),
+                                  );
+                                }),
+                              ),
+                            ),
+                          ),
+                        ],
                         Positioned(
                           left: 14,
                           bottom: 14,
@@ -259,11 +429,16 @@ class _CostumeDetailScreenState extends State<CostumeDetailScreen> {
                                     size: 12,
                                     color: CosColors.textSecondary,
                                   ),
-                                  Text(
-                                    c.sellerLocation,
-                                    style: const TextStyle(
-                                      color: CosColors.textSecondary,
-                                      fontSize: 11,
+                                  const SizedBox(width: 2),
+                                  Expanded(
+                                    child: Text(
+                                      c.sellerLocation,
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: const TextStyle(
+                                        color: CosColors.textSecondary,
+                                        fontSize: 11,
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -363,25 +538,28 @@ class _CostumeDetailScreenState extends State<CostumeDetailScreen> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              const Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'Rental Duration',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w800,
-                                      fontSize: 14,
+                              const Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Rental Duration',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w800,
+                                        fontSize: 14,
+                                      ),
                                     ),
-                                  ),
-                                  Text(
-                                    'Includes free laundry & steaming',
-                                    style: TextStyle(
-                                      color: CosColors.textSecondary,
-                                      fontSize: 11.5,
+                                    Text(
+                                      'Includes free laundry & steaming',
+                                      style: TextStyle(
+                                        color: CosColors.textSecondary,
+                                        fontSize: 11.5,
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
+                              const SizedBox(width: 8),
                               Row(
                                 children: [
                                   RoundIconBtn(
