@@ -56,16 +56,59 @@ The catalog features researched and verified cosplays from iconic Anime, Gaming,
 16. **Pretty Guardian Sailor Duo Cosplay Set (Sailor Moon & Chibi Moon)** — *Pretty Guardian Sailor Moon* `[Rent & Buy]`
     - Dual guardian set featuring Super Sailor Moon and Sailor Chibi Moon sailor fuku uniforms with matching tiaras and wand props. Multi-photo showcase.
     - Listed by: Sailor Amai (`@amai_guardian`) • Quezon City, Metro Manila
+17. **Raiden Shogun (Ei)** — *Genshin Impact* `[Rent & Buy]` ⭐ **Featured Hero**
+    - Regal Inazuma electro archon layered silk kimono, gold pauldrons, obi sash, pre-styled braided wig, and con-safe Musou Isshin naginata. Studio photoshoot showcase.
+    - Listed by: Lady Fontaine Studio (`@furina_ph`) • Pasay City, Metro Manila
+18. **2B (YoRHa No. 2 Type B)** — *NieR: Automata* `[Rent & Buy]` ⭐ **Featured Hero**
+    - Haute gothic black velvet battle dress, silver filigree chest cutout, feathered sleeves, combat blindfold, and con-safe Virtuous Contract katana. Studio photoshoot showcase.
+    - Listed by: IronForge PH (`@ironforge_cos`) • Davao City
+19. **Malenia (Blade of Miquella)** — *Elden Ring* `[Rent & Buy]` ⭐ **Featured Hero**
+    - Masterclass weathered golden winged helm, articulated gold prosthetic arm, flowing cape, and con-safe 5-foot Waterfowl Dance katana. Studio photoshoot showcase.
+    - Listed by: IronForge PH (`@ironforge_cos`) • Davao City
+20. **Cloud Strife** — *Final Fantasy VII Rebirth* `[Rent & Buy]`
+    - Indigo ribbed SOLDIER turtleneck vest, riveted pauldron harness, combat trousers, spiked wig, and foam-core Buster Sword with materia slots.
+    - Listed by: Kenji Kamado Crafts (`@kenji_props`) • Pasig City, Metro Manila
+21. **Jinx (Loose Cannon)** — *League of Legends / Arcane* `[Rent & Buy]`
+    - Striped punk crop top, bullet bandolier combat pants, neon blue braided wig, and con-safe Fishbones shark rocket launcher replica.
+    - Listed by: Kusarine & Hyou (`@nightcity_edgerunners`) • Makati City, Metro Manila
+22. **Frieren (Great Mage)** — *Frieren: Beyond Journey's End* `[Rent & Buy]`
+    - Gold-trimmed sorceress capelet, fitted blouse, striped underskirt, ruby drop earrings, elf ears, and crescent staff prop.
+    - Listed by: Miyu Idol Wardrobe (`@miyu_idols`) • Mandaluyong, Metro Manila
+23. **Gojo Satoru** — *Jujutsu Kaisen* `[Rent & Buy]` ⭐ **Featured Hero**
+    - Tailored dark navy high-collar Jujutsu High gakuran jacket, matching slacks, light-blocking blindfold visor, sunglasses, and spiked snow-white wig.
+    - Listed by: Kenji Kamado Crafts (`@kenji_props`) • Pasig City, Metro Manila
+24. **Acheron (Galaxy Ranger)** — *Honkai: Star Rail* `[Rent & Buy]`
+    - Asymmetrical dark purple rogue coat, Nihility crimson shoulder armor, thigh holsters, and con-safe 5-foot Weeping Blade odachi.
+    - Listed by: Lady Fontaine Studio (`@furina_ph`) • Pasay City, Metro Manila
+25. **Makima (Devil Hunter)** — *Chainsaw Man* `[Rent & Buy]`
+    - Heavy black wool-blend long trench coat, crisp white dress shirt, black tie, formal slacks, and signature dusty rose braided wig.
+    - Listed by: Sailor Amai (`@amai_guardian`) • Quezon City, Metro Manila
+26. **Marin Kitagawa (Shizuku Kuroe)** — *My Dress-Up Darling* `[Rent & Buy]`
+    - Victorian tiered black velvet and purple lace gothic lolita dress, scalloped white apron, choker, batwing headpiece, and styled hime-cut wig.
+    - Listed by: Miyu Idol Wardrobe (`@miyu_idols`) • Mandaluyong, Metro Manila
+27. **Miles Morales (Spider-Man)** — *Spider-Man: Into the Spider-Verse* `[Rent & Buy]`
+    - Sublimated black and red spray-painted spider suit, forest green zip hoodie, khaki shorts, mesh mask with hard lenses, and sneaker covers.
+    - Listed by: Kusarine & Hyou (`@nightcity_edgerunners`) • Makati City, Metro Manila
+28. **Geralt of Rivia** — *The Witcher* `[Rent & Buy]`
+    - Studded Wolven leatherette cuirass, faux chainmail underlay, cast metal wolf school medallion, and con-safe dual steel/silver swords.
+    - Listed by: IronForge PH (`@ironforge_cos`) • Davao City
+29. **Harley Quinn** — *DC Comics / Birds of Prey* `[Rent & Buy]`
+    - Translucent vinyl jacket with caution tape fringe sleeves, pink velvet top, cutoff shorts, dipped pigtails wig, and Good Night baseball bat.
+    - Listed by: Sailor Amai (`@amai_guardian`) • Quezon City, Metro Manila
+30. **Deadpool** — *Marvel Comics* `[Rent & Buy]`
+    - Full-body textured red and black tactical suit, hard-shell expressive mask, multi-pouch webbing belt, holsters, and twin katana back rig.
+    - Listed by: Mando Armory PH (`@thisistheway_ph`) • Cebu City
 
 ---
 
-## 📸 Multi-Cosplay Gallery & Image Carousel
+## 📸 Editorial Studio Photoshoot Photography & Image Carousels
 
-Items with multiple cosplay photographs (such as character variations, prop angles, or duo/team cosplays) feature an interactive **Image Carousel** in the Costume Detail view:
+All 30 listings feature high-resolution **studio photoshoot photography** with controlled lighting, seamless backdrops, and multi-angle carousels:
 - **Interactive Carousel**: Horizontal swipe/drag with `PageView.builder`, smooth animated dot indicators, and quick chevron skip buttons.
-- **Counter Pill & Rating Badge**: Displays the current photo index (e.g. `1 / 3`) and preserves verified cosplayer review ratings.
+- **Counter Pill & Rating Badge**: Displays the current photo index (e.g. `1 / 2` or `1 / 3`) and preserves verified cosplayer review ratings.
 - **Catalog Photo Badge**: Grid cards highlight listings with multiple available photos via a `📸 <count>` indicator in the catalog.
-- **Multi-Photo Items**: Super Sailor Moon (3 photos), Cartethyia (2 photos), Tanjiro Kamado (2 photos), David Martinez & Lucy (2 photos), Furina (2 photos), Kamado Siblings Duo (2 photos), and Sailor Duo (3 photos).
+- **Optimized Footprint**: 48 high-efficiency studio images totaling only ~7.0 MB across the entire application.
+- **Tracked in Linear**: Work executed under Linear issue [`0-28`](https://linear.app/0-iqpy/issue/0-28/expand-catalog-to-30-items-and-overhaul-listings-with-studio).
 
 ---
 

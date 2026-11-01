@@ -20,8 +20,8 @@ void main() {
       store = CosHubStore();
     });
 
-    test('Catalog contains exactly 16 verified costume items', () {
-      expect(store.catalog.length, equals(16));
+    test('Catalog contains exactly 30 verified costume items', () {
+      expect(store.catalog.length, equals(30));
       final ids = store.catalog.map((c) => c.id).toList();
       expect(ids, equals([
         'hero-1',
@@ -40,6 +40,32 @@ void main() {
         'prod-13',
         'prod-14',
         'prod-15',
+        'prod-16',
+        'prod-17',
+        'prod-18',
+        'prod-19',
+        'prod-20',
+        'prod-21',
+        'prod-22',
+        'prod-23',
+        'prod-24',
+        'prod-25',
+        'prod-26',
+        'prod-27',
+        'prod-28',
+        'prod-29',
+      ]));
+    });
+
+    test('Featured banner carousel spotlights top 5 research-backed heroes', () {
+      final featured = store.featuredCostumes;
+      expect(featured.length, equals(5));
+      expect(featured.map((c) => c.id).toList(), equals([
+        'hero-1',
+        'prod-16',
+        'prod-17',
+        'prod-18',
+        'prod-22',
       ]));
     });
 
@@ -137,6 +163,50 @@ void main() {
       expect(sailorDuo.listingMode, equals(ListingMode.both));
     });
 
+    test('prod-16 verifies Raiden Shogun as a Featured Hero', () {
+      final raiden = store.catalog.firstWhere((c) => c.id == 'prod-16');
+      expect(raiden.title, equals('Raiden Shogun Narukami Electro Kimono'));
+      expect(raiden.characterName, equals('Raiden Shogun (Ei)'));
+      expect(raiden.series, equals('Genshin Impact'));
+      expect(raiden.category, equals('Games'));
+      expect(raiden.heroImageUrl, equals('assets/images/raiden_shogun.jpg'));
+      expect(raiden.galleryImageUrls.length, equals(2));
+      expect(raiden.isFeatured, isTrue);
+    });
+
+    test('prod-17 verifies 2B as a Featured Hero', () {
+      final b2 = store.catalog.firstWhere((c) => c.id == 'prod-17');
+      expect(b2.title, equals('YoRHa No. 2 Type B Battle Dress Set'));
+      expect(b2.characterName, equals('2B (YoRHa No. 2 Type B)'));
+      expect(b2.series, equals('NieR: Automata'));
+      expect(b2.category, equals('Games'));
+      expect(b2.heroImageUrl, equals('assets/images/nier_2b.jpg'));
+      expect(b2.galleryImageUrls.length, equals(2));
+      expect(b2.isFeatured, isTrue);
+    });
+
+    test('prod-18 verifies Malenia as a Featured Hero', () {
+      final malenia = store.catalog.firstWhere((c) => c.id == 'prod-18');
+      expect(malenia.title, equals('Malenia Blade of Miquella Valkyrie Armor'));
+      expect(malenia.characterName, equals('Malenia (Blade of Miquella)'));
+      expect(malenia.series, equals('Elden Ring'));
+      expect(malenia.category, equals('Games'));
+      expect(malenia.heroImageUrl, equals('assets/images/malenia.jpg'));
+      expect(malenia.galleryImageUrls.length, equals(2));
+      expect(malenia.isFeatured, isTrue);
+    });
+
+    test('prod-22 verifies Gojo Satoru as a Featured Hero', () {
+      final gojo = store.catalog.firstWhere((c) => c.id == 'prod-22');
+      expect(gojo.title, equals('Gojo Satoru Limitless Jujutsu High Uniform'));
+      expect(gojo.characterName, equals('Gojo Satoru'));
+      expect(gojo.series, equals('Jujutsu Kaisen'));
+      expect(gojo.category, equals('Anime'));
+      expect(gojo.heroImageUrl, equals('assets/images/gojo_satoru.jpg'));
+      expect(gojo.galleryImageUrls.length, equals(2));
+      expect(gojo.isFeatured, isTrue);
+    });
+
     test('Listing mode filtering functions accurately', () {
       expect(store.selectedModeFilter, equals('All'));
 
@@ -168,7 +238,7 @@ void main() {
       expect(initialItem.heroImageUrl, equals('assets/images/cartethyia.jpg'));
     });
 
-    test('All 16 catalog hero and gallery asset files exist on local disk with valid size', () {
+    test('All 30 catalog hero and gallery asset files exist on local disk with valid size', () {
       for (final item in store.catalog) {
         expect(item.heroImageUrl, isNotNull);
         expect(item.heroImageUrl!.startsWith('assets/images/'), isTrue);
