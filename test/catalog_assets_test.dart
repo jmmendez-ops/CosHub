@@ -75,7 +75,7 @@ void main() {
       expect(hero.characterName, equals('Cartethyia (Fleurdelys)'));
       expect(hero.series, equals('Wuthering Waves'));
       expect(hero.category, equals('Anime'));
-      expect(hero.heroImageUrl, equals('assets/images/events/cartethyia.jpg'));
+      expect(hero.heroImageUrl, equals('assets/images/studio/cartethyia.jpg'));
       expect(hero.listingMode, equals(ListingMode.both));
       expect(hero.canBuy, isTrue);
       expect(hero.canRent, isTrue);
@@ -235,7 +235,7 @@ void main() {
       expect(initialItem.id, equals('hero-1'));
       expect(initialItem.characterName, equals('Cartethyia (Fleurdelys)'));
       expect(initialItem.series, equals('Wuthering Waves'));
-      expect(initialItem.heroImageUrl, equals('assets/images/events/cartethyia.jpg'));
+      expect(initialItem.heroImageUrl, equals('assets/images/studio/cartethyia.jpg'));
     });
 
     test('All 30 catalog hero and gallery asset files exist on local disk with valid size', () {
@@ -276,7 +276,7 @@ void main() {
       final Image imageWidget = tester.widget(imageFinder);
       expect(imageWidget.image, isA<AssetImage>());
       final AssetImage assetImage = imageWidget.image as AssetImage;
-      expect(assetImage.assetName, equals('assets/images/events/cartethyia.jpg'));
+      expect(assetImage.assetName, equals('assets/images/studio/cartethyia.jpg'));
     });
 
     testWidgets('CostumeGridCard renders RENT ONLY badge for rentOnly items', (WidgetTester tester) async {
@@ -327,7 +327,7 @@ void main() {
       expect(find.text('Buy now'), findsOneWidget);
     });
 
-    testWidgets('LandingScreen uses assets/images/events/cartethyia.jpg', (WidgetTester tester) async {
+    testWidgets('LandingScreen uses assets/images/studio/cartethyia.jpg', (WidgetTester tester) async {
       await tester.pumpWidget(
         MaterialApp(
           home: LandingScreen(
@@ -341,7 +341,7 @@ void main() {
       final Image imageWidget = tester.widget(imageFinder.first);
       expect(imageWidget.image, isA<AssetImage>());
       final AssetImage assetImage = imageWidget.image as AssetImage;
-      expect(assetImage.assetName, equals('assets/images/events/cartethyia.jpg'));
+      expect(assetImage.assetName, equals('assets/images/studio/cartethyia.jpg'));
     });
 
     test('Payment options setup updates and persists preferences', () async {

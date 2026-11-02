@@ -59,10 +59,10 @@ class CosHubStore extends ChangeNotifier {
       listingMode: ListingMode.both,
       gradientColors: [Color(0xFF18202C), Color(0xFF324B6B)],
       motifIcon: Icons.auto_awesome_outlined,
-      heroImageUrl: 'assets/images/events/cartethyia.jpg',
+      heroImageUrl: 'assets/images/studio/cartethyia.jpg',
       galleryImageUrls: [
-        'assets/images/events/cartethyia.jpg',
-        'assets/images/events/cartethyia_stage.jpg',
+        'assets/images/studio/cartethyia.jpg',
+        'assets/images/studio/cartethyia_pose.jpg',
       ],
       inclusions: [
         'Ethereal White & Sea-Blue Layered Draped Gown',
@@ -1023,10 +1023,10 @@ class CosHubStore extends ChangeNotifier {
         listingMode: ListingMode.both,
         gradientColors: [Color(0xFF18202C), Color(0xFF324B6B)],
         motifIcon: Icons.auto_awesome_outlined,
-        heroImageUrl: 'assets/images/events/cartethyia.jpg',
+        heroImageUrl: 'assets/images/studio/cartethyia.jpg',
         galleryImageUrls: [
-          'assets/images/events/cartethyia.jpg',
-          'assets/images/events/cartethyia_stage.jpg',
+          'assets/images/studio/cartethyia.jpg',
+          'assets/images/studio/cartethyia_pose.jpg',
         ],
         inclusions: [
           'Ethereal White & Sea-Blue Layered Draped Gown',
