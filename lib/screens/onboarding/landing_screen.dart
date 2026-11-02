@@ -61,7 +61,7 @@ class LandingScreen extends StatelessWidget {
                       Opacity(
                         opacity: 0.38,
                         child: Image.asset(
-                          'assets/images/cartethyia.jpg',
+                          'assets/images/events/cartethyia.jpg',
                           fit: BoxFit.cover,
                           errorBuilder: (_, __, ___) => const SizedBox.shrink(),
                         ),

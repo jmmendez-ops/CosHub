@@ -101,13 +101,15 @@ The catalog features researched and verified cosplays from iconic Anime, Gaming,
 
 ---
 
-## 📸 Editorial Studio Photoshoot Photography & Image Carousels
+## 📸 Photography Asset Organization & Multi-Angle Carousels
 
-All 30 listings feature high-resolution **studio photoshoot photography** with controlled lighting, seamless backdrops, and multi-angle carousels:
+All 30 listings feature photography organized into clear editorial tiers:
+- **Studio Editorial Photography (`assets/images/studio/`)**: High-fashion, controlled-lighting photoshoot portraits and full-body action/combat poses on seamless backdrops (e.g., Raiden Shogun Narukami Electro Kimono dual-photo showcase).
+- **Convention & Stage Photography (`assets/images/events/`)**: Authentic on-site convention hall, stage showcase, and community event photography.
 - **Interactive Carousel**: Horizontal swipe/drag with `PageView.builder`, smooth animated dot indicators, and quick chevron skip buttons.
 - **Counter Pill & Rating Badge**: Displays the current photo index (e.g. `1 / 2` or `1 / 3`) and preserves verified cosplayer review ratings.
 - **Catalog Photo Badge**: Grid cards highlight listings with multiple available photos via a `📸 <count>` indicator in the catalog.
-- **Optimized Footprint**: 48 high-efficiency studio images totaling only ~7.0 MB across the entire application.
+- **Optimized Footprint**: 48 high-efficiency images totaling only ~7.0 MB across the entire application.
 - **Tracked in Linear**: Work executed under Linear issue [`0-28`](https://linear.app/0-iqpy/issue/0-28/expand-catalog-to-30-items-and-overhaul-listings-with-studio).
 
 ---

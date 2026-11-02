@@ -75,7 +75,7 @@ void main() {
       expect(hero.characterName, equals('Cartethyia (Fleurdelys)'));
       expect(hero.series, equals('Wuthering Waves'));
       expect(hero.category, equals('Anime'));
-      expect(hero.heroImageUrl, equals('assets/images/cartethyia.jpg'));
+      expect(hero.heroImageUrl, equals('assets/images/events/cartethyia.jpg'));
       expect(hero.listingMode, equals(ListingMode.both));
       expect(hero.canBuy, isTrue);
       expect(hero.canRent, isTrue);
@@ -87,7 +87,7 @@ void main() {
       expect(furina.title, equals('Furina Archon Fontaine Gown & Wig'));
       expect(furina.characterName, equals('Furina (Archon of Fontaine)'));
       expect(furina.series, equals('Genshin Impact'));
-      expect(furina.heroImageUrl, equals('assets/images/furina.jpg'));
+      expect(furina.heroImageUrl, equals('assets/images/events/furina.jpg'));
       expect(furina.listingMode, equals(ListingMode.both));
     });
 
@@ -95,7 +95,7 @@ void main() {
       final rengoku = store.catalog.firstWhere((c) => c.id == 'prod-8');
       expect(rengoku.characterName, equals('Kyojuro Rengoku (Flame Hashira)'));
       expect(rengoku.series, equals('Demon Slayer: Kimetsu no Yaiba'));
-      expect(rengoku.heroImageUrl, equals('assets/images/rengoku.jpg'));
+      expect(rengoku.heroImageUrl, equals('assets/images/events/rengoku.jpg'));
       expect(rengoku.listingMode, equals(ListingMode.both));
     });
 
@@ -103,7 +103,7 @@ void main() {
       final serenity = store.catalog.firstWhere((c) => c.id == 'prod-9');
       expect(serenity.characterName, equals('Princess Serenity'));
       expect(serenity.series, equals('Pretty Guardian Sailor Moon'));
-      expect(serenity.heroImageUrl, equals('assets/images/princess_serenity.jpg'));
+      expect(serenity.heroImageUrl, equals('assets/images/events/princess_serenity.jpg'));
       expect(serenity.listingMode, equals(ListingMode.rentOnly));
       expect(serenity.canRent, isTrue);
       expect(serenity.canBuy, isFalse);
@@ -113,7 +113,7 @@ void main() {
       final emilia = store.catalog.firstWhere((c) => c.id == 'prod-10');
       expect(emilia.characterName, equals('Emilia'));
       expect(emilia.series, equals('Re:Zero - Starting Life in Another World'));
-      expect(emilia.heroImageUrl, equals('assets/images/emilia.jpg'));
+      expect(emilia.heroImageUrl, equals('assets/images/events/emilia.jpg'));
       expect(emilia.listingMode, equals(ListingMode.both));
     });
 
@@ -121,7 +121,7 @@ void main() {
       final zenitsu = store.catalog.firstWhere((c) => c.id == 'prod-11');
       expect(zenitsu.characterName, equals('Zenitsu Agatsuma'));
       expect(zenitsu.series, equals('Demon Slayer: Kimetsu no Yaiba'));
-      expect(zenitsu.heroImageUrl, equals('assets/images/zenitsu.jpg'));
+      expect(zenitsu.heroImageUrl, equals('assets/images/events/zenitsu.jpg'));
       expect(zenitsu.listingMode, equals(ListingMode.buyOnly));
       expect(zenitsu.canBuy, isTrue);
       expect(zenitsu.canRent, isFalse);
@@ -131,14 +131,14 @@ void main() {
       final nico = store.catalog.firstWhere((c) => c.id == 'prod-12');
       expect(nico.characterName, equals('Nico Yazawa'));
       expect(nico.series, equals('Love Live! School Idol Project'));
-      expect(nico.heroImageUrl, equals('assets/images/nico_yazawa.jpg'));
+      expect(nico.heroImageUrl, equals('assets/images/events/nico_yazawa.jpg'));
     });
 
     test('prod-13 verifies V from Cyberpunk 2077', () {
       final v = store.catalog.firstWhere((c) => c.id == 'prod-13');
       expect(v.characterName, equals('V (Cyberpunk Mercenary)'));
       expect(v.series, equals('Cyberpunk 2077'));
-      expect(v.heroImageUrl, equals('assets/images/v_cyberpunk.jpg'));
+      expect(v.heroImageUrl, equals('assets/images/events/v_cyberpunk.jpg'));
     });
 
     test('prod-14 verifies Kamado Siblings Duo Cosplay Set', () {
@@ -146,7 +146,7 @@ void main() {
       expect(duo.title, equals('Kamado Siblings Duo Cosplay Set'));
       expect(duo.characterName, equals('Tanjiro & Nezuko Kamado (Duo)'));
       expect(duo.series, equals('Demon Slayer: Kimetsu no Yaiba'));
-      expect(duo.heroImageUrl, equals('assets/images/tanjiro_nezuko.jpg'));
+      expect(duo.heroImageUrl, equals('assets/images/events/tanjiro_nezuko.jpg'));
       expect(duo.galleryImageUrls.length, equals(2));
       expect(duo.carouselImages.length, equals(2));
       expect(duo.listingMode, equals(ListingMode.both));
@@ -157,7 +157,7 @@ void main() {
       expect(sailorDuo.title, equals('Pretty Guardian Sailor Duo Cosplay Set'));
       expect(sailorDuo.characterName, equals('Sailor Moon & Sailor Chibi Moon (Duo)'));
       expect(sailorDuo.series, equals('Pretty Guardian Sailor Moon'));
-      expect(sailorDuo.heroImageUrl, equals('assets/images/sailor_duo.jpg'));
+      expect(sailorDuo.heroImageUrl, equals('assets/images/events/sailor_duo.jpg'));
       expect(sailorDuo.galleryImageUrls.length, equals(3));
       expect(sailorDuo.carouselImages.length, equals(3));
       expect(sailorDuo.listingMode, equals(ListingMode.both));
@@ -169,7 +169,7 @@ void main() {
       expect(raiden.characterName, equals('Raiden Shogun (Ei)'));
       expect(raiden.series, equals('Genshin Impact'));
       expect(raiden.category, equals('Games'));
-      expect(raiden.heroImageUrl, equals('assets/images/raiden_shogun.jpg'));
+      expect(raiden.heroImageUrl, equals('assets/images/studio/raiden_shogun.jpg'));
       expect(raiden.galleryImageUrls.length, equals(2));
       expect(raiden.isFeatured, isTrue);
     });
@@ -180,7 +180,7 @@ void main() {
       expect(b2.characterName, equals('2B (YoRHa No. 2 Type B)'));
       expect(b2.series, equals('NieR: Automata'));
       expect(b2.category, equals('Games'));
-      expect(b2.heroImageUrl, equals('assets/images/nier_2b.jpg'));
+      expect(b2.heroImageUrl, equals('assets/images/events/nier_2b.jpg'));
       expect(b2.galleryImageUrls.length, equals(2));
       expect(b2.isFeatured, isTrue);
     });
@@ -191,7 +191,7 @@ void main() {
       expect(malenia.characterName, equals('Malenia (Blade of Miquella)'));
       expect(malenia.series, equals('Elden Ring'));
       expect(malenia.category, equals('Games'));
-      expect(malenia.heroImageUrl, equals('assets/images/malenia.jpg'));
+      expect(malenia.heroImageUrl, equals('assets/images/events/malenia.jpg'));
       expect(malenia.galleryImageUrls.length, equals(2));
       expect(malenia.isFeatured, isTrue);
     });
@@ -202,7 +202,7 @@ void main() {
       expect(gojo.characterName, equals('Gojo Satoru'));
       expect(gojo.series, equals('Jujutsu Kaisen'));
       expect(gojo.category, equals('Anime'));
-      expect(gojo.heroImageUrl, equals('assets/images/gojo_satoru.jpg'));
+      expect(gojo.heroImageUrl, equals('assets/images/events/gojo_satoru.jpg'));
       expect(gojo.galleryImageUrls.length, equals(2));
       expect(gojo.isFeatured, isTrue);
     });
@@ -235,7 +235,7 @@ void main() {
       expect(initialItem.id, equals('hero-1'));
       expect(initialItem.characterName, equals('Cartethyia (Fleurdelys)'));
       expect(initialItem.series, equals('Wuthering Waves'));
-      expect(initialItem.heroImageUrl, equals('assets/images/cartethyia.jpg'));
+      expect(initialItem.heroImageUrl, equals('assets/images/events/cartethyia.jpg'));
     });
 
     test('All 30 catalog hero and gallery asset files exist on local disk with valid size', () {
@@ -276,7 +276,7 @@ void main() {
       final Image imageWidget = tester.widget(imageFinder);
       expect(imageWidget.image, isA<AssetImage>());
       final AssetImage assetImage = imageWidget.image as AssetImage;
-      expect(assetImage.assetName, equals('assets/images/cartethyia.jpg'));
+      expect(assetImage.assetName, equals('assets/images/events/cartethyia.jpg'));
     });
 
     testWidgets('CostumeGridCard renders RENT ONLY badge for rentOnly items', (WidgetTester tester) async {
@@ -327,7 +327,7 @@ void main() {
       expect(find.text('Buy now'), findsOneWidget);
     });
 
-    testWidgets('LandingScreen uses assets/images/cartethyia.jpg', (WidgetTester tester) async {
+    testWidgets('LandingScreen uses assets/images/events/cartethyia.jpg', (WidgetTester tester) async {
       await tester.pumpWidget(
         MaterialApp(
           home: LandingScreen(
@@ -341,7 +341,7 @@ void main() {
       final Image imageWidget = tester.widget(imageFinder.first);
       expect(imageWidget.image, isA<AssetImage>());
       final AssetImage assetImage = imageWidget.image as AssetImage;
-      expect(assetImage.assetName, equals('assets/images/cartethyia.jpg'));
+      expect(assetImage.assetName, equals('assets/images/events/cartethyia.jpg'));
     });
 
     test('Payment options setup updates and persists preferences', () async {

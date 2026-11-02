@@ -59,10 +59,10 @@ class CosHubStore extends ChangeNotifier {
       listingMode: ListingMode.both,
       gradientColors: [Color(0xFF18202C), Color(0xFF324B6B)],
       motifIcon: Icons.auto_awesome_outlined,
-      heroImageUrl: 'assets/images/cartethyia.jpg',
+      heroImageUrl: 'assets/images/events/cartethyia.jpg',
       galleryImageUrls: [
-        'assets/images/cartethyia.jpg',
-        'assets/images/cartethyia_stage.jpg',
+        'assets/images/events/cartethyia.jpg',
+        'assets/images/events/cartethyia_stage.jpg',
       ],
       inclusions: [
         'Ethereal White & Sea-Blue Layered Draped Gown',
@@ -92,11 +92,11 @@ class CosHubStore extends ChangeNotifier {
       listingMode: ListingMode.both,
       gradientColors: [Color(0xFF5A3386), Color(0xFFBE6498)],
       motifIcon: Icons.dark_mode_outlined,
-      heroImageUrl: 'assets/images/sailor_moon.jpg',
+      heroImageUrl: 'assets/images/events/sailor_moon.jpg',
       galleryImageUrls: [
-        'assets/images/sailor_moon.jpg',
-        'assets/images/sailor_moon_scope.jpg',
-        'assets/images/sailor_duo.jpg',
+        'assets/images/events/sailor_moon.jpg',
+        'assets/images/events/sailor_moon_scope.jpg',
+        'assets/images/events/sailor_duo.jpg',
       ],
       inclusions: [
         'Sailor Bodice with Gold Heart Brooch',
@@ -126,10 +126,10 @@ class CosHubStore extends ChangeNotifier {
       listingMode: ListingMode.both,
       gradientColors: [Color(0xFF7B1818), Color(0xFFB32B2B)],
       motifIcon: Icons.colorize_outlined,
-      heroImageUrl: 'assets/images/tanjiro.jpg',
+      heroImageUrl: 'assets/images/events/tanjiro.jpg',
       galleryImageUrls: [
-        'assets/images/tanjiro.jpg',
-        'assets/images/tanjiro_nezuko.jpg',
+        'assets/images/events/tanjiro.jpg',
+        'assets/images/events/tanjiro_nezuko.jpg',
       ],
       inclusions: [
         'Iconic Green & Black Checkered Haori Coat',
@@ -159,7 +159,7 @@ class CosHubStore extends ChangeNotifier {
       listingMode: ListingMode.rentOnly,
       gradientColors: [Color(0xFF475767), Color(0xFF6B7B8E)],
       motifIcon: Icons.shield_outlined,
-      heroImageUrl: 'assets/images/daedric.jpg',
+      heroImageUrl: 'assets/images/events/daedric.jpg',
       inclusions: [
         'Horned Daedric Full Helm with Crimson Glow Slits',
         'Articulated Spiked EVA Foam Pauldrons & Cuirass',
@@ -187,10 +187,10 @@ class CosHubStore extends ChangeNotifier {
       listingMode: ListingMode.both,
       gradientColors: [Color(0xFF0E6868), Color(0xFF19A98B)],
       motifIcon: Icons.directions_bike_outlined,
-      heroImageUrl: 'assets/images/david_martinez.jpg',
+      heroImageUrl: 'assets/images/events/david_martinez.jpg',
       galleryImageUrls: [
-        'assets/images/david_martinez.jpg',
-        'assets/images/david_lucy_duo.jpg',
+        'assets/images/events/david_martinez.jpg',
+        'assets/images/events/david_lucy_duo.jpg',
       ],
       inclusions: [
         'Screen-Accurate Neon Yellow EMT Bomber Jacket',
@@ -220,7 +220,7 @@ class CosHubStore extends ChangeNotifier {
       listingMode: ListingMode.both,
       gradientColors: [Color(0xFF8338EC), Color(0xFFFF006E)],
       motifIcon: Icons.auto_awesome,
-      heroImageUrl: 'assets/images/kotori.jpg',
+      heroImageUrl: 'assets/images/events/kotori.jpg',
       inclusions: [
         'Tiered Ruffle Mint & Lavender Idol Stage Dress',
         'Detachable Crinoline Petticoat & Satin Ribbon Belt',
@@ -249,7 +249,7 @@ class CosHubStore extends ChangeNotifier {
       listingMode: ListingMode.both,
       gradientColors: [Color(0xFF2B2D42), Color(0xFF8D99AE)],
       motifIcon: Icons.rocket_launch_outlined,
-      heroImageUrl: 'assets/images/mandalorian.jpg',
+      heroImageUrl: 'assets/images/events/mandalorian.jpg',
       inclusions: [
         'Chrome Beskar Full Helmet with Dark T-Visor',
         'Textured Durasteel / Beskar Chest & Shoulder Plates',
@@ -278,10 +278,10 @@ class CosHubStore extends ChangeNotifier {
       listingMode: ListingMode.both,
       gradientColors: [Color(0xFF1E3A8A), Color(0xFF38BDF8)],
       motifIcon: Icons.water_drop_outlined,
-      heroImageUrl: 'assets/images/furina.jpg',
+      heroImageUrl: 'assets/images/events/furina.jpg',
       galleryImageUrls: [
-        'assets/images/furina.jpg',
-        'assets/images/furina_full.jpg',
+        'assets/images/events/furina.jpg',
+        'assets/images/events/furina_full.jpg',
       ],
       inclusions: [
         'Tailored Victorian Blue Frock Coat & Vest',
@@ -311,7 +311,7 @@ class CosHubStore extends ChangeNotifier {
       listingMode: ListingMode.both,
       gradientColors: [Color(0xFFDC2626), Color(0xFFF59E0B)],
       motifIcon: Icons.local_fire_department_outlined,
-      heroImageUrl: 'assets/images/rengoku.jpg',
+      heroImageUrl: 'assets/images/events/rengoku.jpg',
       inclusions: [
         'Flame-Patterned Gradient Tailored Haori Coat',
         'Corps Gakuran Uniform Jacket & Hakama Pants',
@@ -340,7 +340,7 @@ class CosHubStore extends ChangeNotifier {
       listingMode: ListingMode.rentOnly,
       gradientColors: [Color(0xFFE2E8F0), Color(0xFFFDE68A)],
       motifIcon: Icons.brightness_3_outlined,
-      heroImageUrl: 'assets/images/princess_serenity.jpg',
+      heroImageUrl: 'assets/images/events/princess_serenity.jpg',
       inclusions: [
         'Hand-Beaded Silk Empire-Waist Chiffon Royal Gown',
         'Golden Imperial Ring Embroidered Corset Bustier',
@@ -369,7 +369,7 @@ class CosHubStore extends ChangeNotifier {
       listingMode: ListingMode.both,
       gradientColors: [Color(0xFF6B21A8), Color(0xFFA855F7)],
       motifIcon: Icons.auto_awesome,
-      heroImageUrl: 'assets/images/emilia.jpg',
+      heroImageUrl: 'assets/images/events/emilia.jpg',
       inclusions: [
         'White & Violet Flared Sorceress Robe',
         'Pleated Underskirt & Fitted Bodice',
@@ -398,7 +398,7 @@ class CosHubStore extends ChangeNotifier {
       listingMode: ListingMode.buyOnly,
       gradientColors: [Color(0xFFD97706), Color(0xFFFBBF24)],
       motifIcon: Icons.flash_on_outlined,
-      heroImageUrl: 'assets/images/zenitsu.jpg',
+      heroImageUrl: 'assets/images/events/zenitsu.jpg',
       inclusions: [
         'Yellow & Orange Triangle-Gradient Haori Coat',
         'Black Demon Slayer Corps Uniform & White Belt',
@@ -426,7 +426,7 @@ class CosHubStore extends ChangeNotifier {
       listingMode: ListingMode.both,
       gradientColors: [Color(0xFFBE185D), Color(0xFFFB7185)],
       motifIcon: Icons.favorite_outline,
-      heroImageUrl: 'assets/images/nico_yazawa.jpg',
+      heroImageUrl: 'assets/images/events/nico_yazawa.jpg',
       inclusions: [
         'Pink Frilled Idol Stage Corset Dress',
         'Multi-Layer Tulle Crinoline Underskirt',
@@ -454,7 +454,7 @@ class CosHubStore extends ChangeNotifier {
       listingMode: ListingMode.both,
       gradientColors: [Color(0xFF047857), Color(0xFF10B981)],
       motifIcon: Icons.sports_kabaddi_outlined,
-      heroImageUrl: 'assets/images/v_cyberpunk.jpg',
+      heroImageUrl: 'assets/images/events/v_cyberpunk.jpg',
       inclusions: [
         'Light-Up Cyan LED High-Collar Samurai Bomber Jacket',
         'Tactical Mercenary Combat Pants & Knee Pads',
@@ -483,10 +483,10 @@ class CosHubStore extends ChangeNotifier {
       listingMode: ListingMode.both,
       gradientColors: [Color(0xFF0F3B2E), Color(0xFFC2410C)],
       motifIcon: Icons.people_outline,
-      heroImageUrl: 'assets/images/tanjiro_nezuko.jpg',
+      heroImageUrl: 'assets/images/events/tanjiro_nezuko.jpg',
       galleryImageUrls: [
-        'assets/images/tanjiro_nezuko.jpg',
-        'assets/images/tanjiro.jpg',
+        'assets/images/events/tanjiro_nezuko.jpg',
+        'assets/images/events/tanjiro.jpg',
       ],
       inclusions: [
         'Tanjiro Checkered Haori & Corps Gakuran Uniform',
@@ -516,11 +516,11 @@ class CosHubStore extends ChangeNotifier {
       listingMode: ListingMode.both,
       gradientColors: [Color(0xFF701A75), Color(0xFFF43F5E)],
       motifIcon: Icons.stars_outlined,
-      heroImageUrl: 'assets/images/sailor_duo.jpg',
+      heroImageUrl: 'assets/images/events/sailor_duo.jpg',
       galleryImageUrls: [
-        'assets/images/sailor_duo.jpg',
-        'assets/images/sailor_moon.jpg',
-        'assets/images/sailor_moon_scope.jpg',
+        'assets/images/events/sailor_duo.jpg',
+        'assets/images/events/sailor_moon.jpg',
+        'assets/images/events/sailor_moon_scope.jpg',
       ],
       inclusions: [
         'Adult Super Sailor Moon Sailor Bodice, Skirt & Brooch',
@@ -550,10 +550,10 @@ class CosHubStore extends ChangeNotifier {
       listingMode: ListingMode.both,
       gradientColors: [Color(0xFF4A148C), Color(0xFF7B1FA2)],
       motifIcon: Icons.bolt,
-      heroImageUrl: 'assets/images/raiden_shogun.jpg',
+      heroImageUrl: 'assets/images/studio/raiden_shogun.jpg',
       galleryImageUrls: [
-        'assets/images/raiden_shogun.jpg',
-        'assets/images/raiden_shogun_pose.jpg',
+        'assets/images/studio/raiden_shogun.jpg',
+        'assets/images/studio/raiden_shogun_pose.jpg',
       ],
       inclusions: [
         'Embroidered Violet & Gold Silk Layered Kimono',
@@ -584,10 +584,10 @@ class CosHubStore extends ChangeNotifier {
       listingMode: ListingMode.both,
       gradientColors: [Color(0xFF212121), Color(0xFF616161)],
       motifIcon: Icons.visibility_off_outlined,
-      heroImageUrl: 'assets/images/nier_2b.jpg',
+      heroImageUrl: 'assets/images/events/nier_2b.jpg',
       galleryImageUrls: [
-        'assets/images/nier_2b.jpg',
-        'assets/images/nier_2b_katana.jpg',
+        'assets/images/events/nier_2b.jpg',
+        'assets/images/events/nier_2b_katana.jpg',
       ],
       inclusions: [
         'Embroidered Black Velvet High-Slit Battle Dress',
@@ -618,10 +618,10 @@ class CosHubStore extends ChangeNotifier {
       listingMode: ListingMode.both,
       gradientColors: [Color(0xFFB45309), Color(0xFFD97706)],
       motifIcon: Icons.shield,
-      heroImageUrl: 'assets/images/malenia.jpg',
+      heroImageUrl: 'assets/images/events/malenia.jpg',
       galleryImageUrls: [
-        'assets/images/malenia.jpg',
-        'assets/images/malenia_helm.jpg',
+        'assets/images/events/malenia.jpg',
+        'assets/images/events/malenia_helm.jpg',
       ],
       inclusions: [
         'Hand-Weathered Golden Winged Valkyrie Full Helm',
@@ -652,10 +652,10 @@ class CosHubStore extends ChangeNotifier {
       listingMode: ListingMode.both,
       gradientColors: [Color(0xFF1E293B), Color(0xFF334155)],
       motifIcon: Icons.sports_kabaddi,
-      heroImageUrl: 'assets/images/cloud_strife.jpg',
+      heroImageUrl: 'assets/images/events/cloud_strife.jpg',
       galleryImageUrls: [
-        'assets/images/cloud_strife.jpg',
-        'assets/images/cloud_buster_sword.jpg',
+        'assets/images/events/cloud_strife.jpg',
+        'assets/images/events/cloud_buster_sword.jpg',
       ],
       inclusions: [
         'Ribbed Navy SOLDIER Sleeveless Knit Turtleneck',
@@ -685,10 +685,10 @@ class CosHubStore extends ChangeNotifier {
       listingMode: ListingMode.both,
       gradientColors: [Color(0xFFBE185D), Color(0xFF06B6D4)],
       motifIcon: Icons.whatshot,
-      heroImageUrl: 'assets/images/jinx_arcane.jpg',
+      heroImageUrl: 'assets/images/events/jinx_arcane.jpg',
       galleryImageUrls: [
-        'assets/images/jinx_arcane.jpg',
-        'assets/images/jinx_fishbones.jpg',
+        'assets/images/events/jinx_arcane.jpg',
+        'assets/images/events/jinx_fishbones.jpg',
       ],
       inclusions: [
         'Burgundy & Black Striped Punk Crop Top & Halter',
@@ -718,10 +718,10 @@ class CosHubStore extends ChangeNotifier {
       listingMode: ListingMode.both,
       gradientColors: [Color(0xFF047857), Color(0xFF10B981)],
       motifIcon: Icons.auto_awesome,
-      heroImageUrl: 'assets/images/frieren.jpg',
+      heroImageUrl: 'assets/images/events/frieren.jpg',
       galleryImageUrls: [
-        'assets/images/frieren.jpg',
-        'assets/images/frieren_wand.jpg',
+        'assets/images/events/frieren.jpg',
+        'assets/images/events/frieren_wand.jpg',
       ],
       inclusions: [
         'Gold-Accented White Flared Sorceress Capelet',
@@ -751,10 +751,10 @@ class CosHubStore extends ChangeNotifier {
       listingMode: ListingMode.both,
       gradientColors: [Color(0xFF1E3A8A), Color(0xFF60A5FA)],
       motifIcon: Icons.remove_red_eye_outlined,
-      heroImageUrl: 'assets/images/gojo_satoru.jpg',
+      heroImageUrl: 'assets/images/events/gojo_satoru.jpg',
       galleryImageUrls: [
-        'assets/images/gojo_satoru.jpg',
-        'assets/images/gojo_void.jpg',
+        'assets/images/events/gojo_satoru.jpg',
+        'assets/images/events/gojo_void.jpg',
       ],
       inclusions: [
         'Tailored High-Collar Dark Navy Jujutsu High Jacket',
@@ -785,10 +785,10 @@ class CosHubStore extends ChangeNotifier {
       listingMode: ListingMode.both,
       gradientColors: [Color(0xFF581C87), Color(0xFFBE123C)],
       motifIcon: Icons.dark_mode_outlined,
-      heroImageUrl: 'assets/images/acheron.jpg',
+      heroImageUrl: 'assets/images/events/acheron.jpg',
       galleryImageUrls: [
-        'assets/images/acheron.jpg',
-        'assets/images/acheron_blade.jpg',
+        'assets/images/events/acheron.jpg',
+        'assets/images/events/acheron_blade.jpg',
       ],
       inclusions: [
         'Asymmetrical Dark Purple Rogue Longcoat & Halter',
@@ -818,10 +818,10 @@ class CosHubStore extends ChangeNotifier {
       listingMode: ListingMode.both,
       gradientColors: [Color(0xFF991B1B), Color(0xFF1F2937)],
       motifIcon: Icons.pets,
-      heroImageUrl: 'assets/images/makima.jpg',
+      heroImageUrl: 'assets/images/events/makima.jpg',
       galleryImageUrls: [
-        'assets/images/makima.jpg',
-        'assets/images/makima_suit.jpg',
+        'assets/images/events/makima.jpg',
+        'assets/images/events/makima_suit.jpg',
       ],
       inclusions: [
         'Heavy Black Public Safety Wool-Blend Long Trench Coat',
@@ -851,10 +851,10 @@ class CosHubStore extends ChangeNotifier {
       listingMode: ListingMode.both,
       gradientColors: [Color(0xFF3B0764), Color(0xFF7E22CE)],
       motifIcon: Icons.auto_awesome_mosaic,
-      heroImageUrl: 'assets/images/marin_kuroe.jpg',
+      heroImageUrl: 'assets/images/events/marin_kuroe.jpg',
       galleryImageUrls: [
-        'assets/images/marin_kuroe.jpg',
-        'assets/images/marin_kuroe_dress.jpg',
+        'assets/images/events/marin_kuroe.jpg',
+        'assets/images/events/marin_kuroe_dress.jpg',
       ],
       inclusions: [
         'Tiered Ruffle Black Velvet & Purple Lace Victorian Gown',
@@ -884,10 +884,10 @@ class CosHubStore extends ChangeNotifier {
       listingMode: ListingMode.both,
       gradientColors: [Color(0xFFDC2626), Color(0xFF0F172A)],
       motifIcon: Icons.flash_on,
-      heroImageUrl: 'assets/images/miles_morales.jpg',
+      heroImageUrl: 'assets/images/events/miles_morales.jpg',
       galleryImageUrls: [
-        'assets/images/miles_morales.jpg',
-        'assets/images/miles_spider_pose.jpg',
+        'assets/images/events/miles_morales.jpg',
+        'assets/images/events/miles_spider_pose.jpg',
       ],
       inclusions: [
         'Sublimated 4-Way Stretch Black & Crimson Spider Suit',
@@ -917,10 +917,10 @@ class CosHubStore extends ChangeNotifier {
       listingMode: ListingMode.both,
       gradientColors: [Color(0xFF422006), Color(0xFF713F12)],
       motifIcon: Icons.security,
-      heroImageUrl: 'assets/images/geralt_witcher.jpg',
+      heroImageUrl: 'assets/images/events/geralt_witcher.jpg',
       galleryImageUrls: [
-        'assets/images/geralt_witcher.jpg',
-        'assets/images/geralt_swords.jpg',
+        'assets/images/events/geralt_witcher.jpg',
+        'assets/images/events/geralt_swords.jpg',
       ],
       inclusions: [
         'Studded Leatherette Cuirass with Red Gusset Accents',
@@ -950,10 +950,10 @@ class CosHubStore extends ChangeNotifier {
       listingMode: ListingMode.both,
       gradientColors: [Color(0xFFDB2777), Color(0xFFFACC15)],
       motifIcon: Icons.celebration,
-      heroImageUrl: 'assets/images/harley_quinn.jpg',
+      heroImageUrl: 'assets/images/events/harley_quinn.jpg',
       galleryImageUrls: [
-        'assets/images/harley_quinn.jpg',
-        'assets/images/harley_bat.jpg',
+        'assets/images/events/harley_quinn.jpg',
+        'assets/images/events/harley_bat.jpg',
       ],
       inclusions: [
         'Clear Vinyl Jacket with Multi-Color Tinsel Fringe Sleeves',
@@ -983,10 +983,10 @@ class CosHubStore extends ChangeNotifier {
       listingMode: ListingMode.both,
       gradientColors: [Color(0xFF991B1B), Color(0xFF18181B)],
       motifIcon: Icons.sentiment_very_satisfied,
-      heroImageUrl: 'assets/images/deadpool.jpg',
+      heroImageUrl: 'assets/images/events/deadpool.jpg',
       galleryImageUrls: [
-        'assets/images/deadpool.jpg',
-        'assets/images/deadpool_katanas.jpg',
+        'assets/images/events/deadpool.jpg',
+        'assets/images/events/deadpool_katanas.jpg',
       ],
       inclusions: [
         'Weathered Textured Spandex & Faux-Leather Full Body Suit',
@@ -1023,10 +1023,10 @@ class CosHubStore extends ChangeNotifier {
         listingMode: ListingMode.both,
         gradientColors: [Color(0xFF18202C), Color(0xFF324B6B)],
         motifIcon: Icons.auto_awesome_outlined,
-        heroImageUrl: 'assets/images/cartethyia.jpg',
+        heroImageUrl: 'assets/images/events/cartethyia.jpg',
         galleryImageUrls: [
-          'assets/images/cartethyia.jpg',
-          'assets/images/cartethyia_stage.jpg',
+          'assets/images/events/cartethyia.jpg',
+          'assets/images/events/cartethyia_stage.jpg',
         ],
         inclusions: [
           'Ethereal White & Sea-Blue Layered Draped Gown',
