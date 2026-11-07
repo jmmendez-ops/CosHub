@@ -1,0 +1,181 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-04T01:54:00Z",
+  "title": "Design System: COS HUB",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Aegis Amber Gold",
+        "canonical": "#F5C230",
+        "tonalRamp": [
+          "#3D2F05",
+          "#664F0B",
+          "#997610",
+          "#CC9E16",
+          "#F5C230",
+          "#F8D367",
+          "#FAE39E",
+          "#FDF4D8"
+        ]
+      },
+      "neutral-bg": {
+        "role": "neutral",
+        "displayName": "Obsidian Carbon",
+        "canonical": "#121316",
+        "tonalRamp": [
+          "#090A0B",
+          "#121316",
+          "#1D1F24",
+          "#282B32",
+          "#3B404A",
+          "#5B6271",
+          "#8A92A2",
+          "#D2D6DE"
+        ]
+      },
+      "neutral-surface": {
+        "role": "neutral",
+        "displayName": "Surface Graphite",
+        "canonical": "#1D1F24",
+        "tonalRamp": [
+          "#0D0E10",
+          "#15171B",
+          "#1D1F24",
+          "#292C33",
+          "#3B3F49",
+          "#575C69",
+          "#868C9C",
+          "#D0D3DC"
+        ]
+      },
+      "status-verified": {
+        "role": "tertiary",
+        "displayName": "Emerald Trust",
+        "canonical": "#10B981",
+        "tonalRamp": [
+          "#042F20",
+          "#065F41",
+          "#0A8F62",
+          "#10B981",
+          "#34D399",
+          "#6EE7B7",
+          "#A7F3D0",
+          "#ECFDF5"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero costume titles, splash banners, and major headers."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headers, modal titles, and card group titles."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Costume card titles, seller names, and rental duration summaries."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Costume lore, piece descriptions, policy notes, and reviews."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Order mode labels, category chips, inclusion checkmarks, and table headers."
+      }
+    },
+    "shadows": [
+      {
+        "name": "desktop-frame",
+        "value": "0 20px 40px rgba(0,0,0,0.75)",
+        "purpose": "Ambient back-drop isolating the 412px mobile canvas on desktop web."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-standard",
+        "value": "cubic-bezier(0.4, 0.0, 0.2, 1.0)",
+        "purpose": "Default easing curve for page switches, carousels, and bottom sheets."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "mobile-frame",
+        "value": "412px"
+      },
+      {
+        "name": "desktop-breakpoint",
+        "value": "520px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Primary action button for cart additions, rentals, and checkout steps.",
+      "html": "<button class=\"ds-btn-primary\"><svg class=\"ds-btn-icon\" viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M11 9h2V6h3V4h-3V1h-2v3H8v2h3v3zm-4 9c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zm-9.83-3.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.86-7.01L19.42 4h-.01l-1.1 2-2.76 5H8.53l-.13-.27L6.16 6l-.95-2-.94-2H1v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.13 0-.25-.11-.25-.25z\"/></svg>ADD TO CART</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; background: #F5C230; color: #121316; font-family: 'Roboto', sans-serif; font-size: 13.5px; font-weight: 800; letter-spacing: 0.04em; padding: 14px 22px; border-radius: 99px; border: none; cursor: pointer; transition: background 0.15s ease, transform 0.1s ease; } .ds-btn-primary:hover { background: #E5B220; transform: translateY(-1px); } .ds-btn-primary:active { transform: translateY(0); } .ds-btn-icon { width: 18px; height: 18px; margin-right: 8px; fill: #121316; }"
+    },
+    {
+      "name": "Size Selector Chip",
+      "kind": "chip",
+      "refersTo": "chip-size",
+      "description": "Asian-fit size selector chips (S, M, L, XL).",
+      "html": "<div style=\"display:flex;gap:10px;\"><button class=\"ds-chip-size active\">M</button><button class=\"ds-chip-size\">L</button></div>",
+      "css": ".ds-chip-size { width: 48px; height: 42px; display: inline-flex; align-items: center; justify-content: center; background: #25272E; color: #F9FAFB; font-family: 'Roboto', sans-serif; font-size: 14px; font-weight: 900; border-radius: 10px; border: 1px solid #313540; cursor: pointer; transition: all 0.15s ease; } .ds-chip-size.active { background: #F5C230; color: #121316; border-color: #F5C230; }"
+    },
+    {
+      "name": "Verified Seller Badge",
+      "kind": "custom",
+      "refersTo": "status-verified",
+      "description": "Trust marker indicating identity and cosplay credibility.",
+      "html": "<div class=\"ds-seller-card\"><div class=\"ds-avatar\"></div><div class=\"ds-meta\"><div class=\"ds-name\">Cristian Ordoñez <span class=\"ds-check\">✓</span></div><div class=\"ds-handle\">@cristian_cos • Calamba, Laguna</div></div><div class=\"ds-pill\">COMMUNITY LISTING</div></div>",
+      "css": ".ds-seller-card { display: flex; align-items: center; background: #1D1F24; border: 1px solid #313540; border-radius: 14px; padding: 12px; font-family: 'Roboto', sans-serif; } .ds-avatar { width: 40px; height: 40px; border-radius: 99px; background: rgba(245,194,48,0.15); border: 1.5px solid #F5C230; margin-right: 12px; } .ds-meta { flex: 1; } .ds-name { color: #F9FAFB; font-size: 13.5px; font-weight: 800; display: flex; align-items: center; gap: 4px; } .ds-check { color: #10B981; font-size: 12px; } .ds-handle { color: #F5C230; font-size: 11.5px; font-weight: 600; margin-top: 2px; } .ds-pill { background: rgba(245,194,48,0.15); color: #F5C230; font-size: 9px; font-weight: 800; letter-spacing: 0.4px; padding: 4px 8px; border-radius: 6px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Convention Armory & Atelier",
+    "overview": "COS HUB blends the precision craft of an artisan cosplay atelier with the functional readiness of an event-ready gear armory. Built for Philippine convention culture, the visual world establishes an immersive, cinematic dark ambiance where authentic costume photography, fabric textures, and props take center stage against deep charcoal and obsidian steel foundations.\n\nThe design philosophy favors high-contrast clarity, deliberate restraint, and tactile feedback. Rather than mimicking noisy e-commerce flea markets or generic corporate SaaS, COS HUB treats every costume piece as a valued asset. High-craft studio imagery leads the viewport, supported by structured metadata chips, clear piece manifests, and transparent security deposit indicators.",
+    "keyCharacteristics": [
+      "Deep obsidian backdrop (#121316) that makes character photography bloom.",
+      "Gilded Aegis Amber Gold (#F5C230) reserved strictly for high-intent actions, active states, and verified trust.",
+      "Flat-at-rest tonal elevation hierarchy with razor-sharp 1px structural borders.",
+      "Tactile, rounded-pill touch targets optimized for rapid thumb navigation on mobile or convention floors.",
+      "Granular piece manifests with clear iconography and Asian-fit sizing indicators."
+    ],
+    "rules": [
+      {
+        "name": "The Amber Scarcity Rule",
+        "body": "Amber gold is used on ≤10% of any screen surface. It is strictly reserved for primary conversions, active selection states, and verified trust markers. It is never used as wide decorative background fill or secondary body copy.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tactical Legibility Rule",
+        "body": "All numerical figures (prices, rental days, deposit amounts, piece counts) must use high-weight typography (w800 or w900) and never fall below 12px for immediate legibility in motion.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat-at-Rest Rule",
+        "body": "All cards, modal sheets, and chips sit flat at rest with zero fuzzy drop shadows. Separation is achieved through tone shifts (#121316 -> #1D1F24 -> #22242A) and crisp 1px borders (#313540).",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do showcase full-bleed photography with high-contrast text overlays backed by directional dark scrim gradients.",
+      "Do explicitly display the refundable security deposit amount whenever a rental price is shown.",
+      "Do maintain a strict 1px border hierarchy across all card and modal containers to preserve structural sharpness.",
+      "Do use uppercase 10px tracking for micro-chips, order modes, and category headers."
+    ],
+    "donts": [
+      "Don't use amber gold as a full background for content cards or dialog bodies.",
+      "Don't add diffuse, glowing drop shadows under costume cards or body elements.",
+      "Don't display rental rates without specifying the daily duration (/day) and required deposit.",
+      "Don't mix non-standard font families outside the Roboto scale."
+    ]
+  }
+}
