@@ -83,7 +83,7 @@ class _CostumeDetailScreenState extends State<CostumeDetailScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    height: 240,
+                    height: 350,
                     width: double.infinity,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
@@ -106,31 +106,34 @@ class _CostumeDetailScreenState extends State<CostumeDetailScreen> {
                             },
                             itemBuilder: (context, idx) {
                               final img = images[idx];
-                              return img.startsWith('assets/')
-                                  ? Image.asset(
-                                      img,
-                                      fit: BoxFit.cover,
-                                      alignment: Alignment.topCenter,
-                                      errorBuilder: (_, __, ___) => Center(
-                                        child: Icon(
-                                          c.motifIcon,
-                                          size: 80,
-                                          color: Colors.white70,
+                              return GestureDetector(
+                                onTap: () => _openFullscreenGallery(context, idx),
+                                child: img.startsWith('assets/')
+                                    ? Image.asset(
+                                        img,
+                                        fit: BoxFit.cover,
+                                        alignment: Alignment.topCenter,
+                                        errorBuilder: (_, __, ___) => Center(
+                                          child: Icon(
+                                            c.motifIcon,
+                                            size: 80,
+                                            color: Colors.white70,
+                                          ),
+                                        ),
+                                      )
+                                    : Image.network(
+                                        img,
+                                        fit: BoxFit.cover,
+                                        alignment: Alignment.topCenter,
+                                        errorBuilder: (_, __, ___) => Center(
+                                          child: Icon(
+                                            c.motifIcon,
+                                            size: 80,
+                                            color: Colors.white70,
+                                          ),
                                         ),
                                       ),
-                                    )
-                                  : Image.network(
-                                      img,
-                                      fit: BoxFit.cover,
-                                      alignment: Alignment.topCenter,
-                                      errorBuilder: (_, __, ___) => Center(
-                                        child: Icon(
-                                          c.motifIcon,
-                                          size: 80,
-                                          color: Colors.white70,
-                                        ),
-                                      ),
-                                    );
+                              );
                             },
                           )
                         else
@@ -141,9 +144,49 @@ class _CostumeDetailScreenState extends State<CostumeDetailScreen> {
                               color: Colors.white.withValues(alpha: 0.9),
                             ),
                           ),
+                        Positioned(
+                          top: 12,
+                          left: 12,
+                          child: GestureDetector(
+                            onTap: () => _openFullscreenGallery(context, _activeImageIndex),
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 8,
+                                vertical: 4.5,
+                              ),
+                              decoration: BoxDecoration(
+                                color: Colors.black.withValues(alpha: 0.72),
+                                borderRadius: BorderRadius.circular(12),
+                                border: Border.all(
+                                  color: Colors.white.withValues(alpha: 0.2),
+                                  width: 0.8,
+                                ),
+                              ),
+                              child: const Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Icon(
+                                    Icons.zoom_in,
+                                    size: 13,
+                                    color: CosColors.accentAmber,
+                                  ),
+                                  SizedBox(width: 4),
+                                  Text(
+                                    'Pinch to Zoom',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 10.5,
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
                         if (images.length > 1) ...[
                           Positioned(
-                            left: 8,
+                            left: 4,
                             top: 0,
                             bottom: 0,
                             child: Center(
@@ -162,28 +205,34 @@ class _CostumeDetailScreenState extends State<CostumeDetailScreen> {
                                     );
                                   }
                                 },
+                                behavior: HitTestBehavior.opaque,
                                 child: Container(
-                                  width: 32,
-                                  height: 32,
-                                  decoration: BoxDecoration(
-                                    color: Colors.black.withValues(alpha: 0.6),
-                                    shape: BoxShape.circle,
-                                    border: Border.all(
-                                      color: Colors.white.withValues(alpha: 0.2),
-                                      width: 0.8,
+                                  width: 44,
+                                  height: 44,
+                                  alignment: Alignment.center,
+                                  child: Container(
+                                    width: 36,
+                                    height: 36,
+                                    decoration: BoxDecoration(
+                                      color: Colors.black.withValues(alpha: 0.65),
+                                      shape: BoxShape.circle,
+                                      border: Border.all(
+                                        color: Colors.white.withValues(alpha: 0.25),
+                                        width: 0.8,
+                                      ),
                                     ),
-                                  ),
-                                  child: const Icon(
-                                    Icons.chevron_left,
-                                    color: Colors.white,
-                                    size: 20,
+                                    child: const Icon(
+                                      Icons.chevron_left,
+                                      color: Colors.white,
+                                      size: 22,
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
                           ),
                           Positioned(
-                            right: 8,
+                            right: 4,
                             top: 0,
                             bottom: 0,
                             child: Center(
@@ -202,21 +251,27 @@ class _CostumeDetailScreenState extends State<CostumeDetailScreen> {
                                     );
                                   }
                                 },
+                                behavior: HitTestBehavior.opaque,
                                 child: Container(
-                                  width: 32,
-                                  height: 32,
-                                  decoration: BoxDecoration(
-                                    color: Colors.black.withValues(alpha: 0.6),
-                                    shape: BoxShape.circle,
-                                    border: Border.all(
-                                      color: Colors.white.withValues(alpha: 0.2),
-                                      width: 0.8,
+                                  width: 44,
+                                  height: 44,
+                                  alignment: Alignment.center,
+                                  child: Container(
+                                    width: 36,
+                                    height: 36,
+                                    decoration: BoxDecoration(
+                                      color: Colors.black.withValues(alpha: 0.65),
+                                      shape: BoxShape.circle,
+                                      border: Border.all(
+                                        color: Colors.white.withValues(alpha: 0.25),
+                                        width: 0.8,
+                                      ),
                                     ),
-                                  ),
-                                  child: const Icon(
-                                    Icons.chevron_right,
-                                    color: Colors.white,
-                                    size: 20,
+                                    child: const Icon(
+                                      Icons.chevron_right,
+                                      color: Colors.white,
+                                      size: 22,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -326,6 +381,59 @@ class _CostumeDetailScreenState extends State<CostumeDetailScreen> {
                       ],
                     ),
                   ),
+                  if (images.length > 1) ...[
+                    const SizedBox(height: 12),
+                    SizedBox(
+                      height: 64,
+                      child: ListView.separated(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: images.length,
+                        separatorBuilder: (_, __) => const SizedBox(width: 8),
+                        itemBuilder: (context, idx) {
+                          final img = images[idx];
+                          final isSelected = idx == _activeImageIndex;
+                          return GestureDetector(
+                            onTap: () {
+                              _imagePageController.animateToPage(
+                                idx,
+                                duration: const Duration(milliseconds: 250),
+                                curve: Curves.easeInOut,
+                              );
+                            },
+                            child: AnimatedContainer(
+                              duration: const Duration(milliseconds: 200),
+                              width: 52,
+                              height: 64,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                border: Border.all(
+                                  color: isSelected
+                                      ? CosColors.accentAmber
+                                      : CosColors.borderSubtle,
+                                  width: isSelected ? 2 : 1,
+                                ),
+                              ),
+                              clipBehavior: Clip.antiAlias,
+                              child: Opacity(
+                                opacity: isSelected ? 1.0 : 0.6,
+                                child: img.startsWith('assets/')
+                                    ? Image.asset(
+                                        img,
+                                        fit: BoxFit.cover,
+                                        alignment: Alignment.topCenter,
+                                      )
+                                    : Image.network(
+                                        img,
+                                        fit: BoxFit.cover,
+                                        alignment: Alignment.topCenter,
+                                      ),
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ],
                   const SizedBox(height: 18),
                   if (c.series != null)
                     Padding(
@@ -491,6 +599,10 @@ class _CostumeDetailScreenState extends State<CostumeDetailScreen> {
                             isSelected: _selectedMode == OrderMode.rent,
                             onTap: () =>
                                 setState(() => _selectedMode = OrderMode.rent),
+                            onInfoTap: () => _showDepositExplainer(
+                              context,
+                              c.securityDeposit,
+                            ),
                           ),
                         ),
                         const SizedBox(width: 12),
@@ -514,6 +626,10 @@ class _CostumeDetailScreenState extends State<CostumeDetailScreen> {
                           '+ ${formatPeso(c.securityDeposit)} refundable deposit • Rental Exclusive',
                       isSelected: true,
                       onTap: () {},
+                      onInfoTap: () => _showDepositExplainer(
+                        context,
+                        c.securityDeposit,
+                      ),
                     )
                   else if (c.listingMode == ListingMode.buyOnly)
                     _ModeOptionCard(
@@ -619,6 +735,37 @@ class _CostumeDetailScreenState extends State<CostumeDetailScreen> {
                                   style: const TextStyle(
                                     color: CosColors.textSecondary,
                                     fontSize: 11.5,
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(width: 6),
+                              GestureDetector(
+                                onTap: () => _showDepositExplainer(
+                                  context,
+                                  c.securityDeposit,
+                                ),
+                                child: Container(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 8,
+                                    vertical: 4,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: CosColors.accentAmber
+                                        .withValues(alpha: 0.12),
+                                    borderRadius: BorderRadius.circular(6),
+                                    border: Border.all(
+                                      color: CosColors.accentAmber
+                                          .withValues(alpha: 0.35),
+                                      width: 0.8,
+                                    ),
+                                  ),
+                                  child: const Text(
+                                    'Deposit Info',
+                                    style: TextStyle(
+                                      color: CosColors.accentAmber,
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.w800,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -790,6 +937,207 @@ class _CostumeDetailScreenState extends State<CostumeDetailScreen> {
       ),
     );
   }
+
+  void _openFullscreenGallery(BuildContext context, int initialIndex) {
+    final images = widget.costume.carouselImages;
+    if (images.isEmpty) return;
+
+    showDialog(
+      context: context,
+      useSafeArea: false,
+      builder: (ctx) {
+        int modalIndex = initialIndex;
+        final PageController modalController =
+            PageController(initialPage: initialIndex);
+        return StatefulBuilder(
+          builder: (context, setModalState) {
+            return Scaffold(
+              backgroundColor: Colors.black,
+              appBar: AppBar(
+                backgroundColor: Colors.black,
+                foregroundColor: Colors.white,
+                elevation: 0,
+                title: Text(
+                  '${modalIndex + 1} / ${images.length} • ${widget.costume.title}',
+                  style: const TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+                actions: [
+                  IconButton(
+                    icon: const Icon(Icons.close),
+                    onPressed: () => Navigator.of(context).pop(),
+                  ),
+                ],
+              ),
+              body: Stack(
+                children: [
+                  PageView.builder(
+                    controller: modalController,
+                    itemCount: images.length,
+                    onPageChanged: (i) {
+                      setModalState(() => modalIndex = i);
+                      setState(() => _activeImageIndex = i);
+                      if (_imagePageController.hasClients) {
+                        _imagePageController.jumpToPage(i);
+                      }
+                    },
+                    itemBuilder: (context, i) {
+                      final img = images[i];
+                      return InteractiveViewer(
+                        minScale: 1.0,
+                        maxScale: 4.5,
+                        child: Center(
+                          child: img.startsWith('assets/')
+                              ? Image.asset(img, fit: BoxFit.contain)
+                              : Image.network(img, fit: BoxFit.contain),
+                        ),
+                      );
+                    },
+                  ),
+                  Positioned(
+                    bottom: 24,
+                    left: 0,
+                    right: 0,
+                    child: Center(
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 14,
+                          vertical: 7,
+                        ),
+                        decoration: BoxDecoration(
+                          color: Colors.black87,
+                          borderRadius: BorderRadius.circular(99),
+                          border: Border.all(color: Colors.white24),
+                        ),
+                        child: const Text(
+                          'Pinch to zoom • Pan to inspect seams & craftsmanship',
+                          style: TextStyle(
+                            color: Colors.white70,
+                            fontSize: 11.5,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            );
+          },
+        );
+      },
+    );
+  }
+
+  void _showDepositExplainer(BuildContext context, int depositAmount) {
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: CosColors.bgElevated,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(22)),
+      ),
+      builder: (ctx) {
+        return Padding(
+          padding: const EdgeInsets.fromLTRB(20, 20, 20, 28),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      color: CosColors.accentAmber.withValues(alpha: 0.15),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: const Icon(
+                      Icons.security,
+                      color: CosColors.accentAmber,
+                      size: 22,
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'Refundable Security Deposit',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w800,
+                            color: CosColors.textPrimary,
+                          ),
+                        ),
+                        Text(
+                          '${formatPeso(depositAmount)} Escrow Protection',
+                          style: const TextStyle(
+                            fontSize: 12,
+                            color: CosColors.accentAmber,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  IconButton(
+                    icon: const Icon(
+                      Icons.close,
+                      color: CosColors.textSecondary,
+                      size: 20,
+                    ),
+                    onPressed: () => Navigator.of(ctx).pop(),
+                  ),
+                ],
+              ),
+              const Divider(color: CosColors.borderSubtle, height: 24),
+              const _DepositTimelineStep(
+                icon: Icons.lock_clock,
+                title: '1. Secure Escrow Hold',
+                desc:
+                    'Your deposit is held safely in COS HUB escrow throughout the rental duration.',
+              ),
+              const SizedBox(height: 12),
+              const _DepositTimelineStep(
+                icon: Icons.check_circle_outline,
+                title: '2. Post-Convention Check',
+                desc:
+                    'Upon return, the lender confirms all costume inclusions are present and intact.',
+              ),
+              const SizedBox(height: 12),
+              const _DepositTimelineStep(
+                icon: Icons.account_balance_wallet_outlined,
+                title: '3. 24-Hour Instant Release',
+                desc:
+                    'The full deposit is refunded back to your GCash or Maya wallet within 24 hours.',
+              ),
+              const SizedBox(height: 20),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: CosColors.accentAmber,
+                    foregroundColor: CosColors.bgPrimary,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(99),
+                    ),
+                    padding: const EdgeInsets.symmetric(vertical: 12),
+                  ),
+                  onPressed: () => Navigator.of(ctx).pop(),
+                  child: const Text(
+                    'Got it, Understood',
+                    style: TextStyle(fontWeight: FontWeight.w800),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
 }
 
 class _ModeOptionCard extends StatelessWidget {
@@ -798,6 +1146,7 @@ class _ModeOptionCard extends StatelessWidget {
   final String subtitle;
   final bool isSelected;
   final VoidCallback onTap;
+  final VoidCallback? onInfoTap;
 
   const _ModeOptionCard({
     required this.title,
@@ -805,6 +1154,7 @@ class _ModeOptionCard extends StatelessWidget {
     required this.subtitle,
     required this.isSelected,
     required this.onTap,
+    this.onInfoTap,
   });
 
   @override
@@ -858,16 +1208,84 @@ class _ModeOptionCard extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 4),
-            Text(
-              subtitle,
-              style: const TextStyle(
-                color: CosColors.textSecondary,
-                fontSize: 11,
-              ),
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    subtitle,
+                    style: const TextStyle(
+                      color: CosColors.textSecondary,
+                      fontSize: 11,
+                    ),
+                  ),
+                ),
+                if (onInfoTap != null)
+                  GestureDetector(
+                    onTap: onInfoTap,
+                    behavior: HitTestBehavior.opaque,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 4),
+                      child: Icon(
+                        Icons.info_outline,
+                        size: 14,
+                        color: isSelected
+                            ? CosColors.accentAmber
+                            : CosColors.textSecondary,
+                      ),
+                    ),
+                  ),
+              ],
             ),
           ],
         ),
       ),
+    );
+  }
+}
+
+class _DepositTimelineStep extends StatelessWidget {
+  final IconData icon;
+  final String title;
+  final String desc;
+
+  const _DepositTimelineStep({
+    required this.icon,
+    required this.title,
+    required this.desc,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Icon(icon, color: CosColors.accentAmber, size: 18),
+        const SizedBox(width: 10),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: const TextStyle(
+                  color: CosColors.textPrimary,
+                  fontSize: 13,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              const SizedBox(height: 2),
+              Text(
+                desc,
+                style: const TextStyle(
+                  color: CosColors.textSecondary,
+                  fontSize: 11.5,
+                  height: 1.35,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
