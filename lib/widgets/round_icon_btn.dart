@@ -10,15 +10,21 @@ class RoundIconBtn extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
+      behavior: HitTestBehavior.opaque,
       child: Container(
-        width: 30,
-        height: 30,
-        decoration: BoxDecoration(
-          color: CosColors.bgInput,
-          shape: BoxShape.circle,
-          border: Border.all(color: CosColors.borderSubtle),
+        width: 44,
+        height: 44,
+        alignment: Alignment.center,
+        child: Container(
+          width: 32,
+          height: 32,
+          decoration: BoxDecoration(
+            color: CosColors.bgInput,
+            shape: BoxShape.circle,
+            border: Border.all(color: CosColors.borderSubtle),
+          ),
+          child: Icon(icon, size: 16, color: CosColors.textPrimary),
         ),
-        child: Icon(icon, size: 16, color: CosColors.textPrimary),
       ),
     );
   }
