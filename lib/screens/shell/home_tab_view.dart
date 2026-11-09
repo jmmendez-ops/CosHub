@@ -215,14 +215,14 @@ class HomeTabView extends StatelessWidget {
                     onTap: () => store.setModeFilter(mode),
                     child: Container(
                       padding: const EdgeInsets.symmetric(
-                        horizontal: 12,
-                        vertical: 5,
+                        horizontal: 14,
+                        vertical: 6,
                       ),
                       decoration: BoxDecoration(
                         color: isSelected
                             ? CosColors.bgElevated
                             : Colors.transparent,
-                        borderRadius: BorderRadius.circular(8),
+                        borderRadius: BorderRadius.circular(99),
                         border: Border.all(
                           color: isSelected
                               ? CosColors.accentAmber

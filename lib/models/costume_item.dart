@@ -66,6 +66,20 @@ class CostumeItem {
     return const [];
   }
 
+  String get makerBadgeLabel {
+    final lower = sellerName.toLowerCase();
+    if (lower.contains('forge') ||
+        lower.contains('armory') ||
+        lower.contains('craft') ||
+        lower.contains('studio')) {
+      return 'ARTISAN ATELIER';
+    }
+    if (isUserListed) {
+      return 'COMMUNITY LENDER';
+    }
+    return 'COMMUNITY WARDROBE';
+  }
+
   Map<String, dynamic> toJson() {
     return {
       'id': id,

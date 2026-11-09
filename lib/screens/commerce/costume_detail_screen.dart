@@ -563,9 +563,9 @@ class _CostumeDetailScreenState extends State<CostumeDetailScreen> {
                             color: CosColors.accentAmber.withValues(alpha: 0.15),
                             borderRadius: BorderRadius.circular(6),
                           ),
-                          child: const Text(
-                            'COMMUNITY LISTING',
-                            style: TextStyle(
+                          child: Text(
+                            c.makerBadgeLabel,
+                            style: const TextStyle(
                               color: CosColors.accentAmber,
                               fontSize: 9,
                               fontWeight: FontWeight.w800,
@@ -731,7 +731,7 @@ class _CostumeDetailScreenState extends State<CostumeDetailScreen> {
                                 child: Text(
                                   widget.store.isEkycVerified
                                       ? 'Your eKYC Cosplayer Pass is verified! Ready for instant rental checkout.'
-                                      : 'Option A Active: You can add rentals to cart now; eKYC ID check will be requested at Checkout.',
+                                      : 'Rentals can be added to cart now; eKYC ID check will be requested at Checkout.',
                                   style: const TextStyle(
                                     color: CosColors.textSecondary,
                                     fontSize: 11.5,
