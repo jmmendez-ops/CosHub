@@ -2,10 +2,12 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../models/cart_line_item.dart';
+import '../../models/order_record.dart';
 
 class CosHubStorage {
   static const String _keyWishlist = 'coshub_wishlist_ids';
   static const String _keyCart = 'coshub_cart_items';
+  static const String _keyOrders = 'coshub_orders';
   static const String _keyCategory = 'coshub_selected_category';
   static const String _keyModeFilter = 'coshub_selected_mode_filter';
   static const String _keyPaymentMethod = 'coshub_payment_method';
@@ -62,6 +64,36 @@ class CosHubStorage {
       await prefs.setString(_keyCart, encoded);
     } catch (e) {
       debugPrint('[CosHubStorage] saveCart error: $e');
+    }
+  }
+
+  static Future<List<OrderRecord>?> loadOrders() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      if (prefs.containsKey(_keyOrders)) {
+        final jsonString = prefs.getString(_keyOrders);
+        if (jsonString != null && jsonString.isNotEmpty) {
+          final decoded = jsonDecode(jsonString) as List<dynamic>;
+          return decoded
+              .map((item) =>
+                  OrderRecord.fromJson(item as Map<String, dynamic>))
+              .toList();
+        }
+        return [];
+      }
+    } catch (e) {
+      debugPrint('[CosHubStorage] loadOrders error: $e');
+    }
+    return null;
+  }
+
+  static Future<void> saveOrders(List<OrderRecord> orders) async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final encoded = jsonEncode(orders.map((e) => e.toJson()).toList());
+      await prefs.setString(_keyOrders, encoded);
+    } catch (e) {
+      debugPrint('[CosHubStorage] saveOrders error: $e');
     }
   }
 

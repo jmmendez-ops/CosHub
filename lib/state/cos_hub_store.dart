@@ -5,6 +5,7 @@ import '../core/utils/currency_formatter.dart';
 import '../models/app_alert.dart';
 import '../models/cart_line_item.dart';
 import '../models/costume_item.dart';
+import '../models/order_record.dart';
 
 class CosHubStore extends ChangeNotifier {
   bool isAuthenticated = false;
@@ -1041,6 +1042,172 @@ class CosHubStore extends ChangeNotifier {
     ),
   ];
 
+
+  final List<OrderRecord> orders = [
+    const OrderRecord(
+      id: 'ORD-2026-8841',
+      itemTitle: 'Cartethyia Cosplay Set',
+      itemCategory: 'Anime',
+      sellerName: 'Cristian Ordoñez',
+      sellerHandle: '@cristian_cos',
+      sellerLocation: 'Calamba, Laguna',
+      heroImageUrl: 'assets/images/studio/cartethyia.jpg',
+      inclusions: [
+        'Ethereal White & Sea-Blue Layered Draped Gown',
+        'Heat-Resistant Long Silver Wig with Braids',
+        'Crystal Thorn Halo Crown Headpiece',
+      ],
+      orderMode: OrderMode.rent,
+      status: OrderStatus.inTransit,
+      deliveryMethod: DeliveryMethod.lalamove,
+      courierDetails: CourierDetails(
+        riderName: 'Kuya Arnel Bautista',
+        riderPhone: '0917 555 0192',
+        vehiclePlate: 'ND 4821',
+        trackingNumber: 'LLM-PH-992014',
+        estimatedDelivery: 'Today, 2:30 PM - 3:15 PM',
+      ),
+      totalAmount: 2220,
+      securityDeposit: 1200,
+      isDepositRefunded: false,
+      rentalDays: 3,
+      rentalStartDate: '2026-11-12',
+      rentalEndDate: '2026-11-15',
+      createdAt: 'Nov 10, 2026 • 09:30 AM',
+      milestones: [
+        TrackingMilestone(
+          title: 'Order Placed & Confirmed',
+          subtitle: 'Payment verified via GCash (₱2,220 + ₱1,200 deposit)',
+          timestamp: 'Nov 10, 09:30 AM',
+          isCompleted: true,
+          isCurrent: false,
+        ),
+        TrackingMilestone(
+          title: 'Costume & Props Inspected',
+          subtitle: 'Lender checked garment integrity & packed sanitized accessories',
+          timestamp: 'Nov 10, 11:45 AM',
+          isCompleted: true,
+          isCurrent: false,
+        ),
+        TrackingMilestone(
+          title: 'Dispatched via Lalamove',
+          subtitle: 'Rider Kuya Arnel picked up parcel from Calamba Atelier',
+          timestamp: 'Nov 10, 01:15 PM',
+          isCompleted: true,
+          isCurrent: true,
+        ),
+        TrackingMilestone(
+          title: 'Active Rental Handover',
+          subtitle: 'Recipient accepts parcel and tests fitment',
+          timestamp: 'Estimated 02:45 PM',
+          isCompleted: false,
+          isCurrent: false,
+        ),
+      ],
+    ),
+    const OrderRecord(
+      id: 'ORD-2026-8842',
+      itemTitle: 'Raiden Shogun Narukami Electro Kimono',
+      itemCategory: 'Games',
+      sellerName: 'Lady Fontaine Studio',
+      sellerHandle: '@furina_ph',
+      sellerLocation: 'Pasay City, Metro Manila',
+      heroImageUrl: 'assets/images/studio/raiden_shogun.jpg',
+      inclusions: [
+        'Embroidered Violet & Gold Silk Layered Kimono',
+        'Inazuma Electro Mitsudomoe Gold Pauldron & Obi Sash',
+        'Pre-styled Long Dark Purple Braided Wig with Hairpin',
+        'Con-Safe Musou Isshin Naginata Polearm Prop',
+      ],
+      orderMode: OrderMode.rent,
+      status: OrderStatus.readyForMeetup,
+      deliveryMethod: DeliveryMethod.conventionMeetup,
+      courierDetails: CourierDetails(
+        meetupLocation: 'SMX Convention Center Manila - Hall 2 Booth B-14',
+        meetupTimeWindow: 'Nov 12, 2026 • 10:00 AM - 12:00 PM',
+        trackingNumber: 'CON-SMX-2611-04',
+      ),
+      totalAmount: 3300,
+      securityDeposit: 2200,
+      isDepositRefunded: false,
+      rentalDays: 3,
+      rentalStartDate: '2026-11-12',
+      rentalEndDate: '2026-11-15',
+      createdAt: 'Nov 09, 2026 • 02:15 PM',
+      milestones: [
+        TrackingMilestone(
+          title: 'Convention Meetup Reserved',
+          subtitle: 'Designated hand-off at Cosplay Mania • SMX Hall 2',
+          timestamp: 'Nov 09, 02:15 PM',
+          isCompleted: true,
+          isCurrent: false,
+        ),
+        TrackingMilestone(
+          title: 'Steamed & Ready at Booth B-14',
+          subtitle: 'Lady Fontaine Studio crew checked in on convention floor',
+          timestamp: 'Nov 12, 09:30 AM',
+          isCompleted: true,
+          isCurrent: true,
+        ),
+        TrackingMilestone(
+          title: 'Cosplay Fitting & Handover',
+          subtitle: 'Inspect costume in fitting cubicle and claim wristband tag',
+          timestamp: 'Nov 12, 10:00 AM - 12:00 PM',
+          isCompleted: false,
+          isCurrent: false,
+        ),
+      ],
+    ),
+    const OrderRecord(
+      id: 'ORD-2026-8820',
+      itemTitle: 'Super Sailor Moon Sailor Fuku Set',
+      itemCategory: 'Anime',
+      sellerName: 'Sailor Amai',
+      sellerHandle: '@amai_guardian',
+      sellerLocation: 'Quezon City, Metro Manila',
+      heroImageUrl: 'assets/images/events/sailor_moon.jpg',
+      inclusions: [
+        'Sailor Bodice with Gold Heart Brooch',
+        'Pleated Navy & White Skirt with Crimson Back Bow',
+        'Gold Metal Crescent Moon Tiara & Red Choker',
+      ],
+      orderMode: OrderMode.buy,
+      status: OrderStatus.completed,
+      deliveryMethod: DeliveryMethod.jnt,
+      courierDetails: CourierDetails(
+        riderName: 'Kuya Jomar',
+        trackingNumber: 'JNT-PH-772910',
+        estimatedDelivery: 'Delivered on Nov 05',
+      ),
+      totalAmount: 2850,
+      securityDeposit: 0,
+      isDepositRefunded: true,
+      rentalDays: 0,
+      createdAt: 'Nov 03, 2026 • 11:20 AM',
+      milestones: [
+        TrackingMilestone(
+          title: 'Order Placed',
+          subtitle: 'Payment confirmed via Maya',
+          timestamp: 'Nov 03, 11:20 AM',
+          isCompleted: true,
+        ),
+        TrackingMilestone(
+          title: 'Package Delivered',
+          subtitle: 'Signed and received by Cristian Ordoñez',
+          timestamp: 'Nov 05, 03:40 PM',
+          isCompleted: true,
+        ),
+        TrackingMilestone(
+          title: 'Order Completed',
+          subtitle: 'Item accepted and 5-star rating left for Sailor Amai',
+          timestamp: 'Nov 05, 04:00 PM',
+          isCompleted: true,
+          isCurrent: true,
+        ),
+      ],
+    ),
+  ];
+
   final List<AppAlert> alerts = [
     AppAlert(
       id: 'al-1',
@@ -1079,6 +1246,12 @@ class CosHubStore extends ChangeNotifier {
     final loadedWishlist = await CosHubStorage.loadWishlist();
     if (loadedWishlist != null) {
       wishlistIds = loadedWishlist;
+    }
+    final loadedOrders = await CosHubStorage.loadOrders();
+    if (loadedOrders != null) {
+      orders
+        ..clear()
+        ..addAll(loadedOrders);
     }
     final loadedCart = await CosHubStorage.loadCart();
     if (loadedCart != null) {
@@ -1119,6 +1292,26 @@ class CosHubStore extends ChangeNotifier {
       card: card,
     );
     notifyListeners();
+  }
+
+
+  List<OrderRecord> get activeOrders =>
+      orders.where((o) => o.status != OrderStatus.completed).toList();
+
+  void addOrder(OrderRecord order) {
+    orders.insert(0, order);
+    CosHubStorage.saveOrders(orders);
+    notifyListeners();
+  }
+
+  void updateOrderStatus(String orderId, OrderStatus newStatus) {
+    final idx = orders.indexWhere((o) => o.id == orderId);
+    if (idx != -1) {
+      final existing = orders[idx];
+      orders[idx] = existing.copyWith(status: newStatus);
+      CosHubStorage.saveOrders(orders);
+      notifyListeners();
+    }
   }
 
   List<CostumeItem> get featuredCostumes =>
