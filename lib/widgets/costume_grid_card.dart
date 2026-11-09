@@ -21,218 +21,224 @@ class CostumeGridCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTapCard,
-      child: Container(
-        decoration: BoxDecoration(
-          color: CosColors.bgCardFooter,
+    return Container(
+      decoration: BoxDecoration(
+        color: CosColors.bgCardFooter,
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: const Color(0xFF2B2E36)),
+      ),
+      clipBehavior: Clip.antiAlias,
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: onTapCard,
           borderRadius: BorderRadius.circular(16),
-          border: Border.all(color: const Color(0xFF2B2E36)),
-        ),
-        clipBehavior: Clip.antiAlias,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(
-              flex: 48,
-              child: Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: costume.gradientColors,
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                flex: 48,
+                child: Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: costume.gradientColors,
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                    ),
                   ),
-                ),
-                child: Stack(
-                  fit: StackFit.expand,
-                  children: [
-                    if (costume.heroImageUrl != null &&
-                        costume.heroImageUrl!.isNotEmpty)
-                      costume.heroImageUrl!.startsWith('assets/')
-                          ? Image.asset(
-                              costume.heroImageUrl!,
-                              fit: BoxFit.cover,
-                              alignment: Alignment.topCenter,
-                              errorBuilder: (_, __, ___) => Center(
-                                child: Icon(
-                                  costume.motifIcon,
-                                  size: 46,
-                                  color: Colors.white.withValues(alpha: 0.92),
+                  child: Stack(
+                    fit: StackFit.expand,
+                    children: [
+                      if (costume.heroImageUrl != null &&
+                          costume.heroImageUrl!.isNotEmpty)
+                        costume.heroImageUrl!.startsWith('assets/')
+                            ? Image.asset(
+                                costume.heroImageUrl!,
+                                fit: BoxFit.cover,
+                                alignment: Alignment.topCenter,
+                                errorBuilder: (_, __, ___) => Center(
+                                  child: Icon(
+                                    costume.motifIcon,
+                                    size: 46,
+                                    color: Colors.white.withValues(alpha: 0.92),
+                                  ),
                                 ),
-                              ),
-                            )
-                          : Image.network(
-                              costume.heroImageUrl!,
-                              fit: BoxFit.cover,
-                              alignment: Alignment.topCenter,
-                              errorBuilder: (_, __, ___) => Center(
-                                child: Icon(
-                                  costume.motifIcon,
-                                  size: 46,
-                                  color: Colors.white.withValues(alpha: 0.92),
+                              )
+                            : Image.network(
+                                costume.heroImageUrl!,
+                                fit: BoxFit.cover,
+                                alignment: Alignment.topCenter,
+                                errorBuilder: (_, __, ___) => Center(
+                                  child: Icon(
+                                    costume.motifIcon,
+                                    size: 46,
+                                    color: Colors.white.withValues(alpha: 0.92),
+                                  ),
                                 ),
-                              ),
-                            )
-                    else
-                      Center(
-                        child: Icon(
-                          costume.motifIcon,
-                          size: 46,
-                          color: Colors.white.withValues(alpha: 0.92),
-                        ),
-                      ),
-                    Positioned(
-                      top: 8,
-                      left: 8,
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 7,
-                          vertical: 3.5,
-                        ),
-                        decoration: BoxDecoration(
-                          color: Colors.black.withValues(alpha: 0.75),
-                          borderRadius: BorderRadius.circular(6),
-                          border: Border.all(
-                            color: CosColors.accentAmber.withValues(alpha: 0.5),
-                            width: 0.8,
+                              )
+                      else
+                        Center(
+                          child: Icon(
+                            costume.motifIcon,
+                            size: 46,
+                            color: Colors.white.withValues(alpha: 0.92),
                           ),
                         ),
-                        child: Row(
+                      Positioned(
+                        top: 8,
+                        left: 8,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            const Icon(
-                              Icons.person_outline,
-                              size: 11,
-                              color: CosColors.accentAmber,
-                            ),
-                            const SizedBox(width: 3),
-                            Text(
-                              costume.sellerHandle,
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 10,
-                                fontWeight: FontWeight.w700,
+                            Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 7,
+                                vertical: 3.5,
+                              ),
+                              decoration: BoxDecoration(
+                                color: Colors.black.withValues(alpha: 0.75),
+                                borderRadius: BorderRadius.circular(6),
+                                border: Border.all(
+                                  color: CosColors.accentAmber.withValues(alpha: 0.5),
+                                  width: 0.8,
+                                ),
+                              ),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  const Icon(
+                                    Icons.person_outline,
+                                    size: 11,
+                                    color: CosColors.accentAmber,
+                                  ),
+                                  const SizedBox(width: 3),
+                                  Text(
+                                    costume.sellerHandle,
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    if (costume.listingMode == ListingMode.rentOnly)
-                      Positioned(
-                        bottom: 8,
-                        left: 8,
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 6,
-                            vertical: 2.5,
-                          ),
-                          decoration: BoxDecoration(
-                            color: const Color(0xFF8B5CF6).withValues(alpha: 0.9),
-                            borderRadius: BorderRadius.circular(4),
-                          ),
-                          child: const Text(
-                            'RENT ONLY',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 9,
-                              fontWeight: FontWeight.w900,
-                              letterSpacing: 0.5,
-                            ),
-                          ),
-                        ),
-                      ),
-                    if (costume.listingMode == ListingMode.buyOnly)
-                      Positioned(
-                        bottom: 8,
-                        left: 8,
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 6,
-                            vertical: 2.5,
-                          ),
-                          decoration: BoxDecoration(
-                            color: const Color(0xFF0EA5E9).withValues(alpha: 0.9),
-                            borderRadius: BorderRadius.circular(4),
-                          ),
-                          child: const Text(
-                            'BUY ONLY',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 9,
-                              fontWeight: FontWeight.w900,
-                              letterSpacing: 0.5,
-                            ),
-                          ),
-                        ),
-                      ),
-                    if (costume.carouselImages.length > 1)
-                      Positioned(
-                        bottom: 8,
-                        right: 8,
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 6,
-                            vertical: 2.5,
-                          ),
-                          decoration: BoxDecoration(
-                            color: Colors.black.withValues(alpha: 0.75),
-                            borderRadius: BorderRadius.circular(5),
-                            border: Border.all(
-                              color: Colors.white.withValues(alpha: 0.25),
-                              width: 0.7,
-                            ),
-                          ),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              const Icon(
-                                Icons.photo_library_outlined,
-                                size: 10,
-                                color: CosColors.accentAmber,
+                            if (costume.listingMode == ListingMode.rentOnly) ...[
+                              const SizedBox(height: 4),
+                              Container(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 6,
+                                  vertical: 2.5,
+                                ),
+                                decoration: BoxDecoration(
+                                  color: const Color(0xFF8B5CF6).withValues(alpha: 0.9),
+                                  borderRadius: BorderRadius.circular(4),
+                                ),
+                                child: const Text(
+                                  'RENT ONLY',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 9,
+                                    fontWeight: FontWeight.w900,
+                                    letterSpacing: 0.5,
+                                  ),
+                                ),
                               ),
-                              const SizedBox(width: 3),
-                              Text(
-                                '${costume.carouselImages.length}',
-                                style: const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 9.5,
-                                  fontWeight: FontWeight.w800,
+                            ] else if (costume.listingMode == ListingMode.buyOnly) ...[
+                              const SizedBox(height: 4),
+                              Container(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 6,
+                                  vertical: 2.5,
+                                ),
+                                decoration: BoxDecoration(
+                                  color: const Color(0xFF0EA5E9).withValues(alpha: 0.9),
+                                  borderRadius: BorderRadius.circular(4),
+                                ),
+                                child: const Text(
+                                  'BUY ONLY',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 9,
+                                    fontWeight: FontWeight.w900,
+                                    letterSpacing: 0.5,
+                                  ),
                                 ),
                               ),
                             ],
+                          ],
+                        ),
+                      ),
+                      if (costume.carouselImages.length > 1)
+                        Positioned(
+                          bottom: 8,
+                          right: 8,
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 6,
+                              vertical: 2.5,
+                            ),
+                            decoration: BoxDecoration(
+                              color: Colors.black.withValues(alpha: 0.75),
+                              borderRadius: BorderRadius.circular(5),
+                              border: Border.all(
+                                color: Colors.white.withValues(alpha: 0.25),
+                                width: 0.7,
+                              ),
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                const Icon(
+                                  Icons.photo_library_outlined,
+                                  size: 10,
+                                  color: CosColors.accentAmber,
+                                ),
+                                const SizedBox(width: 3),
+                                Text(
+                                  '${costume.carouselImages.length}',
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 9.5,
+                                    fontWeight: FontWeight.w800,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      Positioned(
+                        top: 8,
+                        right: 8,
+                        child: Material(
+                          color: Colors.black.withValues(alpha: 0.55),
+                          shape: const CircleBorder(),
+                          clipBehavior: Clip.antiAlias,
+                          child: InkWell(
+                            onTap: onToggleWishlist,
+                            customBorder: const CircleBorder(),
+                            child: SizedBox(
+                              width: 30,
+                              height: 30,
+                              child: Icon(
+                                isWishlisted
+                                    ? Icons.favorite
+                                    : Icons.favorite_border,
+                                size: 16,
+                                color: isWishlisted
+                                    ? CosColors.accentAmber
+                                    : Colors.white,
+                              ),
+                            ),
                           ),
                         ),
                       ),
-                    Positioned(
-                      top: 8,
-                      right: 8,
-                      child: GestureDetector(
-                        onTap: onToggleWishlist,
-                        child: Container(
-                          width: 30,
-                          height: 30,
-                          decoration: BoxDecoration(
-                            color: Colors.black.withValues(alpha: 0.55),
-                            shape: BoxShape.circle,
-                          ),
-                          child: Icon(
-                            isWishlisted
-                                ? Icons.favorite
-                                : Icons.favorite_border,
-                            size: 16,
-                            color: isWishlisted
-                                ? CosColors.accentAmber
-                                : Colors.white,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
-            ),
             Expanded(
               flex: 52,
               child: Padding(
@@ -352,6 +358,7 @@ class CostumeGridCard extends StatelessWidget {
           ],
         ),
       ),
-    );
+    ),
+  );
   }
 }
