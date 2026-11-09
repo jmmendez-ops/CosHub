@@ -23,13 +23,18 @@ class _CostumeDetailScreenState extends State<CostumeDetailScreen> {
   late OrderMode _selectedMode;
   late final PageController _imagePageController;
   int _activeImageIndex = 0;
-  String _selectedSize = 'M';
+  late String _selectedSize;
   int _rentalDays = 3;
 
   @override
   void initState() {
     super.initState();
     _imagePageController = PageController();
+    _selectedSize = widget.costume.availableSizes.contains('M')
+        ? 'M'
+        : (widget.costume.availableSizes.isNotEmpty
+            ? widget.costume.availableSizes.first
+            : 'Free Size');
     if (widget.costume.listingMode == ListingMode.buyOnly) {
       _selectedMode = OrderMode.buy;
     } else {
@@ -786,36 +791,36 @@ class _CostumeDetailScreenState extends State<CostumeDetailScreen> {
                     ),
                   ),
                   const SizedBox(height: 8),
-                  Row(
-                    children: ['S', 'M', 'L', 'XL'].map((size) {
+                  Wrap(
+                    spacing: 10,
+                    runSpacing: 8,
+                    children: widget.costume.availableSizes.map((size) {
                       final active = _selectedSize == size;
-                      return Padding(
-                        padding: const EdgeInsets.only(right: 10),
-                        child: GestureDetector(
-                          onTap: () => setState(() => _selectedSize = size),
-                          child: Container(
-                            width: 48,
-                            height: 42,
-                            decoration: BoxDecoration(
+                      return GestureDetector(
+                        onTap: () => setState(() => _selectedSize = size),
+                        child: Container(
+                          constraints: const BoxConstraints(minWidth: 48),
+                          height: 42,
+                          padding: const EdgeInsets.symmetric(horizontal: 14),
+                          decoration: BoxDecoration(
+                            color: active
+                                ? CosColors.accentAmber
+                                : CosColors.bgInput,
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(
                               color: active
                                   ? CosColors.accentAmber
-                                  : CosColors.bgInput,
-                              borderRadius: BorderRadius.circular(10),
-                              border: Border.all(
-                                color: active
-                                    ? CosColors.accentAmber
-                                    : CosColors.borderSubtle,
-                              ),
+                                  : CosColors.borderSubtle,
                             ),
-                            alignment: Alignment.center,
-                            child: Text(
-                              size,
-                              style: TextStyle(
-                                color: active
-                                    ? CosColors.bgPrimary
-                                    : CosColors.textPrimary,
-                                fontWeight: FontWeight.w900,
-                              ),
+                          ),
+                          alignment: Alignment.center,
+                          child: Text(
+                            size,
+                            style: TextStyle(
+                              color: active
+                                  ? CosColors.bgPrimary
+                                  : CosColors.textPrimary,
+                              fontWeight: FontWeight.w900,
                             ),
                           ),
                         ),

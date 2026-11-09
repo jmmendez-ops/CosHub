@@ -147,5 +147,33 @@ void main() {
       expect(positionedBadges.length, lessThanOrEqualTo(3),
           reason: 'Costume image must not have badges crammed into all 4 corners simultaneously');
     });
+
+    testWidgets('RED: CostumeDetailScreen renders item-specific available sizes instead of hardcoded S/M/L/XL', (WidgetTester tester) async {
+      const costume = CostumeItem(
+        id: 'test-custom-size',
+        title: 'Custom Armor Set',
+        category: 'Games',
+        subtitle: 'Bespoke forged armor with custom sizing',
+        buyPrice: 8000,
+        rentPricePerDay: 1200,
+        securityDeposit: 2500,
+        gradientColors: [Color(0xFF18202C), Color(0xFF324B6B)],
+        motifIcon: Icons.shield_outlined,
+        inclusions: ['Chestplate'],
+        availableSizes: ['Free Size', 'Custom Tailored'],
+      );
+
+      await tester.pumpWidget(
+        MaterialApp(
+          home: CostumeDetailScreen(store: store, costume: costume),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      // Assert that custom sizes are rendered instead of default S, M, L, XL
+      expect(find.text('Free Size'), findsOneWidget);
+      expect(find.text('Custom Tailored'), findsOneWidget);
+      expect(find.text('XL'), findsNothing);
+    });
   });
 }

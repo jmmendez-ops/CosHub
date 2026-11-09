@@ -17,6 +17,7 @@ class CostumeItem {
   final String? heroImageUrl;
   final List<String> galleryImageUrls;
   final List<String> inclusions;
+  final List<String> availableSizes;
   final double rating;
   final int reviewsCount;
   final bool isFeatured;
@@ -45,6 +46,7 @@ class CostumeItem {
     this.heroImageUrl,
     this.galleryImageUrls = const [],
     required this.inclusions,
+    this.availableSizes = const ['S', 'M', 'L', 'XL'],
     this.rating = 4.9,
     this.reviewsCount = 84,
     this.isFeatured = false,
@@ -92,6 +94,7 @@ class CostumeItem {
       'heroImageUrl': heroImageUrl,
       'galleryImageUrls': galleryImageUrls,
       'inclusions': inclusions,
+      'availableSizes': availableSizes,
       'rating': rating,
       'reviewsCount': reviewsCount,
       'isFeatured': isFeatured,
@@ -132,6 +135,10 @@ class CostumeItem {
               ?.map((e) => e.toString())
               .toList() ??
           [],
+      availableSizes: (json['availableSizes'] as List<dynamic>?)
+              ?.map((e) => e.toString())
+              .toList() ??
+          const ['S', 'M', 'L', 'XL'],
       rating: (json['rating'] as num?)?.toDouble() ?? 4.9,
       reviewsCount: json['reviewsCount'] as int? ?? 84,
       isFeatured: json['isFeatured'] as bool? ?? false,
