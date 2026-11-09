@@ -6,6 +6,7 @@ import 'package:cos_hub/screens/commerce/costume_detail_screen.dart';
 import 'package:cos_hub/screens/shell/home_tab_view.dart';
 import 'package:cos_hub/state/cos_hub_store.dart';
 import 'package:cos_hub/widgets/costume_grid_card.dart';
+import 'package:cos_hub/widgets/hero_banner_card.dart';
 
 void main() {
   group('Anti-Slop Design & Copy Verification (taste-skill & impeccable)', () {
@@ -174,6 +175,36 @@ void main() {
       expect(find.text('Free Size'), findsOneWidget);
       expect(find.text('Custom Tailored'), findsOneWidget);
       expect(find.text('XL'), findsNothing);
+    });
+
+    testWidgets('RED: HeroBannerCard layout provides proportional text bounds without rigid padding displacement', (WidgetTester tester) async {
+      final item = store.featuredCostumes.first;
+      await tester.binding.setSurfaceSize(const Size(360, 800));
+      addTearDown(() => tester.binding.setSurfaceSize(null));
+
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: HeroBannerCard(
+              costume: item,
+              onPrev: () {},
+              onNext: () {},
+              onViewCostume: () {},
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      // Find content padding
+      final paddingFinder = find.byWidgetPredicate(
+        (w) => w is Padding && w.padding == const EdgeInsets.fromLTRB(54, 18, 16, 18),
+      );
+      expect(paddingFinder, findsNothing,
+          reason: 'HeroBannerCard must not use asymmetrical 54px left padding that cramps content');
+
+      expect(tester.takeException(), isNull);
+      expect(find.text(item.title), findsOneWidget);
     });
   });
 }
