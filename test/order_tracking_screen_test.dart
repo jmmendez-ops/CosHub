@@ -49,6 +49,73 @@ void main() {
       expect(find.textContaining(order.courierDetails.estimatedDelivery!), findsOneWidget);
     });
 
+    testWidgets('RED: tapping Call Rider opens simulated in-app VoIP call bottom sheet with rider details and end call action',
+        (WidgetTester tester) async {
+      final order = store.orders.firstWhere(
+        (o) => o.deliveryMethod == DeliveryMethod.lalamove,
+      );
+
+      await tester.pumpWidget(
+        MaterialApp(
+          home: OrderTrackingScreen(
+            order: order,
+            store: store,
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      final callButton = find.text('Call Rider');
+      await tester.ensureVisible(callButton);
+      await tester.tap(callButton);
+      await tester.pumpAndSettle();
+
+      // Simulated Call Sheet must be displayed
+      expect(find.text('In-App Secure Courier Call'), findsOneWidget);
+      expect(find.text('End Call'), findsOneWidget);
+
+      // Tap End Call to dismiss
+      await tester.tap(find.text('End Call'));
+      await tester.pumpAndSettle();
+      expect(find.text('In-App Secure Courier Call'), findsNothing);
+    });
+
+    testWidgets('RED: tapping Message opens simulated in-app courier chat modal with messages and quick reply chips',
+        (WidgetTester tester) async {
+      final order = store.orders.firstWhere(
+        (o) => o.deliveryMethod == DeliveryMethod.lalamove,
+      );
+
+      await tester.pumpWidget(
+        MaterialApp(
+          home: OrderTrackingScreen(
+            order: order,
+            store: store,
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      final messageButton = find.text('Message');
+      await tester.ensureVisible(messageButton);
+      await tester.tap(messageButton);
+      await tester.pumpAndSettle();
+
+      // Simulated Chat Sheet must be displayed
+      expect(find.textContaining('Courier Direct Chat'), findsOneWidget);
+      expect(
+        find.textContaining(order.courierDetails.riderName ?? 'Kuya Danilo Santos'),
+        findsWidgets,
+      );
+      expect(find.textContaining('Salamat po Kuya'), findsWidgets);
+
+      // Close modal
+      final closeButton = find.byIcon(Icons.close);
+      await tester.tap(closeButton);
+      await tester.pumpAndSettle();
+      expect(find.textContaining('Courier Direct Chat'), findsNothing);
+    });
+
     testWidgets('RED: renders convention floor meetup booth and time window',
         (WidgetTester tester) async {
       final conOrder = store.orders.firstWhere(

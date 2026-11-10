@@ -536,15 +536,7 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
                         borderRadius: BorderRadius.circular(99),
                       ),
                     ),
-                    onPressed: () {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(
-                            'Calling rider ${_order.courierDetails.riderName ?? ""} (${_order.courierDetails.riderPhone ?? "0917-000-0000"})...',
-                          ),
-                        ),
-                      );
-                    },
+                    onPressed: () => _showSimulatedCallModal(context),
                     icon: const Icon(Icons.phone_outlined, size: 16),
                     label: const Text(
                       'Call Rider',
@@ -570,15 +562,7 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
                         side: const BorderSide(color: CosColors.borderSubtle),
                       ),
                     ),
-                    onPressed: () {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(
-                            'Opening direct courier chat with ${_order.courierDetails.riderName ?? "Rider"}...',
-                          ),
-                        ),
-                      );
-                    },
+                    onPressed: () => _showSimulatedChatModal(context),
                     icon: const Icon(Icons.chat_bubble_outline, size: 16),
                     label: const Text(
                       'Message',
@@ -1145,6 +1129,649 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
           ),
         ),
       ],
+    );
+  }
+
+  void _showSimulatedCallModal(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (modalContext) {
+        bool isMuted = false;
+        bool isSpeaker = false;
+
+        return StatefulBuilder(
+          builder: (context, setModalState) {
+            return Container(
+              padding: const EdgeInsets.fromLTRB(20, 16, 20, 36),
+              decoration: const BoxDecoration(
+                color: Color(0xFF16181F),
+                borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
+                border: Border(
+                  top: BorderSide(color: CosColors.borderSubtle, width: 1.2),
+                  left: BorderSide(color: CosColors.borderSubtle, width: 1.2),
+                  right: BorderSide(color: CosColors.borderSubtle, width: 1.2),
+                ),
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Container(
+                    width: 44,
+                    height: 4.5,
+                    decoration: BoxDecoration(
+                      color: Colors.white24,
+                      borderRadius: BorderRadius.circular(99),
+                    ),
+                  ),
+                  const SizedBox(height: 18),
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4.5),
+                    decoration: BoxDecoration(
+                      color: CosColors.verifiedGreen.withValues(alpha: 0.12),
+                      borderRadius: BorderRadius.circular(99),
+                      border: Border.all(
+                        color: CosColors.verifiedGreen.withValues(alpha: 0.4),
+                      ),
+                    ),
+                    child: const Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(Icons.lock_outline, size: 12, color: CosColors.verifiedGreen),
+                        SizedBox(width: 5),
+                        Text(
+                          'In-App Secure Courier Call',
+                          style: TextStyle(
+                            color: CosColors.verifiedGreen,
+                            fontSize: 11,
+                            fontWeight: FontWeight.w800,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 24),
+                  Container(
+                    width: 82,
+                    height: 82,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: CosColors.accentAmber.withValues(alpha: 0.15),
+                      border: Border.all(
+                        color: CosColors.accentAmber,
+                        width: 2,
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: CosColors.accentAmber.withValues(alpha: 0.25),
+                          blurRadius: 20,
+                          spreadRadius: 4,
+                        ),
+                      ],
+                    ),
+                    child: const Icon(
+                      Icons.two_wheeler,
+                      size: 42,
+                      color: CosColors.accentAmber,
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  Text(
+                    _order.courierDetails.riderName ?? 'Kuya Danilo Santos',
+                    style: const TextStyle(
+                      color: CosColors.textPrimary,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w900,
+                    ),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    '${_order.courierDetails.vehiclePlate ?? "NCR-4819X"} • ${_order.deliveryMethod.label}',
+                    style: const TextStyle(
+                      color: CosColors.textSecondary,
+                      fontSize: 12.5,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: 8,
+                        height: 8,
+                        decoration: const BoxDecoration(
+                          color: CosColors.verifiedGreen,
+                          shape: BoxShape.circle,
+                        ),
+                      ),
+                      const SizedBox(width: 6),
+                      const Text(
+                        '00:04 • Connected (HD Audio)',
+                        style: TextStyle(
+                          color: CosColors.verifiedGreen,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 22),
+                  Container(
+                    padding: const EdgeInsets.all(14),
+                    decoration: BoxDecoration(
+                      color: CosColors.bgInput,
+                      borderRadius: BorderRadius.circular(14),
+                      border: Border.all(color: CosColors.borderSubtle),
+                    ),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Icon(
+                          Icons.format_quote_rounded,
+                          color: CosColors.accentAmber,
+                          size: 20,
+                        ),
+                        const SizedBox(width: 8),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                '"Magandang araw po! On the way na po ako with the ${_order.itemTitle}. Naka-lock po sa insulated box ang props at wig."',
+                                style: const TextStyle(
+                                  color: CosColors.textPrimary,
+                                  fontSize: 12.5,
+                                  height: 1.35,
+                                  fontStyle: FontStyle.italic,
+                                ),
+                              ),
+                              const SizedBox(height: 4),
+                              const Text(
+                                'Live Audio Relay Simulation',
+                                style: TextStyle(
+                                  color: CosColors.textSecondary,
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 26),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      _buildCallControlButton(
+                        icon: isMuted ? Icons.mic_off : Icons.mic,
+                        label: isMuted ? 'Unmute' : 'Mute',
+                        isActive: isMuted,
+                        onTap: () {
+                          setModalState(() => isMuted = !isMuted);
+                        },
+                      ),
+                      GestureDetector(
+                        onTap: () => Navigator.of(modalContext).pop(),
+                        child: Column(
+                          children: [
+                            Container(
+                              width: 62,
+                              height: 62,
+                              decoration: const BoxDecoration(
+                                color: Color(0xFFEF4444),
+                                shape: BoxShape.circle,
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Color(0x66EF4444),
+                                    blurRadius: 18,
+                                    spreadRadius: 2,
+                                  ),
+                                ],
+                              ),
+                              child: const Icon(
+                                Icons.call_end,
+                                color: Colors.white,
+                                size: 30,
+                              ),
+                            ),
+                            const SizedBox(height: 8),
+                            const Text(
+                              'End Call',
+                              style: TextStyle(
+                                color: Color(0xFFEF4444),
+                                fontSize: 12,
+                                fontWeight: FontWeight.w800,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      _buildCallControlButton(
+                        icon: isSpeaker ? Icons.volume_up : Icons.volume_down,
+                        label: isSpeaker ? 'Speaker' : 'Ear',
+                        isActive: isSpeaker,
+                        onTap: () {
+                          setModalState(() => isSpeaker = !isSpeaker);
+                        },
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            );
+          },
+        );
+      },
+    );
+  }
+
+  void _showSimulatedChatModal(BuildContext context) {
+    final textController = TextEditingController();
+    final scrollController = ScrollController();
+
+    final List<Map<String, dynamic>> messages = [
+      {
+        'isRider': true,
+        'text': 'Good day po! Na-pick up ko na po ang costume set kay Seller. Maingat po nakalagay sa insulated box ang props at wig.',
+        'time': '11:02 AM',
+      },
+      {
+        'isRider': true,
+        'text': 'Papunta na po ako sa delivery address. ETA mga 20-30 mins.',
+        'time': '11:03 AM',
+      },
+    ];
+
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (modalContext) {
+        return StatefulBuilder(
+          builder: (context, setModalState) {
+            void sendMessage(String text) {
+              if (text.trim().isEmpty) return;
+              setModalState(() {
+                messages.add({
+                  'isRider': false,
+                  'text': text.trim(),
+                  'time': 'Just now',
+                });
+              });
+              textController.clear();
+              Future.delayed(const Duration(milliseconds: 100), () {
+                if (scrollController.hasClients) {
+                  scrollController.animateTo(
+                    scrollController.position.maxScrollExtent,
+                    duration: const Duration(milliseconds: 250),
+                    curve: Curves.easeOut,
+                  );
+                }
+              });
+
+              // Simulated Rider auto-response
+              Future.delayed(const Duration(milliseconds: 800), () {
+                if (modalContext.mounted) {
+                  setModalState(() {
+                    messages.add({
+                      'isRider': true,
+                      'text': 'Sige po Sir, copy po! Ingatan ko po ito.',
+                      'time': 'Just now',
+                    });
+                  });
+                  Future.delayed(const Duration(milliseconds: 100), () {
+                    if (scrollController.hasClients) {
+                      scrollController.animateTo(
+                        scrollController.position.maxScrollExtent,
+                        duration: const Duration(milliseconds: 250),
+                        curve: Curves.easeOut,
+                      );
+                    }
+                  });
+                }
+              });
+            }
+
+            return Container(
+              height: MediaQuery.of(context).size.height * 0.82,
+              padding: EdgeInsets.only(
+                bottom: MediaQuery.of(context).viewInsets.bottom,
+              ),
+              decoration: const BoxDecoration(
+                color: Color(0xFF14161D),
+                borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+                border: Border(
+                  top: BorderSide(color: CosColors.borderSubtle, width: 1.2),
+                  left: BorderSide(color: CosColors.borderSubtle, width: 1.2),
+                  right: BorderSide(color: CosColors.borderSubtle, width: 1.2),
+                ),
+              ),
+              child: Column(
+                children: [
+                  // Top bar
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(18, 14, 12, 12),
+                    child: Row(
+                      children: [
+                        Stack(
+                          clipBehavior: Clip.none,
+                          children: [
+                            Container(
+                              width: 40,
+                              height: 40,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: CosColors.accentAmber.withValues(alpha: 0.15),
+                                border: Border.all(color: CosColors.accentAmber, width: 1.5),
+                              ),
+                              child: const Icon(
+                                Icons.two_wheeler,
+                                size: 20,
+                                color: CosColors.accentAmber,
+                              ),
+                            ),
+                            Positioned(
+                              right: 0,
+                              bottom: 0,
+                              child: Container(
+                                width: 10,
+                                height: 10,
+                                decoration: BoxDecoration(
+                                  color: CosColors.verifiedGreen,
+                                  shape: BoxShape.circle,
+                                  border: Border.all(color: const Color(0xFF14161D), width: 1.5),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                children: [
+                                  Flexible(
+                                    child: Text(
+                                      _order.courierDetails.riderName ?? 'Kuya Danilo Santos',
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: const TextStyle(
+                                        color: CosColors.textPrimary,
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w800,
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(width: 6),
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 1.5),
+                                    decoration: BoxDecoration(
+                                      color: CosColors.bgInput,
+                                      borderRadius: BorderRadius.circular(4),
+                                    ),
+                                    child: Text(
+                                      _order.courierDetails.vehiclePlate ?? 'LALAMOVE',
+                                      style: const TextStyle(
+                                        color: CosColors.textSecondary,
+                                        fontSize: 9.5,
+                                        fontWeight: FontWeight.w800,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(height: 2),
+                              const Text(
+                                'Courier Direct Chat • Active Now',
+                                style: TextStyle(
+                                  color: CosColors.verifiedGreen,
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        IconButton(
+                          icon: const Icon(Icons.close, color: CosColors.textSecondary),
+                          onPressed: () => Navigator.of(modalContext).pop(),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const Divider(color: CosColors.borderSubtle, height: 1),
+                  // Order contextual badge
+                  Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 7),
+                    color: CosColors.bgElevated,
+                    child: Row(
+                      children: [
+                        const Icon(Icons.inventory_2_outlined, size: 14, color: CosColors.accentAmber),
+                        const SizedBox(width: 8),
+                        Expanded(
+                          child: Text(
+                            'Order #${_order.id} • ${_order.itemTitle}',
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: const TextStyle(
+                              color: CosColors.textSecondary,
+                              fontSize: 11.5,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  // Message list
+                  Expanded(
+                    child: ListView.builder(
+                      controller: scrollController,
+                      padding: const EdgeInsets.fromLTRB(16, 14, 16, 14),
+                      itemCount: messages.length,
+                      itemBuilder: (context, index) {
+                        final msg = messages[index];
+                        final isRider = msg['isRider'] as bool;
+
+                        return Align(
+                          alignment: isRider ? Alignment.centerLeft : Alignment.centerRight,
+                          child: Container(
+                            margin: const EdgeInsets.only(bottom: 10),
+                            constraints: BoxConstraints(
+                              maxWidth: MediaQuery.of(context).size.width * 0.75,
+                            ),
+                            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+                            decoration: BoxDecoration(
+                              color: isRider ? CosColors.bgInput : CosColors.accentAmber,
+                              borderRadius: BorderRadius.only(
+                                topLeft: const Radius.circular(16),
+                                topRight: const Radius.circular(16),
+                                bottomLeft: Radius.circular(isRider ? 2 : 16),
+                                bottomRight: Radius.circular(isRider ? 16 : 2),
+                              ),
+                              border: isRider ? Border.all(color: CosColors.borderSubtle) : null,
+                            ),
+                            child: Column(
+                              crossAxisAlignment: isRider ? CrossAxisAlignment.start : CrossAxisAlignment.end,
+                              children: [
+                                Text(
+                                  msg['text'] as String,
+                                  style: TextStyle(
+                                    color: isRider ? CosColors.textPrimary : CosColors.bgPrimary,
+                                    fontSize: 13,
+                                    fontWeight: isRider ? FontWeight.w500 : FontWeight.w700,
+                                    height: 1.35,
+                                  ),
+                                ),
+                                const SizedBox(height: 4),
+                                Text(
+                                  msg['time'] as String,
+                                  style: TextStyle(
+                                    color: isRider ? CosColors.textSecondary : Colors.black54,
+                                    fontSize: 9.5,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                  // Quick reply chips
+                  Container(
+                    height: 38,
+                    margin: const EdgeInsets.only(bottom: 8),
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      children: [
+                        _buildQuickReplyChip('Salamat po Kuya! 🛵', () => sendMessage('Salamat po Kuya! 🛵')),
+                        _buildQuickReplyChip('Paki-ingatan po ang props & wig 🙏', () => sendMessage('Paki-ingatan po ang props & wig 🙏')),
+                        _buildQuickReplyChip('Pakitawag po pag nasa lobby na', () => sendMessage('Pakitawag po pag nasa lobby na')),
+                      ],
+                    ),
+                  ),
+                  // Bottom input field
+                  Container(
+                    padding: const EdgeInsets.fromLTRB(14, 8, 14, 16),
+                    decoration: const BoxDecoration(
+                      color: Color(0xFF14161D),
+                      border: Border(top: BorderSide(color: CosColors.borderSubtle)),
+                    ),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Container(
+                            height: 42,
+                            padding: const EdgeInsets.symmetric(horizontal: 14),
+                            decoration: BoxDecoration(
+                              color: CosColors.bgInput,
+                              borderRadius: BorderRadius.circular(99),
+                              border: Border.all(color: CosColors.borderSubtle),
+                            ),
+                            child: TextField(
+                              controller: textController,
+                              style: const TextStyle(
+                                color: CosColors.textPrimary,
+                                fontSize: 13,
+                              ),
+                              decoration: const InputDecoration(
+                                hintText: 'Message rider...',
+                                hintStyle: TextStyle(
+                                  color: CosColors.textSecondary,
+                                  fontSize: 13,
+                                ),
+                                border: InputBorder.none,
+                                isDense: true,
+                                contentPadding: EdgeInsets.symmetric(vertical: 11),
+                              ),
+                              onSubmitted: (val) => sendMessage(val),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 8),
+                        GestureDetector(
+                          onTap: () => sendMessage(textController.text),
+                          child: Container(
+                            width: 42,
+                            height: 42,
+                            decoration: const BoxDecoration(
+                              color: CosColors.accentAmber,
+                              shape: BoxShape.circle,
+                            ),
+                            child: const Icon(
+                              Icons.send_rounded,
+                              color: CosColors.bgPrimary,
+                              size: 19,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            );
+          },
+        );
+      },
+    );
+  }
+
+  Widget _buildCallControlButton({
+    required IconData icon,
+    required String label,
+    required bool isActive,
+    required VoidCallback onTap,
+  }) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Column(
+        children: [
+          Container(
+            width: 52,
+            height: 52,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: isActive
+                  ? CosColors.accentAmber.withValues(alpha: 0.2)
+                  : CosColors.bgInput,
+              border: Border.all(
+                color: isActive ? CosColors.accentAmber : CosColors.borderSubtle,
+              ),
+            ),
+            child: Icon(
+              icon,
+              color: isActive ? CosColors.accentAmber : CosColors.textPrimary,
+              size: 24,
+            ),
+          ),
+          const SizedBox(height: 6),
+          Text(
+            label,
+            style: TextStyle(
+              color: isActive ? CosColors.accentAmber : CosColors.textSecondary,
+              fontSize: 11,
+              fontWeight: FontWeight.w700,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildQuickReplyChip(String text, VoidCallback onTap) {
+    return Padding(
+      padding: const EdgeInsets.only(right: 8),
+      child: GestureDetector(
+        onTap: onTap,
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+          decoration: BoxDecoration(
+            color: CosColors.bgInput,
+            borderRadius: BorderRadius.circular(99),
+            border: Border.all(color: CosColors.borderSubtle),
+          ),
+          alignment: Alignment.center,
+          child: Text(
+            text,
+            style: const TextStyle(
+              color: CosColors.textSecondary,
+              fontSize: 11,
+              fontWeight: FontWeight.w700,
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
