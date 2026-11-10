@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import '../../core/theme/cos_colors.dart';
 import '../../core/utils/currency_formatter.dart';
+import '../../models/costume_item.dart';
+import '../../models/order_record.dart';
 import '../../state/cos_hub_store.dart';
 import '../../widgets/setup_payment_modal.dart';
+import 'order_tracking_screen.dart';
 
 class CheckoutScreen extends StatefulWidget {
   final CosHubStore store;
@@ -55,6 +58,68 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
     setState(() => _isProcessingPayment = true);
     await Future.delayed(const Duration(milliseconds: 1400));
     if (!mounted) return;
+
+    final firstItem = widget.store.cart.isNotEmpty ? widget.store.cart.first : null;
+    final orderId = 'ORD-2026-${(DateTime.now().millisecondsSinceEpoch % 9000 + 1000)}';
+
+    final createdOrder = OrderRecord(
+      id: orderId,
+      itemTitle: firstItem?.costume.title ?? 'Cosplay Costume Package',
+      itemCategory: firstItem?.costume.category ?? 'Anime',
+      sellerName: firstItem?.costume.sellerName ?? 'Maker Studio',
+      sellerHandle: firstItem?.costume.sellerHandle ?? '@artisan_cos',
+      sellerLocation: firstItem?.costume.sellerLocation ?? widget.store.userLocation,
+      heroImageUrl: firstItem?.costume.heroImageUrl,
+      inclusions: firstItem?.costume.inclusions ?? const ['Main Outfit', 'Accessories'],
+      orderMode: firstItem?.mode ?? OrderMode.buy,
+      status: OrderStatus.inTransit,
+      deliveryMethod: DeliveryMethod.lalamove,
+      courierDetails: const CourierDetails(
+        riderName: 'Kuya Danilo Santos',
+        riderPhone: '0917 884 1029',
+        vehiclePlate: 'NCR-4819X - Honda Click',
+        trackingNumber: 'LLM-PH-884912',
+        estimatedDelivery: 'Today, within 45 mins',
+      ),
+      totalAmount: totalAmount,
+      securityDeposit: firstItem?.totalDeposit ?? 0,
+      isDepositRefunded: false,
+      rentalDays: firstItem?.rentalDays ?? 0,
+      rentalStartDate: firstItem?.rentalStartDate?.toIso8601String().substring(0, 10),
+      createdAt: 'Today • Just now',
+      milestones: [
+        TrackingMilestone(
+          title: 'Order Placed & Confirmed',
+          subtitle: 'Payment verified via $_selectedPayment (${formatPeso(totalAmount)})',
+          timestamp: 'Just now',
+          isCompleted: true,
+          isCurrent: false,
+        ),
+        const TrackingMilestone(
+          title: 'Costume & Props Prepped',
+          subtitle: 'Lender checked garment integrity & packed sanitized accessories',
+          timestamp: 'In Progress',
+          isCompleted: true,
+          isCurrent: false,
+        ),
+        const TrackingMilestone(
+          title: 'Courier Dispatched via Lalamove',
+          subtitle: 'Rider Kuya Danilo Santos assigned for prompt delivery',
+          timestamp: 'En Route',
+          isCompleted: true,
+          isCurrent: true,
+        ),
+        const TrackingMilestone(
+          title: 'Handover & Piece Inspection',
+          subtitle: 'Recipient accepts parcel and verifies piece completeness',
+          timestamp: 'Estimated within 45 mins',
+          isCompleted: false,
+          isCurrent: false,
+        ),
+      ],
+    );
+
+    widget.store.addOrder(createdOrder);
     widget.store.completeOrder(_selectedPayment, totalAmount);
     setState(() => _isProcessingPayment = false);
 
@@ -118,10 +183,44 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
         actions: [
           SizedBox(
             width: double.infinity,
-            child: ElevatedButton(
+            child: ElevatedButton.icon(
               style: ElevatedButton.styleFrom(
                 backgroundColor: CosColors.accentAmber,
                 foregroundColor: CosColors.bgPrimary,
+                padding: const EdgeInsets.symmetric(vertical: 12),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(99),
+                ),
+              ),
+              onPressed: () {
+                Navigator.of(ctx).pop();
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(
+                    builder: (_) => OrderTrackingScreen(
+                      order: createdOrder,
+                      store: widget.store,
+                    ),
+                  ),
+                );
+              },
+              icon: const Icon(Icons.near_me_outlined, size: 18),
+              label: const Text(
+                'Track Your Order',
+                style: TextStyle(fontWeight: FontWeight.w900),
+              ),
+            ),
+          ),
+          const SizedBox(height: 8),
+          SizedBox(
+            width: double.infinity,
+            child: OutlinedButton(
+              style: OutlinedButton.styleFrom(
+                foregroundColor: CosColors.textSecondary,
+                side: const BorderSide(color: CosColors.borderSubtle),
+                padding: const EdgeInsets.symmetric(vertical: 12),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(99),
+                ),
               ),
               onPressed: () {
                 Navigator.of(ctx).pop();
@@ -130,7 +229,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
               },
               child: const Text(
                 'View Order in Alerts',
-                style: TextStyle(fontWeight: FontWeight.w900),
+                style: TextStyle(fontWeight: FontWeight.w800),
               ),
             ),
           ),
