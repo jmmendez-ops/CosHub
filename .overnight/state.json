@@ -11,6 +11,8 @@
       "id": "0-63",
       "title": "Implement Order Tracking Domain Models and Store State",
       "status": "completed",
+      "linearStatus": "Done",
+      "approvedAt": "2026-11-10T21:35:56+08:00",
       "branch": "overnight/0-63-order-models",
       "sha": "7b5e620239b2f8b23551e13c4c9dc2b81d03017b"
     },
@@ -18,6 +20,8 @@
       "id": "0-64",
       "title": "Implement Order Tracking Status Screen with Multi-Stage Stepper and Courier Cards",
       "status": "completed",
+      "linearStatus": "Done",
+      "approvedAt": "2026-11-10T21:35:56+08:00",
       "branch": "overnight/0-64-order-tracking-screen",
       "sha": "f3a96b1714cc2ff2074bcc3cb13576caa4a15c92"
     }

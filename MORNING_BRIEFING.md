@@ -17,7 +17,7 @@ The requested **Order Tracking Status** feature has been fully engineered, valid
 ### 1. `0-63`: Implement Order Tracking Domain Models and Store State
 - **Branch:** `overnight/0-63-order-models`
 - **Commit:** `7b5e620239b2f8b23551e13c4c9dc2b81d03017b`
-- **Linear Status:** `In Review`
+- **Linear Status:** `Done` (Approved)
 - **Key Deliverables:**
   - `OrderStatus` enum covering 9 discrete order stages: `placed`, `confirmed`, `preparing`, `inTransit`, `readyForMeetup`, `delivered`, `returning`, `returned`, and `completed`.
   - `DeliveryMethod` supporting Philippine delivery realities: Lalamove (Same-Day), Grab Express (Same-Day), J&T Express (Provincial), and Convention Floor Meetup.
@@ -29,7 +29,7 @@ The requested **Order Tracking Status** feature has been fully engineered, valid
 ### 2. `0-64`: Implement Order Tracking Status Screen with Multi-Stage Stepper and Courier Cards
 - **Branch:** `overnight/0-64-order-tracking-screen`
 - **Commit:** `f3a96b1714cc2ff2074bcc3cb13576caa4a15c92`
-- **Linear Status:** `In Review`
+- **Linear Status:** `Done` (Approved)
 - **Key Deliverables:**
   - Dedicated `OrderTrackingScreen` in the dark atelier visual language (`#121316` obsidian canvas, `#1D1F24` surface, `#F5C230` amber gold).
   - Multi-stage vertical milestone stepper with live state indicators, completed checkmarks, and timestamps.
