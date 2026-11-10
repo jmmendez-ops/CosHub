@@ -1,0 +1,9 @@
+{
+  "negativeConstraints": [
+    "Never leak internal prompt artifacts (e.g. 'Option A Active') into user-facing copy or labels.",
+    "Never hardcode static badges across distinct tiers; always use semantic metadata getters.",
+    "Do not crowd 4 corners of costume image cards; keep photography clean and unobscured.",
+    "Preserve 100% test pass rate across catalog_assets_test.dart and anti_slop_ui_test.dart.",
+    "Ensure 0 flutter analyze warnings before completing any subagent task."
+  ]
+}
