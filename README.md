@@ -1,4 +1,4 @@
-# COS HUB 🎭 (Philippine Cosplay Buy & Rent Marketplace
+# COS HUB 🎭 (Philippine Cosplay Buy & Rent Marketplace)
 
 COS HUB is a cross-platform Flutter application tailored for the Philippine cosplay community. It provides a peer-to-peer marketplace where cosplayers can list authentic costumes and props for **Outright Sale (Buy Brand New / Preloved)** or **Short-Term Rental** with refundable security deposits, size selection, and optional eKYC verification.
 
